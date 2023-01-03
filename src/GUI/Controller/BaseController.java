@@ -6,14 +6,15 @@ public abstract class BaseController {
 
     private MovieModel model;
 
-    public void setModel(MovieModel model){
-
-    this.model = model;
-
+    public void setModel(MovieModel model)
+    {
+        this.model = model;
     }
 
-    public MovieModel model(){return model;}
-
+    public MovieModel model()
+    {
+        return model;
+    }
 
     public abstract void setup();
 }
