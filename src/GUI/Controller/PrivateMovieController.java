@@ -1,4 +1,10 @@
 package GUI.Controller;
 
-public class PrivateMovieController {
+public class PrivateMovieController extends BaseController {
+
+
+    @Override
+    public void setup() {
+
+    }
 }
