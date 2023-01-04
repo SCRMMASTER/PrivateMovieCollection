@@ -36,6 +36,6 @@
       <Button fx:id="deleteCategoryButton" layoutX="89.0" layoutY="530.0" mnemonicParsing="false" onAction="#deleteCategory" prefHeight="26.0" prefWidth="73.0" text="Delete" />
       <Button fx:id="addMovieButton" layoutX="301.0" layoutY="530.0" mnemonicParsing="false" onAction="#addMovie" prefHeight="26.0" prefWidth="73.0" text="Create" />
       <Button fx:id="deleteMovieButton" layoutX="376.0" layoutY="530.0" mnemonicParsing="false" onAction="#deleteMovie" prefHeight="26.0" prefWidth="73.0" text="Delete" />
-      <Button layoutX="604.0" layoutY="530.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="73.0" text="Play" />
+      <Button fx:id="playButton" layoutX="604.0" layoutY="530.0" mnemonicParsing="false" onAction="#playMovie" prefHeight="26.0" prefWidth="73.0" text="Play" />
    </children>
 </AnchorPane>

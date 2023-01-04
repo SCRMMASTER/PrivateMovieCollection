@@ -2,6 +2,10 @@ package GUI.Controller;
 
 import javafx.event.ActionEvent;
 
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+
 public class PrivateMovieController extends BaseController {
 
     @Override
@@ -25,4 +29,10 @@ public class PrivateMovieController extends BaseController {
         System.out.println("dekete categary");
     }
 
+    public void playMovie(ActionEvent actionEvent) throws IOException {
+
+        File file = new File("/Users/magnus/Documents/IMG_iii1652.MOV");
+        Desktop.getDesktop().open(file);
+
+    }
 }
