@@ -2,13 +2,22 @@ package GUI.Model;
 
 import BE.Movie;
 import BLL.MovieManager;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class MovieModel {
+    private ObservableList<Movie> moviesToBeViewed;
 
     private MovieManager movieManager;
 
     public MovieModel() throws Exception {
         movieManager = new MovieManager();
+        moviesToBeViewed = FXCollections.observableArrayList();
+        moviesToBeViewed.addAll(movieManager.getAllMovies());
+    }
+
+    public ObservableList<Movie> getObservableMovies(){
+        return moviesToBeViewed;
     }
 
     public void createMovie(String movieTitle, Double imdbrating, int personalrating, String filepath, Double lastviewed, int year) throws Exception {
