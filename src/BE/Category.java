@@ -36,4 +36,9 @@ public class Category {
         this.Genre = Genre;
     }
 
+    public String toString(){
+
+        return Genre;
+    }
+
 }
