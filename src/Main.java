@@ -13,7 +13,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception
     {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("GUI/View/PrivateMovieView.fxml"));
+        loader.setLocation(getClass().getResource("/GUI/View/PrivateMovieView.fxml"));
         Parent root = loader.load();
 
         PrivateMovieController controller = loader.getController();
