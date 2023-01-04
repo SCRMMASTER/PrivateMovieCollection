@@ -1,7 +1,6 @@
 package DAL;
 
 import BE.Movie;
-import DAL.Interface;
 
 import java.util.List;
 
