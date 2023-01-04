@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51fa20b6-3b81-48b4-b630-6d9537a82373" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DAL/db/ICategoryDataAccess.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DAL/db/IMovieDataAccess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03-01-2023_10_56__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03-01-2023_10_56__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03-01-2023_11_04__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03-01-2023_11_04__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAL/CategoryDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/CategoryDAO_DB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAL/DataBaseConnecter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/DataBaseConnecter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAL/MovieDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/MovieDAO_DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BE/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BE/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BLL/MovieManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BLL/MovieManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAL/db/IMovieDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/IMovieDataAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAL/db/MovieDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/MovieDAO_DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Model/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Model/MovieModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +49,20 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Mathias Kær\Desktop\Skole\SCO1. semester\Intelji IDEA\MyTunes projekt\Ideer til layout\My Tuunes\My Tuunes new\PrivateMovieCollection\src" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="PrivateMovieCollection" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

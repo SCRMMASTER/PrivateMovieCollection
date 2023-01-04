@@ -21,21 +21,20 @@ public class Movie {
 
     int personalRating;
 
-    double lastWieved;
+    double lastViewed;
 
     String filePath;
 
 
-    public Movie(int id, String movieTitle, String category, int year, double imdbRating, int personalRating, double lastWieved, String filePath){
+    public Movie(int id, String movieTitle,double imdbRating,int personalRating,String filePath,double lastViewed,int year){
 
         this.id = id;
         this.movieTitle = movieTitle;
-        this.category = category;
-        this.year = year;
         this.imdbRating = imdbRating;
         this.personalRating = personalRating;
-        this.lastWieved = lastWieved;
         this.filePath = filePath;
+        this.lastViewed = lastViewed;
+        this.year = year;
 
         // the getter's and setter's
 
@@ -88,11 +87,11 @@ public class Movie {
         this.personalRating = personalRating;
     }
 
-    public double getLastWieved() {
-        return lastWieved;
+    public double getLastViewed() {
+        return lastViewed;
     }
-    public void setLastWieved(double lastWieved){
-        this.lastWieved = lastWieved;
+    public void setLastViewed(double lastViewed){
+        this.lastViewed = lastViewed;
     }
     public String getFilePath(){
         return filePath;
