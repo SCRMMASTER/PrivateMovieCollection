@@ -101,8 +101,11 @@ public class PrivateMovieController extends BaseController {
 
     public void playMovie(ActionEvent actionEvent) throws IOException {
 
-        File file = new File("/Users/magnus/Documents/IMG_iii1652.MOV");
-        Desktop.getDesktop().open(file);
+        //File file = new File("/Users/magnus/Documents/IMG_iii1652.MOV");
+        //Desktop.getDesktop().open(file);
+
+        File name = new File("/Users/magnus/Documents/GitHub/PrivateMovieCollection/src/MoviesDirectory/LOTR.mp4");
+        Desktop.getDesktop().open(name);
 
     }
 
