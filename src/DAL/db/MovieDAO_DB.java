@@ -39,13 +39,12 @@ public class MovieDAO_DB implements IMovieDataAccess
             while (rs.next())
             {
                 int id = rs.getInt("Id");
-                String movieTitle = rs.getString("MovieTitle");
-                String category = rs.getString("Category");
+                String movieTitle = rs.getString("Title");
+                double imdbrating = rs.getDouble("IMDB_Rating");
+                int personalrating = rs.getInt("Personal_Rating");
+                String filepath = rs.getString("FileLink");
+                double lastviewed = rs.getDouble("LastView");
                 int year = rs.getInt("Year");
-                double imdbrating = rs.getDouble("Imdbrating");
-                int personalrating = rs.getInt("Personalrating");
-                double lastviewed = rs.getDouble("Lastviewed");
-                String filepath = rs.getString("Filepath");
 
                 Movie movie = new Movie (id,movieTitle,imdbrating,personalrating,filepath,lastviewed,year);
                 allMovie.add(movie);

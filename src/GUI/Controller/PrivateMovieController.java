@@ -2,47 +2,61 @@ package GUI.Controller;
 
 import BE.Movie;
 import GUI.Model.MovieModel;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
-import javax.swing.*;
 import java.io.IOException;
-
 import java.awt.*;
 import java.io.File;
-import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class PrivateMovieController extends BaseController {
+public class PrivateMovieController implements Initializable {
     @FXML
     public ListView lstCategory;
-    public TableView tblMovie;
+    public TableView<Movie> tblMovie;
     public TextField txtMovieSearch;
-    @FXML
+
+    public MovieModel movieModel;
+
     private Button btnaddCategory, btndeleteCategory, btnaddMovie, btndeleteMovie;
     @FXML
-    private TableColumn<Movie, String> ColTitle, ColYear, ColIMDB, ColPRating;
+    private TableColumn<Movie, String> ColYear, ColIMDB, ColPRating, ColTitle;
+
 
     @Override
-    public void setup() {
-
-    }
-public void initialize(){
-    txtMovieSearch.textProperty().addListener((observableValue, oldValue, newValue) ->
-    {
-        try {
+    public void initialize(URL location, ResourceBundle resources) {
+      try {
+            movieModel = new MovieModel();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        //txtMovieSearch.textProperty().addListener((observableValue, oldValue, newValue) ->
+    //{
+    /*   try {
             MovieModel.searchSong(newValue);
         } catch (Exception e) {
             displayError(e);
         }
     });
+*/
+    tblMovie.setItems(movieModel.getObservableMovies());
+
+    ColTitle.setCellValueFactory(c -> new SimpleObjectProperty(c.getValue().getMovieTitle()));
+    ColIMDB.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getImdbRating())));
+    ColPRating.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getPersonalRating())));
+    ColYear.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getYear())));
+
 }
 
     public void handeladdMovie(ActionEvent actionEvent) throws IOException {
@@ -124,5 +138,4 @@ public void initialize(){
         Desktop.getDesktop().open(name);
 
     }
-
 }

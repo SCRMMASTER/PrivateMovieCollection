@@ -27,7 +27,7 @@
          </font></Text>
       <TableView fx:id="tblMovie" layoutX="304.0" layoutY="82.0" prefHeight="436.0" prefWidth="391.0">
         <columns>
-          <TableColumn fx:id="tltCol" prefWidth="150.0" text="Title" />
+          <TableColumn fx:id="ColTitle" prefWidth="150.0" text="Title" />
           <TableColumn fx:id="ColYear" prefWidth="75.0" text="Year" />
             <TableColumn fx:id="ColIMDB" prefWidth="75.0" text="IMDB" />
             <TableColumn fx:id="ColPRating" prefWidth="75.0" text="P-Rating" />
