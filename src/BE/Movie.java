@@ -3,7 +3,10 @@
 * Created by Kasper, Mathias, Magnus and Jesper
 *
  */
-
+/*
+ * Created by
+ * Mathias, Kasper, Magnus and Jesper
+ */
 package BE;
 
 //Declare variables for the Movie object.

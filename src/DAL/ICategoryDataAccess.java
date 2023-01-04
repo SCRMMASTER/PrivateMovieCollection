@@ -1,3 +1,7 @@
+/*
+ * Created by
+ * Mathias, Kasper, Magnus and Jesper
+ */
 package DAL;
 
 import BE.Category;

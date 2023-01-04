@@ -1,3 +1,8 @@
+/*
+* Created by
+* Mathias, Kasper, Magnus and Jesper
+*/
+
 package DAL.db;
 
 import BE.Category;
@@ -9,6 +14,8 @@ import java.util.List;
 
 public class CategoryDAO_DB implements ICategoryDataAccess {
     private DataBaseConnecter dataBaseConnecter;
+
+    // Get all the Categories from the database table
 
     public List<Category> getAllCategories() throws Exception{
         ArrayList<Category> allCategory = new ArrayList<>();
@@ -35,6 +42,8 @@ public class CategoryDAO_DB implements ICategoryDataAccess {
             throw new Exception("Could not get Category form database", ex);
         }
     }
+
+    //Create a new Category (Genre) in the database table.
     public Category createCategory(int id, String Genre) throws Exception
     {
         //SQL Statement.
@@ -73,7 +82,7 @@ public class CategoryDAO_DB implements ICategoryDataAccess {
         }
     }
 
-
+// Delete a Category from the database table.
     public void deleteCategory(Category selectedCategory) throws Exception
     {
         try (Connection conn = dataBaseConnecter.getConnection()){
