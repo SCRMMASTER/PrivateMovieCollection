@@ -1,4 +1,4 @@
-package DAL.db;
+package DAL;
 
 import BE.Movie;
 import DAL.Interface;

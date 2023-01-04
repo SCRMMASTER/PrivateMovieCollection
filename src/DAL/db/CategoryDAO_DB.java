@@ -1,13 +1,13 @@
 package DAL.db;
 
 import BE.Category;
+import DAL.ICategoryDataAccess;
 
-import javax.swing.plaf.nimbus.State;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-/*
-public class CategoryDAO_DB implements ICategoryDataAccess{
+
+public class CategoryDAO_DB implements ICategoryDataAccess {
     private DataBaseConnecter dataBaseConnecter;
 
     public List<Category> allCategorys() throws Exception{
@@ -15,7 +15,7 @@ public class CategoryDAO_DB implements ICategoryDataAccess{
 
         try (Connection conn = dataBaseConnecter.getConnection())
         {
-            String sql ="SELECT * FROM PlayList;";
+            String sql ="SELECT * FROM Category;";
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
@@ -36,12 +36,4 @@ public class CategoryDAO_DB implements ICategoryDataAccess{
         }
     }
 
-
-
-
-
-
-
-*/
-
-
+}
