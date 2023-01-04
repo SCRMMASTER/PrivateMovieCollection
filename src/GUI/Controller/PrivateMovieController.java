@@ -34,6 +34,7 @@ public class PrivateMovieController extends BaseController {
     public void setup() {
 
     }
+    /*
 public void initialize(){
     txtMovieSearch.textProperty().addListener((observableValue, oldValue, newValue) ->
     {
@@ -44,16 +45,17 @@ public void initialize(){
         }
     });
 }
+*/
+
 
     public void handeladdMovie(ActionEvent actionEvent) throws IOException {
-        System.out.println("Add movie");
         // Finds where the fxml is located.
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/View/NewMovieView.fxml"));
         // Loads the stage.
         Parent root = fxmlLoader.load();
         // Makes the new stage.
         Stage stage = new Stage();
-        // Title of the stage<
+        // Title of the stage.
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle("Add new movie");
         stage.setScene(new Scene(root));
