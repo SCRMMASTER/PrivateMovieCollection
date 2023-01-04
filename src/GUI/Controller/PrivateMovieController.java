@@ -1,5 +1,7 @@
 package GUI.Controller;
 
+import BE.Movie;
+import GUI.Model.MovieModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -21,13 +24,26 @@ public class PrivateMovieController extends BaseController {
     @FXML
     public ListView lstCategory;
     public TableView tblMovie;
+    public TextField txtMovieSearch;
     @FXML
     private Button btnaddCategory, btndeleteCategory, btnaddMovie, btndeleteMovie;
+    @FXML
+    private TableColumn<Movie, String> ColTitle, ColYear, ColIMDB, ColPRating;
 
     @Override
     public void setup() {
 
     }
+public void initialize(){
+    txtMovieSearch.textProperty().addListener((observableValue, oldValue, newValue) ->
+    {
+        try {
+            MovieModel.searchSong(newValue);
+        } catch (Exception e) {
+            displayError(e);
+        }
+    });
+}
 
     public void handeladdMovie(ActionEvent actionEvent) throws IOException {
         System.out.println("Add movie");
