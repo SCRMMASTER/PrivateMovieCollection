@@ -10,21 +10,21 @@ import java.util.List;
 public class CategoryDAO_DB implements ICategoryDataAccess {
     private DataBaseConnecter dataBaseConnecter;
 
-    public List<Category> allCategorys() throws Exception{
+    public List<Category> getAllCategories() throws Exception{
         ArrayList<Category> allCategory = new ArrayList<>();
 
         try (Connection conn = dataBaseConnecter.getConnection())
         {
             String sql ="SELECT * FROM Category;";
+
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
                 int id = rs.getInt("Id");
-                String categoryname = rs.getString("Name");
+                String Genre = rs.getString("Name");
 
-                Category category = new Category(id,categoryname);
-                category.setMovies(movieCategoryDAO.getMovieCategory(category));
+                Category category = new Category(id,Genre);
                 allCategory.add(category);
             }
             return allCategory;
@@ -33,6 +33,65 @@ public class CategoryDAO_DB implements ICategoryDataAccess {
         {
             ex.printStackTrace();
             throw new Exception("Could not get Category form database", ex);
+        }
+    }
+    public Category createCategory(int id, String Genre) throws Exception
+    {
+        //SQL Statement.
+
+        String sql = "INSERT INTO Category (Genre) VALUES (?);";
+
+        try (Connection conn = dataBaseConnecter.getConnection()) {
+            PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            // Bind the parameters
+
+            stmt.setString(1, Genre);
+
+            // Run the SQL statement
+
+            stmt.executeUpdate();
+
+            // Get the generated ID from the DB
+
+            ResultSet rs = stmt.getGeneratedKeys();
+            int generatedKey = 0;
+
+            if (rs.next()) {
+                generatedKey = rs.getInt(1);
+            }
+
+            // Create playlist object and send up the layers
+
+            Category category = new Category(id, Genre);
+            return category;
+        }
+        catch (SQLException ex)
+        {
+            ex.printStackTrace();
+            throw new Exception("Could not create Genre", ex);
+        }
+    }
+
+
+    public void deleteCategory(Category selectedCategory) throws Exception
+    {
+        try (Connection conn = dataBaseConnecter.getConnection()){
+
+            //SQL Command
+            String sql = "DELETE FROM Category WHERE Genre = ?;";
+
+            //Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, (selectedCategory.getGenre()));
+
+            //Run the statement
+            stmt.executeUpdate();
+
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+            throw new Exception("Could not delete Category...", ex);
         }
     }
 
