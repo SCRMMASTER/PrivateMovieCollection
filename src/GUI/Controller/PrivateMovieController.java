@@ -34,6 +34,7 @@ public class PrivateMovieController extends BaseController {
     public void setup() {
 
     }
+    /*
 public void initialize(){
     txtMovieSearch.textProperty().addListener((observableValue, oldValue, newValue) ->
     {
@@ -44,6 +45,8 @@ public void initialize(){
         }
     });
 }
+*/
+
 
     public void handeladdMovie(ActionEvent actionEvent) throws IOException {
         System.out.println("Add movie");
