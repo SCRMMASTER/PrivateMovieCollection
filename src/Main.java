@@ -23,7 +23,7 @@ public class Main extends Application {
         primaryStage.setTitle("Movie Collection");
         primaryStage.setScene(new Scene(root));
         primaryStage.setMaxHeight(600);
-        primaryStage.setMaxWidth(800);
+        primaryStage.setMaxWidth(700);
         primaryStage.show();
     }
 
