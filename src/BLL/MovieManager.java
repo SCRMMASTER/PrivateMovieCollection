@@ -1,7 +1,7 @@
 package BLL;
 
 import BE.Movie;
-import DAL.db.IMovieDataAccess;
+import DAL.IMovieDataAccess;
 import DAL.db.MovieDAO_DB;
 
 public class MovieManager {

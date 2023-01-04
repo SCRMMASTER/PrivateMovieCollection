@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 import java.util.List;
 
-/*
+
 public class MovieDAO_DB implements IMovieDataAccess
 {
     private DataBaseConnecter dataBaseConnecter;
@@ -47,7 +47,7 @@ public class MovieDAO_DB implements IMovieDataAccess
                 double lastviewed = rs.getDouble("Lastviewed");
                 String filepath = rs.getString("Filepath");
 
-                Movie movie = new Movie (id, movieTitle, category, year, imdbrating, personalrating, lastviewed, filepath);
+                Movie movie = new Movie (id,movieTitle,imdbrating,personalrating,filepath,lastviewed,year);
                 allMovie.add(movie);
             }
             return allMovie;
@@ -116,4 +116,4 @@ public class MovieDAO_DB implements IMovieDataAccess
         return movie;
     }
 }
-*/
+
