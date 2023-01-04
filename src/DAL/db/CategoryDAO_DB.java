@@ -6,7 +6,7 @@ import javax.swing.plaf.nimbus.State;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
+/*
 public class CategoryDAO_DB implements ICategoryDataAccess{
     private DataBaseConnecter dataBaseConnecter;
 
@@ -42,6 +42,6 @@ public class CategoryDAO_DB implements ICategoryDataAccess{
 
 
 
+*/
 
 
-}

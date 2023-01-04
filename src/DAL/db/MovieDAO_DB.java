@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import java.util.List;
 
+/*
 public class MovieDAO_DB implements IMovieDataAccess
 {
     private DataBaseConnecter dataBaseConnecter;
@@ -53,3 +54,4 @@ public class MovieDAO_DB implements IMovieDataAccess
         return null;
     }
 }
+*/

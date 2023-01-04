@@ -13,12 +13,12 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception
     {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("View/PrivateMovieView.fxml"));
+        loader.setLocation(getClass().getResource("GUI/View/PrivateMovieView.fxml"));
         Parent root = loader.load();
 
         PrivateMovieController controller = loader.getController();
-        controller.setModel(new MovieModel());
-        controller.setup();
+        //controller.setModel(new MovieModel());
+        //controller.setup();
 
         primaryStage.setTitle("Movie Collection");
         primaryStage.setScene(new Scene(root));
