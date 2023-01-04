@@ -26,6 +26,8 @@ public class Main extends Application {
         root.getStylesheets().add(getClass().getResource("Application.css").toExternalForm());
         primaryStage.setMaxHeight(600);
         primaryStage.setMaxWidth(700);
+        primaryStage.setMinHeight(600);
+        primaryStage.setMinWidth(700);
 
         primaryStage.show();
     }

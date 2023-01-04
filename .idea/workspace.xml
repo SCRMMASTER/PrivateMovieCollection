@@ -5,15 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51fa20b6-3b81-48b4-b630-6d9537a82373" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/Application.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/Application.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/BLL/CategoryManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/BLL/CategoryManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/BLL/MovieManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/BLL/MovieManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/DAL/db/MovieDAO_DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/DAL/db/MovieDAO_DB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Model/MovieModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Model/MovieModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/DAL/db/CategoryDAO_DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/DAL/db/CategoryDAO_DB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/PrivateMovieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/PrivateMovieController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Model/CategoryModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Model/CategoryModel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/View/PrivateMovieView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/View/PrivateMovieView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BLL/MovieManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BLL/MovieManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAL/db/MovieDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/MovieDAO_DB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/PrivateMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/PrivateMovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Model/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Model/MovieModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/View/PrivateMovieView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/View/PrivateMovieView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
@@ -60,6 +60,20 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Mathias Kær\Desktop\Skole\SCO1. semester\Intelji IDEA\MyTunes projekt\Ideer til layout\My Tuunes\My Tuunes new\PrivateMovieCollection\src" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="PrivateMovieCollection" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
