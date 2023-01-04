@@ -35,7 +35,7 @@ public class CategoryManager {
     }
     //Delete Category(genre)
 
-    public void deletePlaylist(Category selectedCategory) throws Exception {
+    public void deleteCategory(Category selectedCategory) throws Exception {
 
         CategoryDAO_DB.deleteCategory(selectedCategory);
     }
