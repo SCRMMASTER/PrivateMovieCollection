@@ -1,8 +1,8 @@
 package GUI.Controller;
 
 import BE.Movie;
+import GUI.Model.CategoryModel;
 import GUI.Model.MovieModel;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -24,27 +23,37 @@ import java.util.ResourceBundle;
 public class PrivateMovieController implements Initializable {
     @FXML
     public ListView lstCategory;
+    @FXML
     public TableView<Movie> tblMovie;
+    @FXML
     public TextField txtMovieSearch;
-
-    public MovieModel movieModel;
-
+    @FXML
     private Button btnaddCategory, btndeleteCategory, btnaddMovie, btndeleteMovie;
     @FXML
     private TableColumn<Movie, String> ColYear, ColIMDB, ColPRating, ColTitle;
 
+    public MovieModel movieModel;
 
-    @Override
-    public void setup() {
+    private CategoryModel categoryModel;
 
+    public PrivateMovieController() throws Exception {
+        categoryModel = new CategoryModel();
     }
+
+
     public void initialize(URL location, ResourceBundle resources) {
-    /*  try {
+      try {
             movieModel = new MovieModel();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
+
+        lstCategory.setItems(categoryModel.getObservableCategories());
+
+
         //txtMovieSearch.textProperty().addListener((observableValue, oldValue, newValue) ->
+        /*
     {
                 try {
             MovieModel.searchSong(newValue);
@@ -52,7 +61,7 @@ public class PrivateMovieController implements Initializable {
             displayError(e);
         }
     });
-    */
+
 
     tblMovie.setItems(movieModel.getObservableMovies());
 
@@ -60,7 +69,7 @@ public class PrivateMovieController implements Initializable {
     ColIMDB.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getImdbRating())));
     ColPRating.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getPersonalRating())));
     ColYear.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getYear())));
-
+*/
 }
 
 

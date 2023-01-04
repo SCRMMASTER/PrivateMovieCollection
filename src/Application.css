@@ -1,7 +1,10 @@
 .root{
--fx-background-color:"black";
+-fx-background-color:#500000;
 }
 
-#titleDisplay{
--fxf-text-fill:"white";
+#titleLabel{
+-fx-font-size: 28;
+-fx-font-family: "Lucida Console";
+-fx-text-fill: "white";
+-fx-alignment: center;
 }

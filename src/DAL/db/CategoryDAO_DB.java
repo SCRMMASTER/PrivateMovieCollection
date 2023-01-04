@@ -15,6 +15,10 @@ import java.util.List;
 
 public class CategoryDAO_DB implements ICategoryDataAccess {
     private DataBaseConnecter dataBaseConnecter;
+    public CategoryDAO_DB(){
+        dataBaseConnecter = new DataBaseConnecter();
+
+    }
 
     // Get all the Categories from the database table
 
@@ -30,7 +34,7 @@ public class CategoryDAO_DB implements ICategoryDataAccess {
 
             while (rs.next()) {
                 int id = rs.getInt("Id");
-                String Genre = rs.getString("Name");
+                String Genre = rs.getString("Genre");
 
                 Category category = new Category(id,Genre);
                 allCategory.add(category);

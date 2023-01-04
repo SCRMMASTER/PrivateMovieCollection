@@ -7,6 +7,7 @@ package BLL;
 import BE.Category;
 import DAL.ICategoryDataAccess;
 import DAL.db.CategoryDAO_DB;
+import javafx.collections.ObservableList;
 
 import java.util.List;
 

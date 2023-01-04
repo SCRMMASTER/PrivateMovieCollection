@@ -2,15 +2,30 @@ package GUI.Model;
 
 import BE.Category;
 import BLL.CategoryManager;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import java.util.List;
 
 
 public class CategoryModel {
-    private CategoryManager CategoryManager;
+
+    private ObservableList<Category> categoriesToBeViewed;
+    private CategoryManager categoryManager;
 
     public CategoryModel() throws Exception {
-        CategoryManager = new CategoryManager();
+        categoryManager = new CategoryManager();
+        categoriesToBeViewed = FXCollections.observableArrayList();
+        categoriesToBeViewed.addAll(categoryManager.getAllCategories());
     }
 
+
+
+    public ObservableList<Category> getObservableCategories(){
+        return categoriesToBeViewed;
+    }
+
+    /*
     public void createCategory(int Id, String Genre) throws Exception {
         Category c = CategoryManager.createNewCategory(Id, Genre);
 
@@ -18,4 +33,5 @@ public class CategoryModel {
     public void deleteCategory(Category selectedCategory) throws Exception{
         CategoryManager.deleteCategory(selectedCategory);
     }
+*/
 }
