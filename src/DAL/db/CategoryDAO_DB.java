@@ -1,3 +1,4 @@
+/*
 package DAL.db;
 
 import BE.Category;
@@ -37,3 +38,4 @@ public class CategoryDAO_DB implements ICategoryDataAccess {
     }
 
 }
+*/
