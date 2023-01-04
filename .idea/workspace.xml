@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51fa20b6-3b81-48b4-b630-6d9537a82373" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/PrivateMovieCollection.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PrivateMovieCollection.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/PrivateMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/PrivateMovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03-01-2023_10_56__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03-01-2023_10_56__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03-01-2023_11_04__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03-01-2023_11_04__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BE/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BE/Category.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +36,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2045977"
@@ -58,6 +59,7 @@
       <option name="presentableId" value="Default" />
       <updated>1672738107052</updated>
       <workItem from="1672738753127" duration="847000" />
+      <workItem from="1672819217711" duration="396000" />
     </task>
     <servers />
   </component>
