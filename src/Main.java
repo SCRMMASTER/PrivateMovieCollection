@@ -16,15 +16,17 @@ public class Main extends Application {
         loader.setLocation(getClass().getResource("GUI/View/PrivateMovieView.fxml"));
         Parent root = loader.load();
 
+
         PrivateMovieController controller = loader.getController();
         //controller.setModel(new MovieModel());
         //controller.setup();
 
         primaryStage.setTitle("Movie Collection");
         primaryStage.setScene(new Scene(root));
+        root.getStylesheets().add(getClass().getResource("Application.css").toExternalForm());
         primaryStage.setMaxHeight(600);
-        primaryStage.setMaxWidth(700
-        );
+        primaryStage.setMaxWidth(700);
+
         primaryStage.show();
     }
 

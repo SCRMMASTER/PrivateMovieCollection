@@ -4,7 +4,6 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -12,7 +11,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.PrivateMovieController">
    <children>
       <ListView fx:id="lstCategory" layoutX="14.0" layoutY="82.0" prefHeight="436.0" prefWidth="280.0" />
-      <Text layoutX="229.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Private Movie Collection" textAlignment="CENTER">
+      <Text fx:id="titleDisplay" layoutX="229.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Private Movie Collection" textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
@@ -27,10 +26,10 @@
          </font></Text>
       <TableView fx:id="tblMovie" layoutX="304.0" layoutY="82.0" prefHeight="436.0" prefWidth="391.0">
         <columns>
-          <TableColumn fx:id="tltCol" prefWidth="150.0" text="Title" />
-          <TableColumn fx:id="ColYear" prefWidth="75.0" text="Year" />
-            <TableColumn fx:id="ColIMDB" prefWidth="75.0" text="IMDB" />
-            <TableColumn fx:id="ColPRating" prefWidth="75.0" text="P-Rating" />
+          <TableColumn prefWidth="150.0" text="Title" />
+          <TableColumn prefWidth="75.0" text="Year" />
+            <TableColumn prefWidth="75.0" text="IMDB" />
+            <TableColumn prefWidth="75.0" text="P-Rating" />
         </columns>
       </TableView>
 
@@ -40,7 +39,6 @@
       <Button fx:id="btnaddMovie" layoutX="301.0" layoutY="530.0" mnemonicParsing="false" onAction="#handeladdMovie" prefHeight="26.0" prefWidth="73.0" text="Create" />
       <Button fx:id="btndeleteMovie" layoutX="376.0" layoutY="530.0" mnemonicParsing="false" onAction="#handeldeleteMovie" prefHeight="26.0" prefWidth="73.0" text="Delete" />
       <Button layoutX="604.0" layoutY="530.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="73.0" text="Play" />
-      <TextField fx:id="txtMovieSearch" layoutX="519.0" layoutY="43.0" opacity="0.75" prefHeight="26.0" prefWidth="169.0" promptText="Search" style="-fx-background-color: white;" />
 
    </children>
 </AnchorPane>
