@@ -3,6 +3,7 @@ package GUI.Controller;
 import BE.Movie;
 import GUI.Model.CategoryModel;
 import GUI.Model.MovieModel;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,10 +37,6 @@ public class PrivateMovieController implements Initializable {
 
     private CategoryModel categoryModel;
 
-    public PrivateMovieController() throws Exception {
-        categoryModel = new CategoryModel();
-    }
-
 
     public void initialize(URL location, ResourceBundle resources) {
       try {
@@ -47,7 +44,11 @@ public class PrivateMovieController implements Initializable {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
+        try {
+            categoryModel = new CategoryModel();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
         lstCategory.setItems(categoryModel.getObservableCategories());
 
@@ -62,14 +63,14 @@ public class PrivateMovieController implements Initializable {
         }
     });
 
-
+*/
     tblMovie.setItems(movieModel.getObservableMovies());
 
     ColTitle.setCellValueFactory(c -> new SimpleObjectProperty(c.getValue().getMovieTitle()));
     ColIMDB.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getImdbRating())));
     ColPRating.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getPersonalRating())));
     ColYear.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getYear())));
-*/
+
 }
 
 
