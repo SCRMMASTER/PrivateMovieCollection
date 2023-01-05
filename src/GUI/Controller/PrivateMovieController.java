@@ -85,7 +85,7 @@ public class PrivateMovieController implements Initializable {
         stage.setScene(new Scene(root));
         // The stage is then displayed and the program waits for
         // the user to interact with the delete song dialog.
-        stage.showAndWait();
+        stage.show();
     }
 
     public void handeldeleteMovie(ActionEvent actionEvent) {

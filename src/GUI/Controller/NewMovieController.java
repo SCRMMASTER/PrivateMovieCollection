@@ -1,7 +1,5 @@
 package GUI.Controller;
 
-import BE.Movie;
-
 import GUI.Model.MovieModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -23,50 +21,55 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class NewMovieController {
+public class NewMovieController{
 
     public Button btnNext, btnCancel, btnChoose;
     public Label lblFile, lblTitle, lblIMDBRating, lblPersonalRating, lblYear;
     public TextField txtfFile, txtfTitle, txtfIMDBRating, txtfPersonalRating, txtfYear;
     private File mFile;
-    public String fileMoviePath = "/MoviesDirectory";
+    public String fileMoviePath = "Movies/more";
     private Path target = Paths.get(fileMoviePath);
-    private MovieModel movieModel = new MovieModel();
+    private MovieModel movieModel;
 
     public NewMovieController() throws Exception {
+        this.movieModel = new MovieModel();
     }
 
-    public void handelNext(ActionEvent actionEvent) throws IOException {
+    public void handelNext(ActionEvent actionEvent) {
+        String title = txtfTitle.getText();
+        double imdbrating = Double.parseDouble(txtfIMDBRating.getText());
+        int personalrating = Integer.parseInt(txtfPersonalRating.getText());
+        String filepath = txtfFile.getText();
+        double lastviewed = 0.0;
+        int year = Integer.parseInt(txtfYear.getText());
+
         try {
-            String title = txtfTitle.getText();
-            double imdbrating = Double.parseDouble(txtfIMDBRating.getText());
-            int personalrating = Integer.parseInt(txtfPersonalRating.getText());
-            String filepath = txtfFile.getText();
-            double lastviewed = 0.0;
-            int year = Integer.parseInt(txtfYear.getText());
+            Files.copy(mFile.toPath(), target.resolve(mFile.toPath()).getFileName());
 
-            movieModel.createMovie(title, imdbrating, personalrating, filepath, lastviewed, year);
+            mFile = new File(fileMoviePath + "/" + mFile.getName());
+            this.movieModel.createMovie(title, imdbrating, personalrating, filepath, lastviewed, year);
+            //Path mFile = Paths.get("C:/Users/Mathias Kær/Desktop/mp4 Movie");
+            //Path fileMoviePath = Paths.get("Movies");
 
-        }catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-            /*
-            Files.copy(mFile.toPath(),target.resolve(mFile.toPath().getFileName()));
+            //Files.copy(Path.of(fileMoviePath),target.resolve(mFile.toPath().getFileName()));
+            //Files.copy(mFile.toPath(),target.resolve(mFile.toPath().getFileName()));
+
             System.out.println("Movie added: " + filepath + ", " + title + ", " + imdbrating +
                     ", " + personalrating + ", " + year);
-        } catch (IOException e) {
+        }         catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Could not add Movie");
         }
-        mFile = new File(fileMoviePath + "/" + mFile.getName());
 
+
+
+/*
         try{
             movieModel.createMovie(title, imdbrating, personalrating, filepath, lastviewed, year);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 */
-
+/*
         // Finds where the fxml is located.
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/View/DropDownMovieView.fxml"));
         // Loads the stage.
@@ -80,10 +83,12 @@ public class NewMovieController {
         // The stage is then displayed and the program waits for
         // the user to interact with the delete song dialog.
         stage.showAndWait();
-
+*/
         Node source = (Node) actionEvent.getSource();
         Stage mStage = (Stage) source.getScene().getWindow();
         mStage.close();
+
+
     }
 
     public void handleButtonCancel(ActionEvent actionEvent) {
@@ -110,4 +115,5 @@ public class NewMovieController {
         Media mMedia = new Media("file:///" + file.getPath().replace("\\","/").replaceAll(" ","%20"));
         return mMedia.getDuration();
     }
+
 }
