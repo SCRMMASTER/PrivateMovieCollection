@@ -7,15 +7,7 @@
     <list default="true" id="51fa20b6-3b81-48b4-b630-6d9537a82373" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/Application.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/Application.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/BLL/CategoryManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/BLL/CategoryManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/DAL/db/CategoryDAO_DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/DAL/db/CategoryDAO_DB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/PrivateMovieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/PrivateMovieController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Model/CategoryModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Model/CategoryModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/View/PrivateMovieView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/View/PrivateMovieView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/View/PrivateMovieView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/View/PrivateMovieView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
