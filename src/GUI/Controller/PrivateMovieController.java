@@ -29,7 +29,7 @@ public class PrivateMovieController implements Initializable {
     @FXML
     public TextField txtMovieSearch;
     @FXML
-    private Button btnaddCategory, btndeleteCategory, btnaddMovie, btndeleteMovie;
+    private Button btnaddCategory, btndeleteCategory, btnaddMovie, btndeleteMovie, btnPLay;
     @FXML
     private TableColumn<Movie, String> ColYear, ColIMDB, ColPRating, ColTitle;
 
@@ -38,7 +38,10 @@ public class PrivateMovieController implements Initializable {
     private CategoryModel categoryModel;
 
 
+
     public void initialize(URL location, ResourceBundle resources) {
+
+
       try {
             movieModel = new MovieModel();
         } catch (Exception e) {
@@ -53,23 +56,17 @@ public class PrivateMovieController implements Initializable {
         lstCategory.setItems(categoryModel.getObservableCategories());
 
 
-        //txtMovieSearch.textProperty().addListener((observableValue, oldValue, newValue) ->
-        /*
-    {
-                try {
-            MovieModel.searchSong(newValue);
-        } catch (Exception e) {
-            displayError(e);
-        }
-    });
 
-*/
+        if (tblMovie.getSelectionModel().getSelectedItem() != null){
+            btnPLay.setDisable(false);
+        }
     tblMovie.setItems(movieModel.getObservableMovies());
 
     ColTitle.setCellValueFactory(c -> new SimpleObjectProperty(c.getValue().getMovieTitle()));
     ColIMDB.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getImdbRating())));
     ColPRating.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getPersonalRating())));
     ColYear.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getYear())));
+
 
 }
 
@@ -144,12 +141,17 @@ public class PrivateMovieController implements Initializable {
         }
     }
 
-    public void playMovie(ActionEvent actionEvent) throws IOException {
+    public void handelPlay(ActionEvent actionEvent) throws IOException {
 
         //File file = new File("/Users/magnus/Documents/IMG_iii1652.MOV");
         //Desktop.getDesktop().open(file);
 
         File name = new File("/Users/magnus/Documents/GitHub/PrivateMovieCollection/Recources/Movies");
+
+
+        File name = new File(tblMovie.getSelectionModel().getSelectedItem().getFilePath());
+        System.out.println("kuisfhbd");
+
         Desktop.getDesktop().open(name);
 
     }

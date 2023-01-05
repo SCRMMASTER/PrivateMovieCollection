@@ -30,12 +30,12 @@
         </columns>
       </TableView>
 
-      <Button fx:id="playButton" layoutX="604.0" layoutY="530.0" mnemonicParsing="false" onAction="#playMovie" prefHeight="26.0" prefWidth="73.0" text="Play" />
+
       <Button fx:id="btnaddCategory" layoutX="14.0" layoutY="530.0" mnemonicParsing="false" onAction="#handeladdCategory" prefHeight="26.0" prefWidth="73.0" text="Create" />
       <Button fx:id="btndeleteCategory" layoutX="89.0" layoutY="530.0" mnemonicParsing="false" onAction="#handeldeleteCategory" prefHeight="26.0" prefWidth="73.0" text="Delete" />
       <Button fx:id="btnaddMovie" layoutX="301.0" layoutY="530.0" mnemonicParsing="false" onAction="#handeladdMovie" prefHeight="26.0" prefWidth="73.0" text="Create" />
       <Button fx:id="btndeleteMovie" layoutX="376.0" layoutY="530.0" mnemonicParsing="false" onAction="#handeldeleteMovie" prefHeight="26.0" prefWidth="73.0" text="Delete" />
-      <Button layoutX="604.0" layoutY="530.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="73.0" text="Play" />
+      <Button fx:id="btnPlay" layoutX="604.0" layoutY="530.0" mnemonicParsing="false" onAction="#handelPlay" prefHeight="26.0" prefWidth="73.0" text="Play" />
       <Label fx:id="titleLabel" layoutY="14.0" prefHeight="29.0" prefWidth="700.0" text="Private Movie Collection" textAlignment="CENTER">
          <font>
             <Font size="24.0" />

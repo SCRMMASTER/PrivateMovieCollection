@@ -1,20 +1,89 @@
 package GUI.Controller;
 
+import BE.Movie;
+
+import GUI.Model.MovieModel;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.media.Media;
+import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class NewMovieController {
 
     public Button btnNext, btnCancel, btnChoose;
-    public Label lblFile, lblTitle, lblIMDBRating, lblPersonalRating, lblDate;
-    public TextField txtfFile, txtfTitle, txtfIMDBRating ,txtfPersonalRating, txtfDate;
+    public Label lblFile, lblTitle, lblIMDBRating, lblPersonalRating, lblYear;
+    public TextField txtfFile, txtfTitle, txtfIMDBRating, txtfPersonalRating, txtfYear;
+    private File mFile;
+    public String fileMoviePath = "/MoviesDirectory";
+    private Path target = Paths.get(fileMoviePath);
+    private MovieModel movieModel = new MovieModel();
 
+    public NewMovieController() throws Exception {
+    }
 
-    public void handelNext(ActionEvent event) {
+    public void handelNext(ActionEvent actionEvent) throws IOException {
+        try {
+            String title = txtfTitle.getText();
+            double imdbrating = Double.parseDouble(txtfIMDBRating.getText());
+            int personalrating = Integer.parseInt(txtfPersonalRating.getText());
+            String filepath = txtfFile.getText();
+            double lastviewed = 0.0;
+            int year = Integer.parseInt(txtfYear.getText());
+
+            movieModel.createMovie(title, imdbrating, personalrating, filepath, lastviewed, year);
+
+        }catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+            /*
+            Files.copy(mFile.toPath(),target.resolve(mFile.toPath().getFileName()));
+            System.out.println("Movie added: " + filepath + ", " + title + ", " + imdbrating +
+                    ", " + personalrating + ", " + year);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Could not add Movie");
+        }
+        mFile = new File(fileMoviePath + "/" + mFile.getName());
+
+        try{
+            movieModel.createMovie(title, imdbrating, personalrating, filepath, lastviewed, year);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+*/
+
+        // Finds where the fxml is located.
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/View/DropDownMovieView.fxml"));
+        // Loads the stage.
+        Parent root = fxmlLoader.load();
+        // Makes the new stage.
+        Stage stage = new Stage();
+        // Title of the stage.
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Add new movie");
+        stage.setScene(new Scene(root));
+        // The stage is then displayed and the program waits for
+        // the user to interact with the delete song dialog.
+        stage.showAndWait();
+
+        Node source = (Node) actionEvent.getSource();
+        Stage mStage = (Stage) source.getScene().getWindow();
+        mStage.close();
     }
 
     public void handleButtonCancel(ActionEvent actionEvent) {
@@ -25,6 +94,20 @@ public class NewMovieController {
         stage.close();
     }
 
-    public void handleChoose(ActionEvent event) {
+    public void handleChoose(ActionEvent actionEvent) {
+        //Opens file browser to select a file
+        Stage stage = new Stage();
+        FileChooser mFileChooser = new FileChooser();
+        mFile = mFileChooser.showOpenDialog(stage);
+       txtfFile.setText(mFile.getPath());
+
+
+        System.out.println("Selected file " + mFile);
+        System.out.println(getMovieLength(mFile).toString());
+
+    }
+    public Duration getMovieLength(File file){
+        Media mMedia = new Media("file:///" + file.getPath().replace("\\","/").replaceAll(" ","%20"));
+        return mMedia.getDuration();
     }
 }
