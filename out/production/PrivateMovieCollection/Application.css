@@ -15,6 +15,7 @@
 
 .table-view .column-header-background .filler {
     -fx-background-color: transparent;
+
 }
 
 .table-view .corner {
@@ -31,6 +32,7 @@
 
 .table-view .column-header {
     -fx-background-color: transparent;
+
 }
 
 .table-view .table-cell{
@@ -40,7 +42,7 @@
 }
 .table-row-cell: hover {
     -fx-background-color: #93f9b911;
-    -fx-text-background-color: white;
+    -fx-text-background-color: #008EFF;
 }
 .table-row-cell: odd{
     -fx-background-color: #93f9b911;
@@ -52,33 +54,27 @@
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em;
 }
-
+/*
 .list-view{
 -fx-background-color: transparent;
 }
-
+*/
 
 .list-view .list-cell:even {
 -fx-background-color: #1dbbdd11;
 -fx-text-fill: black;
 }
 
-
+/*
 .list-view .list-cell:odd {
 -fx-background-color: #93f9b911;
 -fx-text-fill: black;
 }
+*/
 
-
-.list-view .list-cell: hover {
-
-  -fx-text-fill: white;
-}
-
-.list-view .list-cell:selected {
-
-    -fx-text-fill: white;
-    }
+.list.view: hover {
+    -fx-background-color: #93f9b911;
+    -fx-text-background-color: #008EFF;
 
 
 

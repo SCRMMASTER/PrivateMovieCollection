@@ -149,7 +149,7 @@ public class PrivateMovieController implements Initializable {
         //File file = new File("/Users/magnus/Documents/IMG_iii1652.MOV");
         //Desktop.getDesktop().open(file);
 
-        File name = new File("/Users/magnus/Documents/GitHub/PrivateMovieCollection/src/MoviesDirectory/LOTR.mp4");
+        File name = new File("/Users/magnus/Documents/GitHub/PrivateMovieCollection/Recources/Movies");
         Desktop.getDesktop().open(name);
 
     }
