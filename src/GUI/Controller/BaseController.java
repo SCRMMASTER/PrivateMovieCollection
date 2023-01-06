@@ -1,19 +1,20 @@
 package GUI.Controller;
 
+import GUI.Model.BaseModel;
 import GUI.Model.MovieModel;
 
 public abstract class BaseController {
 
-    private MovieModel model;
+    private BaseModel baseModel;
 
-    public void setModel(MovieModel model)
+    public void setModel(BaseModel baseModel)
     {
-        this.model = model;
+        this.baseModel = baseModel;
     }
 
-    public MovieModel model()
+    public BaseModel getModel()
     {
-        return model;
+        return baseModel ;
     }
 
     public abstract void setup();

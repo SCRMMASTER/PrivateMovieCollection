@@ -7,7 +7,7 @@ import javafx.collections.ObservableList;
 
 import java.util.List;
 
-public class MovieModel {
+public class MovieModel extends BaseModel {
     private ObservableList<Movie> moviesToBeViewed;
 
     private MovieManager movieManager;
@@ -18,11 +18,13 @@ public class MovieModel {
         moviesToBeViewed.addAll(movieManager.getAllMovies());
     }
 
+
     public void searchMovie(String query) throws Exception {
-        List<Movie> searchResults = movieManager.searchMovies(query);
-        moviesToBeViewed.clear();
-        moviesToBeViewed.addAll(searchResults);
+        //List<Movie> searchResults = movieManager.searchMovies(query);
+       // moviesToBeViewed.clear();
+       // moviesToBeViewed.addAll(searchResults);
     }
+
 
     public ObservableList<Movie> getObservableMovies(){
         return moviesToBeViewed;
