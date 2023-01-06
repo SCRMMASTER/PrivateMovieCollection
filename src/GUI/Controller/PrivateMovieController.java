@@ -1,5 +1,6 @@
 package GUI.Controller;
 
+import BE.Category;
 import BE.Movie;
 import GUI.Model.CategoryModel;
 import GUI.Model.MovieModel;
@@ -23,7 +24,7 @@ import java.util.ResourceBundle;
 
 public class PrivateMovieController implements Initializable {
     @FXML
-    public ListView lstCategory;
+    public ListView<Category> lstCategory;
     @FXML
     public TableView<Movie> tblMovie;
     @FXML
@@ -134,7 +135,7 @@ public class PrivateMovieController implements Initializable {
             alert.showAndWait();
             if(alert.getResult() == ButtonType.OK) {
                 System.out.println("you have now deleted the category");
-                // movieModel.deleteSong(movieModel.getSelectedSong());
+                categoryModel.deleteCategory(lstCategory.getSelectionModel().getSelectedItem());
             }
         } catch (Exception e){
             //displayError(e);

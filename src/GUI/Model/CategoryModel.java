@@ -25,13 +25,14 @@ public class CategoryModel {
         return categoriesToBeViewed;
     }
 
-    /*
+
     public void createCategory(int Id, String Genre) throws Exception {
-        Category c = CategoryManager.createNewCategory(Id, Genre);
+        Category c = categoryManager.createNewCategory(Id, Genre);
 
     }
     public void deleteCategory(Category selectedCategory) throws Exception{
-        CategoryManager.deleteCategory(selectedCategory);
+        categoryManager.deleteCategory(selectedCategory);
+        categoriesToBeViewed.remove(selectedCategory);
     }
-*/
+
 }
