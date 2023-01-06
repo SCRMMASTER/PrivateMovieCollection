@@ -44,11 +44,7 @@ public class PrivateMovieController implements Initializable {
 
       try {
             movieModel = new MovieModel();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        try {
-            categoryModel = new CategoryModel();
+          categoryModel = new CategoryModel();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -60,6 +56,14 @@ public class PrivateMovieController implements Initializable {
         if (tblMovie.getSelectionModel().getSelectedItem() != null){
             btnPLay.setDisable(false);
         }
+        txtMovieSearch.textProperty().addListener((observableValue, oldValue, newValue) -> {
+                try {
+            movieModel.searchMovie(newValue);
+        } catch (Exception e) {
+            //displayError(e);
+        }
+    });
+
     tblMovie.setItems(movieModel.getObservableMovies());
 
     ColTitle.setCellValueFactory(c -> new SimpleObjectProperty(c.getValue().getMovieTitle()));
@@ -88,16 +92,14 @@ public class PrivateMovieController implements Initializable {
         stage.showAndWait();
     }
 
-    public void handeldeleteMovie(ActionEvent actionEvent) {
-        System.out.println("Delete Movie");
+    public void handelDeleteMovie(ActionEvent actionEvent) {
         try {
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setHeaderText("Are you sure you wanna delete this movie?");
             alert.showAndWait();
             if(alert.getResult() == ButtonType.OK) {
-                System.out.println("you have now deleted the movie");
-               // movieModel.deleteSong(movieModel.getSelectedSong());
+               movieModel.deleteMovie(tblMovie.getSelectionModel().getSelectedItem());
             }
         } catch (Exception e){
             //displayError(e);
