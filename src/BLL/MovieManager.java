@@ -31,5 +31,9 @@ public class MovieManager {
     public void deleteMovie(Movie movie) throws Exception{
         movieDAO_DB.deleteMovies(movie);
     }
+    public Movie getFilePath(Movie selectedMovie) throws Exception{
+        movieDAO_DB.getFilePath(selectedMovie);
+        return selectedMovie;
+    }
 
 }

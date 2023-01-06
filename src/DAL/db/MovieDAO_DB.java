@@ -103,7 +103,7 @@ public class MovieDAO_DB implements IMovieDataAccess
 
 
             int rowsDeleted = stmt.executeUpdate();
-            // It checks if there was a row that have been deletet, that means if it is less than 0.
+            // It checks if there was a row that have been deleted, that means if it is less than 0.
             if (rowsDeleted > 0)
             {
                 System.out.println("Movie was successfully deleted");
@@ -114,5 +114,30 @@ public class MovieDAO_DB implements IMovieDataAccess
         }
         return movie;
     }
+
+    public Movie getFilePath (Movie selectedMovie) throws Exception {
+
+        String sql = " SELECT FROM Movie WHERE id = ?";
+
+        try(Connection conn = dataBaseConnecter.getConnection()) {
+            PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ResultSet rs = stmt.getGeneratedKeys();
+
+
+            stmt.setString(4, selectedMovie.getFilePath());
+
+            if (rs.next())
+            {
+                rs.getString(4);
+            }
+        } catch (SQLException ex){
+            ex.printStackTrace();
+            throw new Exception("Could not retrive filePath", ex);
+
+        }
+        return selectedMovie;
+
+    }
+
 }
 
