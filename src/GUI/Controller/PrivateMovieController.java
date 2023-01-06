@@ -77,6 +77,7 @@ public class PrivateMovieController extends BaseController implements Initializa
             }
         });
 
+    tblMovie.setItems(movieModel.getObservableMovies());
 
         ColTitle.setCellValueFactory(c -> new SimpleObjectProperty(c.getValue().getMovieTitle()));
         ColIMDB.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getImdbRating())));

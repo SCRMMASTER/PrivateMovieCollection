@@ -20,9 +20,9 @@ public class MovieModel {
 
 
     public void searchMovie(String query) throws Exception {
-        //List<Movie> searchResults = movieManager.searchMovies(query);
-       // moviesToBeViewed.clear();
-       // moviesToBeViewed.addAll(searchResults);
+        List<Movie> searchResults = movieManager.searchMovies(query);
+       moviesToBeViewed.clear();
+       moviesToBeViewed.addAll(searchResults);
     }
 
 
