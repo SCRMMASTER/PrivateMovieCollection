@@ -57,10 +57,10 @@ public class PrivateMovieController extends BaseController implements Initializa
     @Override
     public void setup()
     {
-        /*
         movieModel = getModel().getMovieModel();
         categoryModel = getModel().getCategoryModel();
-*/
+
+
         tblMovie.setItems(movieModel.getObservableMovies());
         lstCategory.setItems(categoryModel.getObservableCategories());
 
@@ -90,9 +90,14 @@ public class PrivateMovieController extends BaseController implements Initializa
 
     public void handeladdMovie(ActionEvent actionEvent) throws IOException {
         // Finds where the fxml is located.
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/View/NewMovieView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/NewMovieView.fxml"));
         // Loads the stage.
-        Parent root = fxmlLoader.load();
+        Parent root = loader.load();
+
+        NewMovieController controller = loader.getController();
+        controller.setModel(super.getModel());
+        controller.setup();
+
         // Makes the new stage.
         Stage stage = new Stage();
         // Title of the stage.

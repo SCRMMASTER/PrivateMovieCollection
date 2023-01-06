@@ -1,6 +1,5 @@
 import GUI.Controller.PrivateMovieController;
 import GUI.Model.BaseModel;
-import GUI.Model.MovieModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

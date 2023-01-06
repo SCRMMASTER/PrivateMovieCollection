@@ -2,6 +2,7 @@ package GUI.Model;
 
 import BE.Category;
 import BLL.CategoryManager;
+import GUI.Controller.BaseController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

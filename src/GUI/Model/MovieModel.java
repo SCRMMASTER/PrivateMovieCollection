@@ -7,7 +7,7 @@ import javafx.collections.ObservableList;
 
 import java.util.List;
 
-public class MovieModel extends BaseModel {
+public class MovieModel {
     private ObservableList<Movie> moviesToBeViewed;
 
     private MovieManager movieManager;
