@@ -35,7 +35,7 @@ public class NewMovieController{
         this.movieModel = new MovieModel();
     }
 
-    public void handelNext(ActionEvent actionEvent) {
+    public void handelNext(ActionEvent actionEvent) throws IOException {
         String title = txtfTitle.getText();
         double imdbrating = Double.parseDouble(txtfIMDBRating.getText());
         int personalrating = Integer.parseInt(txtfPersonalRating.getText());
@@ -44,7 +44,7 @@ public class NewMovieController{
         int year = Integer.parseInt(txtfYear.getText());
 
         try {
-            Files.copy(mFile.toPath(), target.resolve(mFile.toPath()).getFileName());
+            Files.copy(mFile.toPath(), target.resolve(mFile.toPath().getFileName()));
 
             mFile = new File(fileMoviePath + "/" + mFile.getName());
             this.movieModel.createMovie(title, imdbrating, personalrating, filepath, lastviewed, year);
@@ -69,7 +69,7 @@ public class NewMovieController{
             throw new RuntimeException(e);
         }
 */
-/*
+
         // Finds where the fxml is located.
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/View/DropDownMovieView.fxml"));
         // Loads the stage.
@@ -83,7 +83,7 @@ public class NewMovieController{
         // The stage is then displayed and the program waits for
         // the user to interact with the delete song dialog.
         stage.showAndWait();
-*/
+
         Node source = (Node) actionEvent.getSource();
         Stage mStage = (Stage) source.getScene().getWindow();
         mStage.close();
