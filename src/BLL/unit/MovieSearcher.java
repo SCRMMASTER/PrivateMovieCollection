@@ -7,11 +7,11 @@ import java.util.List;
 
 public class MovieSearcher {
 
-    public List<Movie> search(List<Movie> searchBase, String query){
+    public List<Movie> search(List<Movie> searchBase, String query) {
         List<Movie> searchResult = new ArrayList<>();
 
-        for (Movie movie : searchBase){
-            if (compareToMovieTitle(query, movie)|| compareToMovieCategory(query, movie))
+        for (Movie movie : searchBase) {
+            if (compareToMovieTitle(query, movie) || compareToIMDBRating(query,movie))
             {
                 searchResult.add(movie);
             }
@@ -19,10 +19,15 @@ public class MovieSearcher {
         return searchResult;
     }
 
-    private boolean compareToMovieTitle(String query, Movie movie){
+    private boolean compareToMovieTitle(String query, Movie movie) {
         return movie.getMovieTitle().toLowerCase().contains(query.toLowerCase());
     }
-    private boolean compareToMovieCategory(String query, Movie movie){
-        return movie.getCategory().toLowerCase().contains(query.toLowerCase());
+
+    private boolean compareToIMDBRating(String query, Movie movie) {
+        double rating = Double.parseDouble(query);
+        while (rating < movie.getImdbRating() && rating < 10) {
+            rating = rating + 0.1;
+        }
+        return rating > Double.parseDouble(query);
     }
 }
