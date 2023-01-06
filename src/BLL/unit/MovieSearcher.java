@@ -11,7 +11,7 @@ public class MovieSearcher {
         List<Movie> searchResult = new ArrayList<>();
 
         for (Movie movie : searchBase) {
-            if (compareToMovieTitle(query, movie) || compareToIMDBRating(query,movie))
+            if (compareToMovieTitle(query, movie) || (compareToIMDBRating(query,movie)) || (compareToYear(query,movie)))
             {
                 searchResult.add(movie);
             }
@@ -24,10 +24,9 @@ public class MovieSearcher {
     }
 
     private boolean compareToIMDBRating(String query, Movie movie) {
-        double rating = Double.parseDouble(query);
-        while (rating < movie.getImdbRating() && rating < 10) {
-            rating = rating + 0.1;
-        }
-        return rating > Double.parseDouble(query);
+        return Boolean.parseBoolean(String.valueOf(Double.toString(movie.getImdbRating()).contains(query)));
+    }
+    private boolean compareToYear(String query, Movie movie){
+        return Boolean.parseBoolean(String.valueOf(Integer.toString(movie.getYear()).contains(query)));
     }
 }
