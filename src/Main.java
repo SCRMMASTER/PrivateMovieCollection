@@ -1,5 +1,5 @@
 import GUI.Controller.PrivateMovieController;
-import GUI.Model.MovieModel;
+import GUI.Model.BaseModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,10 +16,10 @@ public class Main extends Application {
         loader.setLocation(getClass().getResource("/GUI/View/PrivateMovieView.fxml"));
         Parent root = loader.load();
 
-
         PrivateMovieController controller = loader.getController();
-        //controller.setModel(new MovieModel());
-        //controller.setup();
+        controller.setModel(new BaseModel());
+        controller.setup();
+
 
         primaryStage.setTitle("Movie Collection");
         primaryStage.setScene(new Scene(root));

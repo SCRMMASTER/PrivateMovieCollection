@@ -18,11 +18,13 @@ public class MovieModel {
         moviesToBeViewed.addAll(movieManager.getAllMovies());
     }
 
+
     public void searchMovie(String query) throws Exception {
         List<Movie> searchResults = movieManager.searchMovies(query);
-        moviesToBeViewed.clear();
-        moviesToBeViewed.addAll(searchResults);
+       moviesToBeViewed.clear();
+       moviesToBeViewed.addAll(searchResults);
     }
+
 
     public ObservableList<Movie> getObservableMovies(){
         return moviesToBeViewed;

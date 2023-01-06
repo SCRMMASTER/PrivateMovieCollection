@@ -2,6 +2,7 @@ package GUI.Controller;
 
 import BE.Category;
 import BE.Movie;
+import GUI.Model.BaseModel;
 import GUI.Model.CategoryModel;
 import GUI.Model.MovieModel;
 import javafx.beans.property.SimpleObjectProperty;
@@ -22,7 +23,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class PrivateMovieController implements Initializable {
+public class PrivateMovieController extends BaseController implements Initializable {
     @FXML
     public ListView<Category> lstCategory;
     @FXML
@@ -36,52 +37,69 @@ public class PrivateMovieController implements Initializable {
 
     public MovieModel movieModel;
 
-    private CategoryModel categoryModel;
+    public CategoryModel categoryModel;
 
+    public PrivateMovieController(){
 
-
-    public void initialize(URL location, ResourceBundle resources) {
-
-
-      try {
+        try {
             movieModel = new MovieModel();
-          categoryModel = new CategoryModel();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
-        lstCategory.setItems(categoryModel.getObservableCategories());
+    }
 
+
+    public void initialize(URL location, ResourceBundle resources)
+    {
+
+    }
+
+    @Override
+    public void setup()
+    {
+        movieModel = getModel().getMovieModel();
+        categoryModel = getModel().getCategoryModel();
+
+
+        tblMovie.setItems(movieModel.getObservableMovies());
+        lstCategory.setItems(categoryModel.getObservableCategories());
 
 
         if (tblMovie.getSelectionModel().getSelectedItem() != null){
             btnPLay.setDisable(false);
         }
+
         txtMovieSearch.textProperty().addListener((observableValue, oldValue, newValue) -> {
-                try {
-            movieModel.searchMovie(newValue);
-        } catch (Exception e) {
-            //displayError(e);
-        }
-    });
+            try {
+                movieModel.searchMovie(newValue);
+            } catch (Exception e) {
+                //displayError(e);
+            }
+        });
 
     tblMovie.setItems(movieModel.getObservableMovies());
 
-    ColTitle.setCellValueFactory(c -> new SimpleObjectProperty(c.getValue().getMovieTitle()));
-    ColIMDB.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getImdbRating())));
-    ColPRating.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getPersonalRating())));
-    ColYear.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getYear())));
+        ColTitle.setCellValueFactory(c -> new SimpleObjectProperty(c.getValue().getMovieTitle()));
+        ColIMDB.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getImdbRating())));
+        ColPRating.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getPersonalRating())));
+        ColYear.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getYear())));
 
 
-}
+    }
 
 
 
     public void handeladdMovie(ActionEvent actionEvent) throws IOException {
         // Finds where the fxml is located.
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/View/NewMovieView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/NewMovieView.fxml"));
         // Loads the stage.
-        Parent root = fxmlLoader.load();
+        Parent root = loader.load();
+
+        NewMovieController controller = loader.getController();
+        controller.setModel(super.getModel());
+        controller.setup();
+
         // Makes the new stage.
         Stage stage = new Stage();
         // Title of the stage.

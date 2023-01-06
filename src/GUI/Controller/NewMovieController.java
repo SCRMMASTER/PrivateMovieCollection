@@ -21,7 +21,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class NewMovieController{
+public class NewMovieController extends BaseController{
 
     public Button btnNext, btnCancel, btnChoose;
     public Label lblFile, lblTitle, lblIMDBRating, lblPersonalRating, lblYear;
@@ -31,9 +31,11 @@ public class NewMovieController{
     private Path target = Paths.get(fileMoviePath);
     private MovieModel movieModel;
 
-    public NewMovieController() throws Exception {
-        this.movieModel = new MovieModel();
+    @Override
+    public void setup() {
+        movieModel = getModel().getMovieModel();
     }
+
 
     public void handelNext(ActionEvent actionEvent) throws IOException {
         String title = txtfTitle.getText();
@@ -47,7 +49,7 @@ public class NewMovieController{
             Files.copy(mFile.toPath(), target.resolve(mFile.toPath().getFileName()));
 
             mFile = new File(fileMoviePath + "/" + mFile.getName());
-            this.movieModel.createMovie(title, imdbrating, personalrating, filepath, lastviewed, year);
+            movieModel.createMovie(title, imdbrating, personalrating, filepath, lastviewed, year);
             //Path mFile = Paths.get("C:/Users/Mathias Kær/Desktop/mp4 Movie");
             //Path fileMoviePath = Paths.get("Movies");
 
@@ -98,7 +100,6 @@ public class NewMovieController{
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
     }
-
     public void handleChoose(ActionEvent actionEvent) {
         //Opens file browser to select a file
         Stage stage = new Stage();
@@ -111,9 +112,9 @@ public class NewMovieController{
         System.out.println(getMovieLength(mFile).toString());
 
     }
+
     public Duration getMovieLength(File file){
         Media mMedia = new Media("file:///" + file.getPath().replace("\\","/").replaceAll(" ","%20"));
         return mMedia.getDuration();
     }
-
 }
