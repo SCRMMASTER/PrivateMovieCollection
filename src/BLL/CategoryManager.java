@@ -29,9 +29,9 @@ public class CategoryManager {
     //Create new category(Genre)
 
     }
-    public Category createNewCategory(int id, String Genre) throws Exception
+    public Category createNewCategory(String Genre) throws Exception
     {
-        return CategoryDAO_DB.createCategory(id, Genre);
+        return CategoryDAO_DB.createCategory( Genre);
 
     }
     //Delete Category(genre)
@@ -40,6 +40,5 @@ public class CategoryManager {
     {
         CategoryDAO_DB.deleteCategory(selectedCategory);
     }
-
 
 }

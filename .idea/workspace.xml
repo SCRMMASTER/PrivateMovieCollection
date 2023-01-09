@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51fa20b6-3b81-48b4-b630-6d9537a82373" name="Changes" comment="" />
+    <list default="true" id="51fa20b6-3b81-48b4-b630-6d9537a82373" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03-01-2023_10_56__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03-01-2023_10_56__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03-01-2023_11_04__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03-01-2023_11_04__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/olaf.net.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/.idea/shelf/Uncommitted_changes_before_Update_at_03-01-2023_10_56__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/.idea/shelf/Uncommitted_changes_before_Update_at_03-01-2023_10_56__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/.idea/shelf/Uncommitted_changes_before_Update_at_03-01-2023_11_04__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/.idea/shelf/Uncommitted_changes_before_Update_at_03-01-2023_11_04__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BE/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BE/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BLL/CategoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BLL/CategoryManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAL/ICategoryDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/ICategoryDataAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAL/db/CategoryDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/CategoryDAO_DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/NewCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/NewCategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/NewMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/NewMovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/PrivateMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/PrivateMovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Model/CategoryModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Model/CategoryModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/View/NewCategoryView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/View/NewCategoryView.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -80,6 +96,7 @@
       <workItem from="1672831822325" duration="704000" />
       <workItem from="1672994293854" duration="785000" />
       <workItem from="1672995266180" duration="2669000" />
+      <workItem from="1673255312508" duration="5387000" />
     </task>
     <servers />
   </component>

@@ -36,7 +36,7 @@ public class CategoryDAO_DB implements ICategoryDataAccess {
                 int id = rs.getInt("Id");
                 String Genre = rs.getString("Genre");
 
-                Category category = new Category(id,Genre);
+                Category category = new Category(Genre);
                 allCategory.add(category);
             }
             return allCategory;
@@ -47,9 +47,8 @@ public class CategoryDAO_DB implements ICategoryDataAccess {
             throw new Exception("Could not get Category form database", ex);
         }
     }
-
     //Create a new Category (Genre) in the database table.
-    public Category createCategory(int id, String Genre) throws Exception
+    public Category createCategory( String Genre) throws Exception
     {
         //SQL Statement.
 
@@ -77,7 +76,7 @@ public class CategoryDAO_DB implements ICategoryDataAccess {
 
             // Create playlist object and send up the layers
 
-            Category category = new Category(id, Genre);
+            Category category = new Category(Genre);
             return category;
         }
         catch (SQLException ex)

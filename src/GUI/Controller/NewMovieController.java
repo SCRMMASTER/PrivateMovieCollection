@@ -50,27 +50,11 @@ public class NewMovieController extends BaseController{
 
             mFile = new File(fileMoviePath + "/" + mFile.getName());
             movieModel.createMovie(title, imdbrating, personalrating, filepath, lastviewed, year);
-            //Path mFile = Paths.get("C:/Users/Mathias Kær/Desktop/mp4 Movie");
-            //Path fileMoviePath = Paths.get("Movies");
-
-            //Files.copy(Path.of(fileMoviePath),target.resolve(mFile.toPath().getFileName()));
-            //Files.copy(mFile.toPath(),target.resolve(mFile.toPath().getFileName()));
-
             System.out.println("Movie added: " + filepath + ", " + title + ", " + imdbrating +
                     ", " + personalrating + ", " + year);
         }         catch (Exception e) {
             e.printStackTrace();
         }
-
-
-
-/*
-        try{
-            movieModel.createMovie(title, imdbrating, personalrating, filepath, lastviewed, year);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-*/
 
         // Finds where the fxml is located.
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/View/DropDownMovieView.fxml"));
