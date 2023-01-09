@@ -43,7 +43,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="txtMovieSearch" layoutX="536.0" layoutY="36.0" />
+      <TextField fx:id="txtMovieSearch" layoutX="528.0" layoutY="36.0" prefHeight="25.0" prefWidth="151.0" promptText="Search..." />
 
    </children>
 </AnchorPane>

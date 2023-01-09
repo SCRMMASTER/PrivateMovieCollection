@@ -104,8 +104,8 @@ public class PrivateMovieController extends BaseController implements Initializa
         Stage stage = new Stage();
         // Title of the stage.
         stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setTitle("Add new movie");
         stage.setScene(new Scene(root));
+        root.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
         // The stage is then displayed and the program waits for
         // the user to interact with the delete song dialog.
         stage.showAndWait();
@@ -116,6 +116,12 @@ public class PrivateMovieController extends BaseController implements Initializa
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setHeaderText("Are you sure you wanna delete this movie?");
+            alert.setTitle(" ");
+
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
+            dialogPane.getStyleClass().add("myDialog");
+
             alert.showAndWait();
             if(alert.getResult() == ButtonType.OK) {
                movieModel.deleteMovie(tblMovie.getSelectionModel().getSelectedItem());
@@ -137,8 +143,8 @@ public class PrivateMovieController extends BaseController implements Initializa
         Stage stage = new Stage();
         // Title of the stage<
         stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setTitle("Add new category");
         stage.setScene(new Scene(root));
+        root.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
         // The stage is then displayed and the program waits for
         // the user to interact with the delete song dialog.
         stage.showAndWait();
@@ -150,6 +156,12 @@ public class PrivateMovieController extends BaseController implements Initializa
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setHeaderText("Are you sure you wanna delete this category?");
+            alert.setTitle(" ");
+
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
+            dialogPane.getStyleClass().add("myDialog");
+
             alert.showAndWait();
             if(alert.getResult() == ButtonType.OK) {
                 System.out.println("you have now deleted the category");

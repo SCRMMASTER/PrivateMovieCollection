@@ -80,8 +80,8 @@ public class NewMovieController extends BaseController{
         Stage stage = new Stage();
         // Title of the stage.
         stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setTitle("Add new movie");
         stage.setScene(new Scene(root));
+        root.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
         // The stage is then displayed and the program waits for
         // the user to interact with the delete song dialog.
         stage.showAndWait();

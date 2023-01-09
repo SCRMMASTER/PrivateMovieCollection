@@ -82,6 +82,21 @@
 
 }
 
+.text-field{
+
+-fx-background-color:transparent;
+-fx-border-color:grey;
+-fx-border-radius:20px;
+-fx-prompt-text-fill: black;
+
+}
+
+.button{
+
+-fx-background-color:transparent;
+-fx-border-color:grey;
+-fx-border-radius: 20px;
+}
 
 
 
