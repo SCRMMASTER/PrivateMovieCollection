@@ -153,6 +153,8 @@ public class PrivateMovieController extends BaseController implements Initializa
         stage.initStyle(StageStyle.UNDECORATED);
         // The stage is then displayed and the program waits for
         // the user to interact with the delete song dialog.
+        NewCategoryController controller = fxmlLoader.getController();
+        controller.setModelCategory(categoryModel, lstCategory.getSelectionModel().getSelectedItem());
         stage.showAndWait();
     }
 
