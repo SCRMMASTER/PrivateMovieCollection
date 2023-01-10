@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -33,9 +34,8 @@ public class PrivateMovieController extends BaseController implements Initializa
     public TableView<Movie> tblMovie;
     @FXML
     public TextField txtMovieSearch;
-    public Button btnClose;
     @FXML
-    private Button btnaddCategory, btndeleteCategory, btnaddMovie, btndeleteMovie, btnPLay;
+    private Button btnaddCategory, btndeleteCategory, btnaddMovie, btndeleteMovie, btnPLay, btnEditPRating, btnClose;
     @FXML
     private TableColumn<Movie, String> ColYear, ColIMDB, ColPRating, ColTitle;
 
@@ -141,9 +141,9 @@ public class PrivateMovieController extends BaseController implements Initializa
     public void handeladdCategory(ActionEvent actionEvent) throws IOException {
         System.out.println("AddCategory");
         // Finds where the fxml is located.
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/View/NewCategoryView.fxml"));
+        FXMLLoader Loader = new FXMLLoader(getClass().getResource("/GUI/View/NewCategoryView.fxml"));
         // Loads the stage.
-        Parent root = fxmlLoader.load();
+        Parent root = Loader.load();
         // Makes the new stage.
         Stage stage = new Stage();
         // Title of the stage<
@@ -153,8 +153,8 @@ public class PrivateMovieController extends BaseController implements Initializa
         stage.initStyle(StageStyle.UNDECORATED);
         // The stage is then displayed and the program waits for
         // the user to interact with the delete song dialog.
-        NewCategoryController controller = fxmlLoader.getController();
-        controller.setModelCategory(categoryModel, lstCategory.getSelectionModel().getSelectedItem());
+       // NewCategoryController controller = fxmlLoader.getController();
+        //controller.setModelCategory(categoryModel, lstCategory.getSelectionModel().getSelectedItem());
         stage.showAndWait();
     }
 
@@ -202,5 +202,31 @@ public class PrivateMovieController extends BaseController implements Initializa
         Node source = (Node) actionEvent.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
+    }
+
+    public void handleEditPRating(ActionEvent actionEvent) throws Exception {
+            Movie selectedMovie = tblMovie.getSelectionModel().getSelectedItem();
+            movieModel.setSelectedMovie(selectedMovie);
+            FXMLLoader loader = new FXMLLoader();
+            // Finds where the fxml is located.
+        loader.setLocation(getClass().getResource("/GUI/View/EditPRating.fxml"));
+            // Loads the stage.
+        AnchorPane pane = (AnchorPane) loader.load();
+        EditPRatingController controller = loader.getController();
+        controller.fillMovieIn(selectedMovie);
+        controller.setSelectedMovie(selectedMovie);
+        controller.setModelBaseModel(MovieModel, tblMovie.getSelectionModel().getSelectedItem());
+
+            // Makes the new stage.
+            Stage stage = new Stage();
+            // Title of the stage<
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(new Scene(root));
+            root.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
+            stage.initStyle(StageStyle.UNDECORATED);
+            // The stage is then displayed and the program waits for
+            // the user to interact with the delete song dialog.
+            stage.showAndWait();
+
     }
 }

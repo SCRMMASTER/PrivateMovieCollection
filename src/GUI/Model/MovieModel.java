@@ -12,6 +12,7 @@ public class MovieModel {
 
     private MovieManager movieManager;
     public Movie createdMovie;
+    public Movie selectedMovie;
 
     public MovieModel() throws Exception {
         movieManager = new MovieManager();
@@ -38,5 +39,9 @@ public class MovieModel {
     public void deleteMovie(Movie movie) throws Exception{
         movieManager.deleteMovie(movie);
         moviesToBeViewed.remove(movie);
+    }
+    public Movie getSelectedMovie(){return selectedMovie;}
+    public void setSelectedMovie(Movie selectedMovie){
+        this.selectedMovie = selectedMovie;
     }
 }
