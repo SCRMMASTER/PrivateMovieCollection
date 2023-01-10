@@ -1,6 +1,7 @@
 package GUI.Model;
 
 import BE.Category;
+import BE.Movie;
 import BLL.CategoryManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -41,4 +42,7 @@ public void createNewCategory(String categoryname) throws Exception{
         categoriesToBeViewed.remove(selectedCategory);
     }
 
+    public void addCategoryToMovie(Category category, Movie movie) throws Exception{
+        categoryManager.addCategoryToMovie(category, movie);
+    }
 }

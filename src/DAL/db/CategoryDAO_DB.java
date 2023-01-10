@@ -7,6 +7,7 @@
 package DAL.db;
 
 import BE.Category;
+import BE.Movie;
 import DAL.ICategoryDataAccess;
 
 import java.sql.*;
@@ -108,4 +109,19 @@ public class CategoryDAO_DB implements ICategoryDataAccess {
         }
     }
 
+    public void addCategoryToMovie(Category category, Movie movie) throws Exception{
+        try(Connection conn = dataBaseConnecter.getConnection()){
+            String sql = "INSERT INTO CatMovie VALUES(?,?)";
+
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setInt(1, category.getId());
+            stmt.setInt(2, movie.getId());
+
+            stmt.executeUpdate();
+        } catch(SQLException ex){
+            ex.printStackTrace();
+            throw new Exception("Could not add category to movie", ex);
+        }
+    }
 }
