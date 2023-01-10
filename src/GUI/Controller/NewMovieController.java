@@ -13,6 +13,7 @@ import javafx.scene.media.Media;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 import java.io.File;
@@ -82,6 +83,7 @@ public class NewMovieController extends BaseController{
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(new Scene(root));
         root.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
+        stage.initStyle(StageStyle.UNDECORATED);
         // The stage is then displayed and the program waits for
         // the user to interact with the delete song dialog.
         stage.showAndWait();

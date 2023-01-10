@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -17,6 +18,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
 import java.io.IOException;
 import java.awt.*;
 import java.io.File;
@@ -30,6 +33,7 @@ public class PrivateMovieController extends BaseController implements Initializa
     public TableView<Movie> tblMovie;
     @FXML
     public TextField txtMovieSearch;
+    public Button btnClose;
     @FXML
     private Button btnaddCategory, btndeleteCategory, btnaddMovie, btndeleteMovie, btnPLay;
     @FXML
@@ -106,6 +110,7 @@ public class PrivateMovieController extends BaseController implements Initializa
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(new Scene(root));
         root.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
+        stage.initStyle(StageStyle.UNDECORATED);
         // The stage is then displayed and the program waits for
         // the user to interact with the delete song dialog.
         stage.showAndWait();
@@ -116,7 +121,7 @@ public class PrivateMovieController extends BaseController implements Initializa
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setHeaderText("Are you sure you wanna delete this movie?");
-            alert.setTitle(" ");
+            alert.initStyle(StageStyle.UNDECORATED);
 
             DialogPane dialogPane = alert.getDialogPane();
             dialogPane.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
@@ -145,6 +150,7 @@ public class PrivateMovieController extends BaseController implements Initializa
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(new Scene(root));
         root.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
+        stage.initStyle(StageStyle.UNDECORATED);
         // The stage is then displayed and the program waits for
         // the user to interact with the delete song dialog.
         stage.showAndWait();
@@ -156,7 +162,7 @@ public class PrivateMovieController extends BaseController implements Initializa
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setHeaderText("Are you sure you wanna delete this category?");
-            alert.setTitle(" ");
+            alert.initStyle(StageStyle.UNDECORATED);
 
             DialogPane dialogPane = alert.getDialogPane();
             dialogPane.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
@@ -185,5 +191,14 @@ public class PrivateMovieController extends BaseController implements Initializa
 
         Desktop.getDesktop().open(name);
 
+    }
+
+    public void handleCloseApp(ActionEvent actionEvent)
+    {
+        // This code closes the current window by getting a reference to the stage
+        // and calling the close() method.
+        Node source = (Node) actionEvent.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 }
