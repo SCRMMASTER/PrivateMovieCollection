@@ -10,7 +10,7 @@ public class Category {
 
     String Genre;
 
-    public Category(String Genre){
+    public Category(int Id, String Genre){
 
         this.Id = Id;
         this.Genre = Genre;

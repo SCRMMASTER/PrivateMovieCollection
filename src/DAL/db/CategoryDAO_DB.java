@@ -37,20 +37,18 @@ public class CategoryDAO_DB implements ICategoryDataAccess {
                 int id = rs.getInt("Id");
                 String Genre = rs.getString("Genre");
 
-                Category category = new Category(Genre);
+                Category category = new Category(id, Genre);
                 allCategory.add(category);
             }
             return allCategory;
-        }
-        catch (SQLException ex)
-        {
+        } catch (SQLException ex) {
             ex.printStackTrace();
             throw new Exception("Could not get Category form database", ex);
         }
     }
+
     //Create a new Category (Genre) in the database table.
-    public Category createCategory( String Genre) throws Exception
-    {
+    public Category createCategory(String Genre) throws Exception {
         //SQL Statement.
 
         String sql = "INSERT INTO Category (Genre) VALUES (?);";
@@ -59,58 +57,52 @@ public class CategoryDAO_DB implements ICategoryDataAccess {
             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             // Bind the parameters
-
             stmt.setString(1, Genre);
 
             // Run the SQL statement
-
             stmt.executeUpdate();
 
             // Get the generated ID from the DB
-
             ResultSet rs = stmt.getGeneratedKeys();
-            int generatedKey = 0;
+            int id = 0;
 
             if (rs.next()) {
-                generatedKey = rs.getInt(1);
+                id = rs.getInt(1);
             }
 
             // Create playlist object and send up the layers
 
-            Category category = new Category(Genre);
+            Category category = new Category(id, Genre);
             return category;
-        }
-        catch (SQLException ex)
-        {
+        } catch (SQLException ex) {
             ex.printStackTrace();
             throw new Exception("Could not create Genre", ex);
         }
     }
 
-// Delete a Category from the database table.
-    public void deleteCategory(Category selectedCategory) throws Exception
-    {
-        try (Connection conn = dataBaseConnecter.getConnection()){
+    // Delete a Category from the database table.
+    public void deleteCategory(Category selectedCategory) throws Exception {
+        deleteCategoryFromMovie(selectedCategory);
+        try (Connection conn = dataBaseConnecter.getConnection()) {
 
             //SQL Command
-            String sql = "DELETE FROM Category WHERE Genre = ?;";
+            String sql = "DELETE FROM Category WHERE Id = ?;";
 
             //Prepared Statement
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, (selectedCategory.getGenre()));
+            stmt.setInt(1, (selectedCategory.getId()));
 
             //Run the statement
             stmt.executeUpdate();
 
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
             throw new Exception("Could not delete Category...", ex);
         }
     }
 
-    public void addCategoryToMovie(Category category, Movie movie) throws Exception{
-        try(Connection conn = dataBaseConnecter.getConnection()){
+    public void addCategoryToMovie(Category category, Movie movie) throws Exception {
+        try (Connection conn = dataBaseConnecter.getConnection()) {
             String sql = "INSERT INTO CatMovie VALUES(?,?)";
 
             PreparedStatement stmt = conn.prepareStatement(sql);
@@ -119,9 +111,24 @@ public class CategoryDAO_DB implements ICategoryDataAccess {
             stmt.setInt(2, movie.getId());
 
             stmt.executeUpdate();
-        } catch(SQLException ex){
+        } catch (SQLException ex) {
             ex.printStackTrace();
             throw new Exception("Could not add category to movie", ex);
+        }
+    }
+
+    private void deleteCategoryFromMovie(Category category) {
+        try (Connection conn = dataBaseConnecter.getConnection()) {
+            String sql = "DELETE FROM CatMovie WHERE CategoryId = ?";
+
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setInt(1, category.getId());
+
+            stmt.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Could not remove songs from playlist");
         }
     }
 }
