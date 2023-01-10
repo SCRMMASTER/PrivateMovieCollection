@@ -7,13 +7,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="136.0" prefWidth="263.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.NewCategoryController">
-      <Text layoutX="68.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Category">
-         <font>
-            <Font size="21.0" />
-         </font>
-      </Text>
-      <TextField fx:id="categoryName" layoutX="48.0" layoutY="60.0" prefHeight="25.0" prefWidth="126.0" promptText="Name...." />
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.NewCategoryController">
    <children>
       <Button fx:id="btnCancel" layoutX="131.0" layoutY="266.0" mnemonicParsing="false" onAction="#handelCancel" text="Cancel" />
       <Button fx:id="btnDone" layoutX="400.0" layoutY="174.0" mnemonicParsing="false" onAction="#handelDone" text="Done" />
