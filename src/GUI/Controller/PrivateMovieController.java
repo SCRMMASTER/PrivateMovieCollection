@@ -182,6 +182,7 @@ public class PrivateMovieController extends BaseController implements Initializa
         }
     }
 
+
     public void handelPlay(ActionEvent actionEvent) throws IOException {
 
         //File file = new File("/Users/magnus/Documents/IMG_iii1652.MOV");

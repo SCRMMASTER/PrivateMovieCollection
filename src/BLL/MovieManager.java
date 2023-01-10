@@ -35,5 +35,10 @@ public class MovieManager {
         movieDAO_DB.getFilePath(selectedMovie);
         return selectedMovie;
     }
+    public Movie personalRating(Movie updatedMovie) throws Exception {
+        movieDAO_DB.updateMovie(updatedMovie);
+        return updatedMovie;
+
+    }
 
 }

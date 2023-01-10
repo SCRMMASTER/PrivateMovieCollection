@@ -154,5 +154,30 @@ private void deleteCategoryFromMovie(Movie movie){
         }
 }
 
+    public void personalRating(Movie updatedMovie) throws Exception {
+
+        try (Connection conn = dataBaseConnecter.getConnection()) {
+
+            String sql = "UPDATE Movie SET personalRating =? WHERE Id = ?";
+
+            PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            //Bind parameter
+
+            stmt.setString(1, updatedMovie.getMovieTitle());
+            stmt.setDouble(2, updatedMovie.getImdbRating();
+            stmt.setInt(3, updatedMovie.getPersonalRating());
+            stmt.setString(4, updatedMovie.getFilePath());
+            stmt.setDouble(5, updatedMovie.getLastViewed());
+            stmt.setInt(6, updatedMovie.getYear());
+
+            stmt.executeUpdate();
+        }
+        catch (SQLException ex){
+            ex.printStackTrace();
+            throw new Exception("Could not add Personal Rating...", ex);
+        }
+    }
+
 }
 

@@ -39,4 +39,7 @@ public class MovieModel {
         movieManager.deleteMovie(movie);
         moviesToBeViewed.remove(movie);
     }
+    public personalRating(Movie updatedMovie) throws Exception;{
+        movieManager.personalRating(updatedMovie);
+    }
 }
