@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51fa20b6-3b81-48b4-b630-6d9537a82373" name="Changes" comment="" />
+    <list default="true" id="51fa20b6-3b81-48b4-b630-6d9537a82373" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/GUI/Controller/EditPRatingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/View/EditPRatingView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/BLL/MovieManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/DAL/IMovieDataAccess.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/DAL/db/MovieDAO_DB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/BaseController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/DropDownMovieController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/NewMovieController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/PrivateMovieController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Model/MovieModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAL/db/MovieDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/MovieDAO_DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/PrivateMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/PrivateMovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/View/PrivateMovieView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/View/PrivateMovieView.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +30,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>

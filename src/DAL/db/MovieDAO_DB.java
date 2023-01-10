@@ -165,7 +165,7 @@ private void deleteCategoryFromMovie(Movie movie){
             //Bind parameter
 
             stmt.setString(1, updatedMovie.getMovieTitle());
-            stmt.setDouble(2, updatedMovie.getImdbRating();
+            stmt.setDouble(2, updatedMovie.getImdbRating());
             stmt.setInt(3, updatedMovie.getPersonalRating());
             stmt.setString(4, updatedMovie.getFilePath());
             stmt.setDouble(5, updatedMovie.getLastViewed());

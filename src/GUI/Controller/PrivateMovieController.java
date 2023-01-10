@@ -33,9 +33,8 @@ public class PrivateMovieController extends BaseController implements Initializa
     public TableView<Movie> tblMovie;
     @FXML
     public TextField txtMovieSearch;
-    public Button btnClose;
     @FXML
-    private Button btnaddCategory, btndeleteCategory, btnaddMovie, btndeleteMovie, btnPLay;
+    private Button btnaddCategory, btndeleteCategory, btnaddMovie, btndeleteMovie, btnPLay, btnEditPRating, btnClose;
     @FXML
     private TableColumn<Movie, String> ColYear, ColIMDB, ColPRating, ColTitle;
 
@@ -203,5 +202,8 @@ public class PrivateMovieController extends BaseController implements Initializa
         Node source = (Node) actionEvent.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
+    }
+
+    public void handleEditPRating(ActionEvent actionEvent) {
     }
 }
