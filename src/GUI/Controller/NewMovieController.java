@@ -73,11 +73,16 @@ public class NewMovieController extends BaseController{
 */
 
         // Finds where the fxml is located.
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/View/DropDownMovieView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/DropDownMovieView.fxml"));
         // Loads the stage.
-        Parent root = fxmlLoader.load();
+        Parent root = loader.load();
         // Makes the new stage.
         Stage stage = new Stage();
+
+        DropDownMovieController controller = loader.getController();
+        controller.setModel(super.getModel());
+        controller.setup();
+
         // Title of the stage.
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle("Add new movie");

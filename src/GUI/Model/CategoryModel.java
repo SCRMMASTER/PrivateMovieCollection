@@ -1,6 +1,7 @@
 package GUI.Model;
 
 import BE.Category;
+import BE.Movie;
 import BLL.CategoryManager;
 import GUI.Controller.BaseController;
 import javafx.collections.FXCollections;
@@ -36,4 +37,7 @@ public class CategoryModel {
         categoriesToBeViewed.remove(selectedCategory);
     }
 
+    public void addCategoryToMovie(Category category, Movie movie) throws Exception{
+        categoryManager.addCategoryToMovie(category, movie);
+    }
 }

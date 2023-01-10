@@ -5,41 +5,44 @@
 package BLL;
 
 import BE.Category;
+import BE.Movie;
 import DAL.ICategoryDataAccess;
 import DAL.db.CategoryDAO_DB;
-import javafx.collections.ObservableList;
 
 import java.util.List;
 
 public class CategoryManager {
 
-    private ICategoryDataAccess CategoryDAO_DB;
+    private ICategoryDataAccess categoryDAO_DB;
 
     public CategoryManager(){
 
-        CategoryDAO_DB = new CategoryDAO_DB();
+        categoryDAO_DB = new CategoryDAO_DB();
 
     }
 
     //Retrieve alle Categories from database table
     public List<Category> getAllCategories() throws Exception
     {
-        return CategoryDAO_DB.getAllCategories();
+        return categoryDAO_DB.getAllCategories();
 
     //Create new category(Genre)
 
     }
     public Category createNewCategory(int id, String Genre) throws Exception
     {
-        return CategoryDAO_DB.createCategory(id, Genre);
+        return categoryDAO_DB.createCategory(id, Genre);
 
     }
     //Delete Category(genre)
 
     public void deleteCategory(Category selectedCategory) throws Exception
     {
-        CategoryDAO_DB.deleteCategory(selectedCategory);
+        categoryDAO_DB.deleteCategory(selectedCategory);
     }
 
+    public void addCategoryToMovie(Category category, Movie movie) throws Exception {
+        categoryDAO_DB.addCategoryToMovie(category, movie);
+    }
 
 }

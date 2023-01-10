@@ -97,6 +97,7 @@ public class MovieDAO_DB implements IMovieDataAccess
     public Movie deleteMovies(Movie movie) throws Exception {
         //Delete the selected movie based on a specific id.
         String sql = "DELETE FROM Movie WHERE id = ?";
+        deleteCategoryFromMovie(movie);
         try(Connection conn = dataBaseConnecter.getConnection()) {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, movie.getId());
@@ -138,6 +139,20 @@ public class MovieDAO_DB implements IMovieDataAccess
         return selectedMovie;
 
     }
+private void deleteCategoryFromMovie(Movie movie){
+        try(Connection conn = dataBaseConnecter.getConnection()){
+            String sql = "DELETE FROM CatMovie WHERE MovieId = ?";
+
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setInt(1, movie.getId());
+
+            stmt.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Could not remove songs from playlist");
+        }
+}
 
 }
 
