@@ -16,19 +16,19 @@ import java.util.List;
 
 public class CategoryDAO_DB implements ICategoryDataAccess {
     private DataBaseConnecter dataBaseConnecter;
-    public CategoryDAO_DB(){
+
+    public CategoryDAO_DB() {
         dataBaseConnecter = new DataBaseConnecter();
 
     }
 
     // Get all the Categories from the database table
 
-    public List<Category> getAllCategories() throws Exception{
+    public List<Category> getAllCategories() throws Exception {
         ArrayList<Category> allCategory = new ArrayList<>();
 
-        try (Connection conn = dataBaseConnecter.getConnection())
-        {
-            String sql ="SELECT * FROM Category;";
+        try (Connection conn = dataBaseConnecter.getConnection()) {
+            String sql = "SELECT * FROM Category;";
 
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
@@ -130,5 +130,33 @@ public class CategoryDAO_DB implements ICategoryDataAccess {
             e.printStackTrace();
             throw new RuntimeException("Could not remove songs from playlist");
         }
+    }
+
+    public List<Movie> getAllMoviesFromCategory(Category category) {
+        ArrayList<Movie> allMoviesInCategory = new ArrayList<>();
+        try (Connection conn = dataBaseConnecter.getConnection()) {
+            String sql = "SELECT m.* FROM CatMovie cm INNER JOIN Movie m ON m.Id = cm.MovieId WHERE cm.CategoryId = ?";
+
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setInt(1, category.getId());
+
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("Id");
+                String movieTitle = rs.getString("Title");
+                Double imdbRating = rs.getDouble("IMDB_Rating");
+                int personalRating = rs.getInt("Personal_Rating");
+                String filepath = rs.getString("FileLink");
+                double lastviewed = rs.getInt("LastView");
+                int year = rs.getInt("Year");
+                Movie movie = new Movie(id, movieTitle, imdbRating, personalRating, filepath, lastviewed, year);
+                allMoviesInCategory.add(movie);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            throw new RuntimeException("Could not get Category form database", ex);
+        }
+        return allMoviesInCategory;
     }
 }

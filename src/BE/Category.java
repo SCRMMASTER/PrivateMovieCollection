@@ -4,11 +4,16 @@
  */
 package BE;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Category {
 
     int Id;
 
     String Genre;
+
+    public List<Movie> movies = new ArrayList<>();
 
     public Category(int Id, String Genre){
 
@@ -41,4 +46,10 @@ public class Category {
         return Genre;
     }
 
+    public List<Movie> getMovie(){
+        return movies;
+    }
+
+    public void setMovie(List<Movie> movies) { this.movies = movies;
+    }
 }

@@ -95,7 +95,14 @@ public class NewMovieController extends BaseController{
         //Opens file browser to select a file
         Stage stage = new Stage();
         FileChooser mFileChooser = new FileChooser();
+        mFileChooser.setTitle("Pick a Movie");
+        mFileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Movie Files (*.mp4, *.mpeg4)","*.mp4","*.mpeg4"),
+                new FileChooser.ExtensionFilter("MP4 Files (*.mp4)", "*.mp4"),
+                new FileChooser.ExtensionFilter("MPEG4 Files (*.mpeg4)","*.mpeg4")
+        );
         mFile = mFileChooser.showOpenDialog(stage);
+        if(mFile != null)
        txtfFile.setText(mFile.getName());
 
 

@@ -46,4 +46,9 @@ public class CategoryManager {
     public void addCategoryToMovie(Category category, Movie movie) throws Exception {
         categoryDAO_DB.addCategoryToMovie(category, movie);
     }
+
+    public void getAllMoviesFromCategory(Category category){
+        List<Movie> allMovieFromCategory = categoryDAO_DB.getAllMoviesFromCategory(category);
+        category.setMovie(allMovieFromCategory);
+    }
 }

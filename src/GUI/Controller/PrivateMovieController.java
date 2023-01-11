@@ -6,6 +6,7 @@ import GUI.Model.BaseModel;
 import GUI.Model.CategoryModel;
 import GUI.Model.MovieModel;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -42,6 +44,7 @@ public class PrivateMovieController extends BaseController implements Initializa
     public MovieModel movieModel;
 
     public CategoryModel categoryModel;
+    private Category selectedCategory;
 
     public PrivateMovieController(){
 
@@ -77,6 +80,7 @@ public class PrivateMovieController extends BaseController implements Initializa
         txtMovieSearch.textProperty().addListener((observableValue, oldValue, newValue) -> {
             try {
                 movieModel.searchMovie(newValue);
+
             } catch (Exception e) {
                 //displayError(e);
             }
@@ -202,5 +206,15 @@ public class PrivateMovieController extends BaseController implements Initializa
         Node source = (Node) actionEvent.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
+    }
+
+    public void OnCategoryClicked(MouseEvent mouseEvent) {
+            selectedCategory = lstCategory.getSelectionModel().getSelectedItem();
+        if(selectedCategory != null) {
+            categoryModel.getAllMoviesFromCategory(selectedCategory);
+            tblMovie.setItems(FXCollections.observableArrayList(selectedCategory.getMovie()));
+        }
+        else
+            tblMovie.setItems(movieModel.getObservableMovies());
     }
 }

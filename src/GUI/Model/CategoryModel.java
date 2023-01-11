@@ -45,4 +45,7 @@ public void createNewCategory(String categoryname) throws Exception{
     public void addCategoryToMovie(Category category, Movie movie) throws Exception{
         categoryManager.addCategoryToMovie(category, movie);
     }
+    public void getAllMoviesFromCategory(Category category){
+        categoryManager.getAllMoviesFromCategory(category);
+    }
 }
