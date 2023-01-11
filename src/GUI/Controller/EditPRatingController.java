@@ -19,10 +19,21 @@ public class EditPRatingController extends BaseController {
 
     public void handleDone(ActionEvent actionEvent) throws Exception
     {
-
+        int id = movieModel.selectedMovie.getId();
+        String title  = movieModel.selectedMovie.getMovieTitle();
+        double imdbRaing = movieModel.selectedMovie.getImdbRating();
         int updatedPersonalRating = Integer.parseInt(txtfEditPRating.getText());
+        String filepath = movieModel.selectedMovie.getFilePath();
+        double lastview = movieModel.selectedMovie.getLastViewed();
+        int year = movieModel.selectedMovie.getYear();
 
+        Movie updatedMovie = new Movie(id,title,imdbRaing, updatedPersonalRating, filepath, lastview, year);
 
+        movieModel.personalRating(updatedMovie);
+
+        Node source = (Node) actionEvent.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 // Cancel button
     public void handleCancel(ActionEvent actionEvent) {

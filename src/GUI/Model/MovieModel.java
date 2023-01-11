@@ -45,6 +45,9 @@ public class MovieModel {
 
     public void personalRating(Movie updatedMovie) throws Exception {
         movieManager.personalRating(updatedMovie);
+
+        moviesToBeViewed.clear();
+        moviesToBeViewed.addAll(movieManager.getAllMovies());
     }
 
     public Movie getSelectedMovie() {
