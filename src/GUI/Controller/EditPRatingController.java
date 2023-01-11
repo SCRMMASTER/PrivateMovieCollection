@@ -9,6 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.time.LocalDate;
+
 public class EditPRatingController extends BaseController {
     @FXML
     public Button btnCancel, btnDone;
@@ -24,7 +26,7 @@ public class EditPRatingController extends BaseController {
         double imdbRaing = movieModel.selectedMovie.getImdbRating();
         int updatedPersonalRating = Integer.parseInt(txtfEditPRating.getText());
         String filepath = movieModel.selectedMovie.getFilePath();
-        double lastview = movieModel.selectedMovie.getLastViewed();
+        LocalDate lastview = movieModel.selectedMovie.getLastViewed();
         int year = movieModel.selectedMovie.getYear();
 
         Movie updatedMovie = new Movie(id,title,imdbRaing, updatedPersonalRating, filepath, lastview, year);

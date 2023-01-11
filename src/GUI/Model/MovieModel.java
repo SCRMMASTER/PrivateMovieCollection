@@ -5,6 +5,7 @@ import BLL.MovieManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class MovieModel {
@@ -31,7 +32,7 @@ public class MovieModel {
         return moviesToBeViewed;
     }
 
-    public void createMovie(String movieTitle, Double imdbrating, int personalrating, String filepath, Double lastviewed, int year) throws Exception {
+    public void createMovie(String movieTitle, Double imdbrating, int personalrating, String filepath, LocalDate lastviewed, int year) throws Exception {
         createdMovie = movieManager.createMovie(movieTitle, imdbrating, personalrating, filepath, lastviewed, year);
         moviesToBeViewed.add(createdMovie);
         moviesToBeViewed.clear();

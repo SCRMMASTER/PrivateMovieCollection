@@ -11,6 +11,7 @@ import BE.Movie;
 import DAL.ICategoryDataAccess;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -148,7 +149,7 @@ public class CategoryDAO_DB implements ICategoryDataAccess {
                 Double imdbRating = rs.getDouble("IMDB_Rating");
                 int personalRating = rs.getInt("Personal_Rating");
                 String filepath = rs.getString("FileLink");
-                double lastviewed = rs.getInt("LastView");
+                LocalDate lastviewed = rs.getDate("LastView").toLocalDate();
                 int year = rs.getInt("Year");
                 Movie movie = new Movie(id, movieTitle, imdbRating, personalRating, filepath, lastviewed, year);
                 allMoviesInCategory.add(movie);

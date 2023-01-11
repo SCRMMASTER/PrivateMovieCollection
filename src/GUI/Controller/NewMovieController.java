@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 
 public class NewMovieController extends BaseController{
 
@@ -43,7 +44,7 @@ public class NewMovieController extends BaseController{
         double imdbrating = Double.parseDouble(txtfIMDBRating.getText());
         int personalrating = Integer.parseInt(txtfPersonalRating.getText());
         String filepath = txtfFile.getText();
-        double lastviewed = 0.0;
+        LocalDate lastviewed = LocalDate.now();
         int year = Integer.parseInt(txtfYear.getText());
 
         try {

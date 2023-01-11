@@ -9,6 +9,8 @@
  */
 package BE;
 
+import java.time.LocalDate;
+
 //Declare variables for the Movie object.
 public class Movie {
 
@@ -24,12 +26,12 @@ public class Movie {
 
     int personalRating;
 
-    double lastViewed;
+    LocalDate lastViewed;
 
     String filePath;
 
 
-    public Movie(int id, String movieTitle,double imdbRating,int personalRating,String filePath,double lastViewed,int year){
+    public Movie(int id, String movieTitle, double imdbRating, int personalRating, String filePath, LocalDate lastViewed, int year){
 
         this.id = id;
         this.movieTitle = movieTitle;
@@ -90,10 +92,10 @@ public class Movie {
         this.personalRating = personalRating;
     }
 
-    public double getLastViewed() {
+    public LocalDate getLastViewed() {
         return lastViewed;
     }
-    public void setLastViewed(double lastViewed){
+    public void setLastViewed(LocalDate lastViewed){
         this.lastViewed = lastViewed;
     }
     public String getFilePath(){
