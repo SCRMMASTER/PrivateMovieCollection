@@ -30,6 +30,8 @@ import java.io.IOException;
 import java.awt.*;
 import java.io.File;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class PrivateMovieController extends BaseController implements Initializable {
@@ -65,7 +67,7 @@ public class PrivateMovieController extends BaseController implements Initializa
     }
 
     @Override
-    public void setup() {
+    public void setup() throws Exception {
         movieModel = getModel().getMovieModel();
         categoryModel = getModel().getCategoryModel();
 
@@ -87,15 +89,24 @@ public class PrivateMovieController extends BaseController implements Initializa
             }
         });
 
-        tblMovie.setItems(movieModel.getObservableMovies());
-
         ColTitle.setCellValueFactory(c -> new SimpleObjectProperty(c.getValue().getMovieTitle()));
         ColIMDB.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getImdbRating())));
         ColPRating.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getPersonalRating())));
         ColYear.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getYear())));
 
 
-    }
+        for(int i = 0; i <= movieModel.getObservableMovies().size()-1; i++){
+           LocalDate lastviewed = movieModel.getObservableMovies().get(i).getLastViewed();
+            System.out.println(lastviewed);
+           int rating = movieModel.getObservableMovies().get(i).getPersonalRating();
+            System.out.println(rating);
+           LocalDate years = lastviewed.plusYears(2);
+            System.out.println(years);
+           if(Objects.equals(lastviewed,years) && rating<=6){
+               deleteMovieBasedOnTime(i);
+               }
+           }
+        }
 
 
     public void handeladdMovie(ActionEvent actionEvent) throws IOException {
@@ -192,7 +203,7 @@ public class PrivateMovieController extends BaseController implements Initializa
         //File file = new File("/Users/magnus/Documents/IMG_iii1652.MOV");
         //Desktop.getDesktop().open(file);
 
-
+        tblMovie.getSelectionModel().getSelectedItem().setLastViewed(LocalDate.now());
         File name = new File("Resources/Movies/" + tblMovie.getSelectionModel().getSelectedItem().getFilePath());
         System.out.println("kuisfhbd");
 
@@ -244,8 +255,20 @@ public class PrivateMovieController extends BaseController implements Initializa
                 //Opens window and waits for user input.
                 dialogWindow.showAndWait();
             }
+        }
+public void deleteMovieBasedOnTime(int i) throws Exception {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setHeaderText("Do you wanna delete " + movieModel.getObservableMovies().get(i).getMovieTitle() + " with a score of less than 6 and has not been seen in 2 years");
+            alert.initStyle(StageStyle.UNDECORATED);
 
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
+            dialogPane.getStyleClass().add("myDialog");
 
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.OK) {
+                movieModel.deleteMovie(movieModel.getObservableMovies().get(i));
+            }
         }
 }
 

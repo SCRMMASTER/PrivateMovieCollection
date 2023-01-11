@@ -17,5 +17,5 @@ public abstract class BaseController {
         return baseModel ;
     }
 
-    public abstract void setup();
+    public abstract void setup() throws Exception;
 }
