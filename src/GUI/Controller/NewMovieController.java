@@ -28,7 +28,7 @@ public class NewMovieController extends BaseController{
     public Label lblFile, lblTitle, lblIMDBRating, lblPersonalRating, lblYear;
     public TextField txtfFile, txtfTitle, txtfIMDBRating, txtfPersonalRating, txtfYear;
     private File mFile;
-    public String fileMoviePath = "Movies/more";
+    public String fileMoviePath = "Resources/Movies";
     private Path target = Paths.get(fileMoviePath);
     private MovieModel movieModel;
 
@@ -96,11 +96,11 @@ public class NewMovieController extends BaseController{
         Stage stage = new Stage();
         FileChooser mFileChooser = new FileChooser();
         mFile = mFileChooser.showOpenDialog(stage);
-       txtfFile.setText(mFile.getPath());
+       txtfFile.setText(mFile.getName());
 
 
         System.out.println("Selected file " + mFile);
-        System.out.println(getMovieLength(mFile).toString());
+        //System.out.println(getMovieLength(mFile).toString());
 
     }
 

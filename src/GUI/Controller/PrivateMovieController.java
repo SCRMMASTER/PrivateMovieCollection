@@ -188,7 +188,7 @@ public class PrivateMovieController extends BaseController implements Initializa
         //Desktop.getDesktop().open(file);
 
 
-        File name = new File(tblMovie.getSelectionModel().getSelectedItem().getFilePath());
+        File name = new File("Resources/Movies/" + tblMovie.getSelectionModel().getSelectedItem().getFilePath());
         System.out.println("kuisfhbd");
 
         Desktop.getDesktop().open(name);

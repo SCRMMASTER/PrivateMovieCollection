@@ -5,9 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51fa20b6-3b81-48b4-b630-6d9537a82373" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/PrivateMovieCollection.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PrivateMovieCollection.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03-01-2023_10_56_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03-01-2023_10_56__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03-01-2023_11_04_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03-01-2023_11_04__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/DAL/db/CategoryDAO_DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/DAL/db/CategoryDAO_DB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/Movies/more/sts117.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Movies/jakarta.activation-62.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/jakarta.activation-62.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Movies/javax.activation-62.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/javax.activation-62.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Movies/jaxb-api-20050407.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/jaxb-api-20050407.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Movies/more/LOTR.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Movies/LOTR.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Movies/more/olaf.net.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Movies/olaf.net.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Movies/mssql-jdbc-11.2.1.jre18.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/mssql-jdbc-11.2.1.jre18.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/.idea/PrivateMovieCollection.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/.idea/PrivateMovieCollection.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/.idea/shelf/Uncommitted_changes_before_Update_at_03-01-2023_10_56_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/.idea/shelf/Uncommitted_changes_before_Update_at_03-01-2023_10_56__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/.idea/shelf/Uncommitted_changes_before_Update_at_03-01-2023_11_04_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/.idea/shelf/Uncommitted_changes_before_Update_at_03-01-2023_11_04__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/NewMovieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/NewMovieController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/View/PrivateMovieView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/View/PrivateMovieView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/Movies/jakarta.activation-62.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/Movies/javax.activation-62.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/Movies/jaxb-api-20050407.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/Movies/more/LOTR.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/Movies/more/olaf.net.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/Movies/mssql-jdbc-11.2.1.jre18.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/src/GUI/View/PrivateMovieView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/src/GUI/View/PrivateMovieView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/NewMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/NewMovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/PrivateMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/PrivateMovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/View/PrivateMovieView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/View/PrivateMovieView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,21 +60,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2045977&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2045977"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Recources/Movies" />
@@ -87,6 +115,7 @@
       <workItem from="1673002592556" duration="823000" />
       <workItem from="1673251750194" duration="8641000" />
       <workItem from="1673337244115" duration="633000" />
+      <workItem from="1673426024862" duration="627000" />
     </task>
     <servers />
   </component>
@@ -103,5 +132,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
