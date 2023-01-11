@@ -75,9 +75,9 @@ public class NewMovieController extends BaseController{
 */
 
         // Finds where the fxml is located.
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/View/DropDownMovieView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/DropDownMovieView.fxml"));
         // Loads the stage.
-        Parent root = fxmlLoader.load();
+        Parent root = loader.load();
         // Makes the new stage.
         Stage stage = new Stage();
         // Title of the stage.
@@ -85,6 +85,11 @@ public class NewMovieController extends BaseController{
         stage.setScene(new Scene(root));
         root.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
         stage.initStyle(StageStyle.UNDECORATED);
+
+        DropDownMovieController controller = loader.getController();
+        controller.setModel(super.getModel());
+        controller.setup();
+
         // The stage is then displayed and the program waits for
         // the user to interact with the delete song dialog.
         stage.showAndWait();

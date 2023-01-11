@@ -95,7 +95,7 @@ public class PrivateMovieController extends BaseController implements Initializa
         ColYear.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getYear())));
 
 
-        for(int i = 0; i <= movieModel.getObservableMovies().size()-1; i++){
+       for(int i = 0; i <= movieModel.getObservableMovies().size()-1; i++){
            LocalDate lastviewed = movieModel.getObservableMovies().get(i).getLastViewed();
             System.out.println(lastviewed);
            int rating = movieModel.getObservableMovies().get(i).getPersonalRating();
