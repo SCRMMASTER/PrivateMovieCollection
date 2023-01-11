@@ -216,6 +216,7 @@ public class PrivateMovieController extends BaseController implements Initializa
             tblMovie.setItems(FXCollections.observableArrayList(selectedCategory.getMovie()));
         } else
             tblMovie.setItems(movieModel.getObservableMovies());
+    }
 
         public void handleEditPRating (ActionEvent actionEvent) throws IOException {
             Movie selectedMovie = tblMovie.getSelectionModel().getSelectedItem();
@@ -246,6 +247,5 @@ public class PrivateMovieController extends BaseController implements Initializa
 
 
         }
-    }
-
 }
+
