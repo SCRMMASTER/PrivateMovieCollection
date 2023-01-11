@@ -9,5 +9,6 @@ public interface IMovieDataAccess {
     public Movie createMovie(String movieTitle, Double imdbrating, int personalrating, String filepath, Double lastviewed, int year) throws Exception;
     public Movie deleteMovies(Movie movie) throws Exception;
     public Movie getFilePath(Movie selectedMovie) throws Exception;
+    public void personalRating(Movie movie) throws Exception;
 
 }

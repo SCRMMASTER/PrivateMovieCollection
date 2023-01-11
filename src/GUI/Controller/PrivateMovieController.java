@@ -17,7 +17,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+
 import javafx.scene.input.MouseEvent;
+
+import javafx.scene.layout.AnchorPane;
+
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -35,9 +39,8 @@ public class PrivateMovieController extends BaseController implements Initializa
     public TableView<Movie> tblMovie;
     @FXML
     public TextField txtMovieSearch;
-    public Button btnClose;
     @FXML
-    private Button btnaddCategory, btndeleteCategory, btnaddMovie, btndeleteMovie, btnPLay;
+    private Button btnaddCategory, btndeleteCategory, btnaddMovie, btndeleteMovie, btnPLay, btnEditPRating, btnClose;
     @FXML
     private TableColumn<Movie, String> ColYear, ColIMDB, ColPRating, ColTitle;
 
@@ -46,7 +49,7 @@ public class PrivateMovieController extends BaseController implements Initializa
     public CategoryModel categoryModel;
     private Category selectedCategory;
 
-    public PrivateMovieController(){
+    public PrivateMovieController() {
 
         try {
             movieModel = new MovieModel();
@@ -57,14 +60,12 @@ public class PrivateMovieController extends BaseController implements Initializa
     }
 
 
-    public void initialize(URL location, ResourceBundle resources)
-    {
+    public void initialize(URL location, ResourceBundle resources) {
 
     }
 
     @Override
-    public void setup()
-    {
+    public void setup() {
         movieModel = getModel().getMovieModel();
         categoryModel = getModel().getCategoryModel();
 
@@ -73,7 +74,7 @@ public class PrivateMovieController extends BaseController implements Initializa
         lstCategory.setItems(categoryModel.getObservableCategories());
 
 
-        if (tblMovie.getSelectionModel().getSelectedItem() != null){
+        if (tblMovie.getSelectionModel().getSelectedItem() != null) {
             btnPLay.setDisable(false);
         }
 
@@ -86,7 +87,7 @@ public class PrivateMovieController extends BaseController implements Initializa
             }
         });
 
-    tblMovie.setItems(movieModel.getObservableMovies());
+        tblMovie.setItems(movieModel.getObservableMovies());
 
         ColTitle.setCellValueFactory(c -> new SimpleObjectProperty(c.getValue().getMovieTitle()));
         ColIMDB.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getImdbRating())));
@@ -95,7 +96,6 @@ public class PrivateMovieController extends BaseController implements Initializa
 
 
     }
-
 
 
     public void handeladdMovie(ActionEvent actionEvent) throws IOException {
@@ -132,10 +132,10 @@ public class PrivateMovieController extends BaseController implements Initializa
             dialogPane.getStyleClass().add("myDialog");
 
             alert.showAndWait();
-            if(alert.getResult() == ButtonType.OK) {
-               movieModel.deleteMovie(tblMovie.getSelectionModel().getSelectedItem());
+            if (alert.getResult() == ButtonType.OK) {
+                movieModel.deleteMovie(tblMovie.getSelectionModel().getSelectedItem());
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             //displayError(e);
 
             e.printStackTrace();
@@ -175,16 +175,17 @@ public class PrivateMovieController extends BaseController implements Initializa
             dialogPane.getStyleClass().add("myDialog");
 
             alert.showAndWait();
-            if(alert.getResult() == ButtonType.OK) {
+            if (alert.getResult() == ButtonType.OK) {
                 System.out.println("you have now deleted the category");
                 categoryModel.deleteCategory(lstCategory.getSelectionModel().getSelectedItem());
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             //displayError(e);
 
             e.printStackTrace();
         }
     }
+
 
     public void handelPlay(ActionEvent actionEvent) throws IOException {
 
@@ -199,8 +200,7 @@ public class PrivateMovieController extends BaseController implements Initializa
 
     }
 
-    public void handleCloseApp(ActionEvent actionEvent)
-    {
+    public void handleCloseApp(ActionEvent actionEvent) {
         // This code closes the current window by getting a reference to the stage
         // and calling the close() method.
         Node source = (Node) actionEvent.getSource();
@@ -208,13 +208,44 @@ public class PrivateMovieController extends BaseController implements Initializa
         stage.close();
     }
 
+
     public void OnCategoryClicked(MouseEvent mouseEvent) {
-            selectedCategory = lstCategory.getSelectionModel().getSelectedItem();
-        if(selectedCategory != null) {
+        selectedCategory = lstCategory.getSelectionModel().getSelectedItem();
+        if (selectedCategory != null) {
             categoryModel.getAllMoviesFromCategory(selectedCategory);
             tblMovie.setItems(FXCollections.observableArrayList(selectedCategory.getMovie()));
-        }
-        else
+        } else
             tblMovie.setItems(movieModel.getObservableMovies());
+
+        public void handleEditPRating (ActionEvent actionEvent) throws IOException {
+            Movie selectedMovie = tblMovie.getSelectionModel().getSelectedItem();
+            movieModel.setSelectedMovie(selectedMovie);
+
+            //Wrapped in if statement to avoid run-time error.
+            if (selectedMovie != null) {
+
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("/GUI/View/EditPRatingView.fxml"));
+                AnchorPane pane = (AnchorPane) loader.load();
+
+                EditPRatingController controller = loader.getController();
+                controller.setModel(super.getModel());
+                controller.setup();
+
+                //Creates the dialog Stage.
+                Stage dialogWindow = new Stage();
+                dialogWindow.setTitle("Edit Personal Rating");
+                dialogWindow.initModality(Modality.WINDOW_MODAL);
+                dialogWindow.initOwner(((Node) actionEvent.getSource()).getScene().getWindow());
+                Scene scene = new Scene(pane);
+                dialogWindow.setScene(scene);
+
+                //Opens window and waits for user input.
+                dialogWindow.showAndWait();
+            }
+
+
+        }
     }
+
 }
