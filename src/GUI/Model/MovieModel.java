@@ -13,6 +13,8 @@ public class MovieModel {
     private MovieManager movieManager;
     public Movie createdMovie;
 
+    public Movie selectedMovie;
+
     public MovieModel() throws Exception {
         movieManager = new MovieManager();
         moviesToBeViewed = FXCollections.observableArrayList();
@@ -21,25 +23,38 @@ public class MovieModel {
 
     public void searchMovie(String query) throws Exception {
         List<Movie> searchResults = movieManager.searchMovies(query);
-       moviesToBeViewed.clear();
-       moviesToBeViewed.addAll(searchResults);
+        moviesToBeViewed.clear();
+        moviesToBeViewed.addAll(searchResults);
     }
 
-    public ObservableList<Movie> getObservableMovies(){
+    public ObservableList<Movie> getObservableMovies() {
         return moviesToBeViewed;
     }
 
     public void createMovie(String movieTitle, Double imdbrating, int personalrating, String filepath, Double lastviewed, int year) throws Exception {
-        createdMovie = movieManager.createMovie(movieTitle, imdbrating, personalrating, filepath,lastviewed,year);
+        createdMovie = movieManager.createMovie(movieTitle, imdbrating, personalrating, filepath, lastviewed, year);
         moviesToBeViewed.add(createdMovie);
         moviesToBeViewed.clear();
         moviesToBeViewed.addAll(movieManager.getAllMovies());
     }
-    public void deleteMovie(Movie movie) throws Exception{
+
+    public void deleteMovie(Movie movie) throws Exception {
         movieManager.deleteMovie(movie);
         moviesToBeViewed.remove(movie);
     }
-    public personalRating(Movie updatedMovie) throws Exception;{
+
+    public void personalRating(Movie updatedMovie) throws Exception {
         movieManager.personalRating(updatedMovie);
     }
+
+    public Movie getSelectedMovie() {
+        return selectedMovie;
+    }
+
+    public void setSelectedMovie(Movie selectedMovie) {
+        this.selectedMovie = selectedMovie;
+    }
+
+
+
 }

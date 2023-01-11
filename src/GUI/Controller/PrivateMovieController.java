@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -204,6 +205,32 @@ public class PrivateMovieController extends BaseController implements Initializa
         stage.close();
     }
 
-    public void handleEditPRating(ActionEvent actionEvent) {
+    public void handleEditPRating(ActionEvent actionEvent) throws IOException {
+        Movie selectedMovie = tblMovie.getSelectionModel().getSelectedItem();
+        movieModel.setSelectedMovie(selectedMovie);
+
+        //Wrapped in if statement to avoid run-time error.
+        if (selectedMovie != null) {
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/GUI/View/EditPRatingView.fxml"));
+            AnchorPane pane = (AnchorPane) loader.load();
+
+            EditPRatingController controller = loader.getController();
+            controller.setModel(super.getModel());
+            controller.setup();
+
+            //Creates the dialog Stage.
+            Stage dialogWindow = new Stage();
+            dialogWindow.setTitle("Edit Personal Rating");
+            dialogWindow.initModality(Modality.WINDOW_MODAL);
+            dialogWindow.initOwner(((Node) actionEvent.getSource()).getScene().getWindow());
+            Scene scene = new Scene(pane);
+            dialogWindow.setScene(scene);
+
+            //Opens window and waits for user input.
+            dialogWindow.showAndWait();
+        }
+
     }
 }
