@@ -37,4 +37,8 @@ public class MovieManager {
         movieDAO_DB.personalRating(updatedMovie);
     }
 
+    public void editLastview(Movie updatedDate) throws Exception{
+        movieDAO_DB.editLastview(updatedDate);
+    }
+
 }

@@ -150,6 +150,20 @@ private void deleteCategoryFromMovie(Movie movie){
             throw new Exception("Could not edit Personal Rating...", ex);
         }
     }
+    public void editLastview(Movie updatedDate) throws Exception {
+        try (Connection conn = dataBaseConnecter.getConnection()) {
+            String sql = "UPDATE Movie SET lastView = ? WHERE Id = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
+            //Bind parameter
+            stmt.setDate(1 , Date.valueOf(updatedDate.getLastViewed()));
+            stmt.setInt(2, updatedDate.getId());
+            stmt.executeUpdate();
+
+        } catch (SQLException ex){
+            ex.printStackTrace();
+            throw new Exception("Could not edit the date...", ex);
+        }
+    }
 }
 

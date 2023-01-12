@@ -56,6 +56,10 @@ public class MovieModel {
         this.selectedMovie = selectedMovie;
     }
 
+    public void editLastView(Movie updatedDate) throws Exception {
+        movieManager.editLastview(updatedDate);
+    }
+
 
 
 }

@@ -2,7 +2,6 @@ package GUI.Controller;
 
 import BE.Category;
 import BE.Movie;
-import GUI.Model.BaseModel;
 import GUI.Model.CategoryModel;
 import GUI.Model.MovieModel;
 import javafx.beans.property.SimpleObjectProperty;
@@ -10,7 +9,6 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -29,10 +27,8 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.awt.*;
 import java.io.File;
-import java.net.URL;
 import java.time.LocalDate;
 import java.util.Objects;
-import java.util.ResourceBundle;
 
 public class PrivateMovieController extends BaseController {
     @FXML
@@ -149,7 +145,7 @@ public class PrivateMovieController extends BaseController {
         // Makes the new stage.
         Stage stage = new Stage();
 
-        // Title of the stage<
+        // Title of the stage.
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(new Scene(root));
         root.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
@@ -187,15 +183,15 @@ public class PrivateMovieController extends BaseController {
     }
 
 
-    public void handelPlay(ActionEvent actionEvent) throws IOException {
-        //File file = new File("/Users/magnus/Documents/IMG_iii1652.MOV");
-        //Desktop.getDesktop().open(file);
-
-        tblMovie.getSelectionModel().getSelectedItem().setLastViewed(LocalDate.now());
-        File name = new File("Resources/Movies/" + tblMovie.getSelectionModel().getSelectedItem().getFilePath());
-        System.out.println("kuisfhbd");
-
-        Desktop.getDesktop().open(name);
+    public void handelPlay(ActionEvent actionEvent) throws Exception {
+        if(tblMovie.getSelectionModel().getSelectedItem() != null) {
+            File name = new File("Resources/Movies/" + tblMovie.getSelectionModel().getSelectedItem().getFilePath());
+            editLastview(tblMovie.getSelectionModel().getSelectedItem());
+            Desktop.getDesktop().open(name);
+        }
+        else {
+            showAlert();
+        }
     }
 
     public void handleCloseApp(ActionEvent actionEvent) {
@@ -206,7 +202,7 @@ public class PrivateMovieController extends BaseController {
         stage.close();
     }
 
-    public void OnCategoryClicked(MouseEvent mouseEvent) {
+    public void OnCategoryClicked(MouseEvent mouseEvent) throws Exception {
         selectedCategory = lstCategory.getSelectionModel().getSelectedItem();
         if (selectedCategory != null) {
             categoryModel.getAllMoviesFromCategory(selectedCategory);
@@ -243,18 +239,42 @@ public class PrivateMovieController extends BaseController {
             }
         }
     public void deleteMovieBasedOnTime(int i) throws Exception {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setHeaderText("Do you wanna delete " + movieModel.getObservableMovies().get(i).getMovieTitle() + " with a score of less than 6 and has not been seen in 2 years");
-            alert.initStyle(StageStyle.UNDECORATED);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText("Do you wanna delete " + movieModel.getObservableMovies().get(i).getMovieTitle() + " with a score of less than 6 and has not been seen in 2 years");
+        alert.initStyle(StageStyle.UNDECORATED);
 
-            DialogPane dialogPane = alert.getDialogPane();
-            dialogPane.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
-            dialogPane.getStyleClass().add("myDialog");
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
+        dialogPane.getStyleClass().add("myDialog");
 
-            alert.showAndWait();
-            if (alert.getResult() == ButtonType.OK) {
-                movieModel.deleteMovie(movieModel.getObservableMovies().get(i));
-            }
+        alert.showAndWait();
+        if (alert.getResult() == ButtonType.OK) {
+            movieModel.deleteMovie(movieModel.getObservableMovies().get(i));
         }
+    }
+
+    public void editLastview(Movie updatedDate) throws Exception {
+        int id = updatedDate.getId();
+        String title  = updatedDate.getMovieTitle();
+        double imdbRaing = updatedDate.getImdbRating();
+        int personalRating = updatedDate.getPersonalRating();
+        String filepath = updatedDate.getFilePath();
+        LocalDate updatedLastview = LocalDate.now();
+        int year = updatedDate.getYear();
+
+        updatedDate = new Movie(id,title,imdbRaing, personalRating, filepath, updatedLastview, year);
+        movieModel.editLastView(updatedDate);
+    }
+
+    public void showAlert() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText("Please select a movie");
+        alert.initStyle(StageStyle.UNDECORATED);
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
+        dialogPane.getStyleClass().add("myDialog");
+        alert.showAndWait();
+    }
 }
+
 

@@ -11,5 +11,6 @@ public interface IMovieDataAccess {
     public Movie deleteMovies(Movie movie) throws Exception;
     public Movie getFilePath(Movie selectedMovie) throws Exception;
     public void personalRating(Movie movie) throws Exception;
+    void editLastview(Movie updatedDate) throws Exception;
 
 }
