@@ -34,7 +34,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class PrivateMovieController extends BaseController implements Initializable {
+public class PrivateMovieController extends BaseController {
     @FXML
     public ListView<Category> lstCategory;
     @FXML
@@ -45,45 +45,31 @@ public class PrivateMovieController extends BaseController implements Initializa
     private Button btnaddCategory, btndeleteCategory, btnaddMovie, btndeleteMovie, btnPLay, btnEditPRating, btnClose;
     @FXML
     private TableColumn<Movie, String> ColYear, ColIMDB, ColPRating, ColTitle;
-
     public MovieModel movieModel;
-
     public CategoryModel categoryModel;
     private Category selectedCategory;
 
     public PrivateMovieController() {
-
         try {
             movieModel = new MovieModel();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
-    }
-
-
-    public void initialize(URL location, ResourceBundle resources) {
-
     }
 
     @Override
     public void setup() throws Exception {
         movieModel = getModel().getMovieModel();
         categoryModel = getModel().getCategoryModel();
-
-
         tblMovie.setItems(movieModel.getObservableMovies());
         lstCategory.setItems(categoryModel.getObservableCategories());
-
 
         if (tblMovie.getSelectionModel().getSelectedItem() != null) {
             btnPLay.setDisable(false);
         }
-
         txtMovieSearch.textProperty().addListener((observableValue, oldValue, newValue) -> {
             try {
                 movieModel.searchMovie(newValue);
-
             } catch (Exception e) {
                 //displayError(e);
             }
@@ -93,7 +79,6 @@ public class PrivateMovieController extends BaseController implements Initializa
         ColIMDB.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getImdbRating())));
         ColPRating.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getPersonalRating())));
         ColYear.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getYear())));
-
 
        for(int i = 0; i <= movieModel.getObservableMovies().size()-1; i++){
            LocalDate lastviewed = movieModel.getObservableMovies().get(i).getLastViewed();
@@ -107,25 +92,26 @@ public class PrivateMovieController extends BaseController implements Initializa
                }
            }
         }
-
-
     public void handeladdMovie(ActionEvent actionEvent) throws IOException {
+
         // Finds where the fxml is located.
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/NewMovieView.fxml"));
+
         // Loads the stage.
         Parent root = loader.load();
-
         NewMovieController controller = loader.getController();
         controller.setModel(super.getModel());
         controller.setup();
 
         // Makes the new stage.
         Stage stage = new Stage();
+
         // Title of the stage.
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(new Scene(root));
         root.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
         stage.initStyle(StageStyle.UNDECORATED);
+
         // The stage is then displayed and the program waits for
         // the user to interact with the delete song dialog.
         stage.showAndWait();
@@ -133,7 +119,6 @@ public class PrivateMovieController extends BaseController implements Initializa
 
     public void handelDeleteMovie(ActionEvent actionEvent) {
         try {
-
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setHeaderText("Are you sure you wanna delete this movie?");
             alert.initStyle(StageStyle.UNDECORATED);
@@ -148,24 +133,28 @@ public class PrivateMovieController extends BaseController implements Initializa
             }
         } catch (Exception e) {
             //displayError(e);
-
             e.printStackTrace();
         }
     }
 
     public void handeladdCategory(ActionEvent actionEvent) throws IOException {
         System.out.println("AddCategory");
+
         // Finds where the fxml is located.
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/View/NewCategoryView.fxml"));
+
         // Loads the stage.
         Parent root = fxmlLoader.load();
+
         // Makes the new stage.
         Stage stage = new Stage();
+
         // Title of the stage<
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(new Scene(root));
         root.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
         stage.initStyle(StageStyle.UNDECORATED);
+
         // The stage is then displayed and the program waits for
         // the user to interact with the delete song dialog.
         NewCategoryController controller = fxmlLoader.getController();
@@ -191,15 +180,14 @@ public class PrivateMovieController extends BaseController implements Initializa
                 categoryModel.deleteCategory(lstCategory.getSelectionModel().getSelectedItem());
             }
         } catch (Exception e) {
-            //displayError(e);
 
+            //displayError(e);
             e.printStackTrace();
         }
     }
 
 
     public void handelPlay(ActionEvent actionEvent) throws IOException {
-
         //File file = new File("/Users/magnus/Documents/IMG_iii1652.MOV");
         //Desktop.getDesktop().open(file);
 
@@ -208,7 +196,6 @@ public class PrivateMovieController extends BaseController implements Initializa
         System.out.println("kuisfhbd");
 
         Desktop.getDesktop().open(name);
-
     }
 
     public void handleCloseApp(ActionEvent actionEvent) {
@@ -219,7 +206,6 @@ public class PrivateMovieController extends BaseController implements Initializa
         stage.close();
     }
 
-
     public void OnCategoryClicked(MouseEvent mouseEvent) {
         selectedCategory = lstCategory.getSelectionModel().getSelectedItem();
         if (selectedCategory != null) {
@@ -229,7 +215,7 @@ public class PrivateMovieController extends BaseController implements Initializa
             tblMovie.setItems(movieModel.getObservableMovies());
     }
 
-        public void handleEditPRating (ActionEvent actionEvent) throws IOException {
+    public void handleEditPRating (ActionEvent actionEvent) throws IOException {
             Movie selectedMovie = tblMovie.getSelectionModel().getSelectedItem();
             movieModel.setSelectedMovie(selectedMovie);
 
@@ -256,7 +242,7 @@ public class PrivateMovieController extends BaseController implements Initializa
                 dialogWindow.showAndWait();
             }
         }
-public void deleteMovieBasedOnTime(int i) throws Exception {
+    public void deleteMovieBasedOnTime(int i) throws Exception {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setHeaderText("Do you wanna delete " + movieModel.getObservableMovies().get(i).getMovieTitle() + " with a score of less than 6 and has not been seen in 2 years");
             alert.initStyle(StageStyle.UNDECORATED);

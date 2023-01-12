@@ -32,7 +32,6 @@ public class Movie {
 
 
     public Movie(int id, String movieTitle, double imdbRating, int personalRating, String filePath, LocalDate lastViewed, int year){
-
         this.id = id;
         this.movieTitle = movieTitle;
         this.imdbRating = imdbRating;
@@ -40,10 +39,9 @@ public class Movie {
         this.filePath = filePath;
         this.lastViewed = lastViewed;
         this.year = year;
-
-        // the getter's and setter's
-
     }
+
+    // the getter's and setter's
     public int getId() {
         return id;
     }
@@ -95,14 +93,17 @@ public class Movie {
     public LocalDate getLastViewed() {
         return lastViewed;
     }
+
     public void setLastViewed(LocalDate lastViewed){
         this.lastViewed = lastViewed;
     }
+
     public String getFilePath(){
         return filePath;
     }
+
     public void setFilePath(String filePath){
         this.filePath = filePath;
-
     }
+
 }

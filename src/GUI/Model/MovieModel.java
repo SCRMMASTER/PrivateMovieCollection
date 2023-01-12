@@ -10,10 +10,8 @@ import java.util.List;
 
 public class MovieModel {
     private ObservableList<Movie> moviesToBeViewed;
-
     private MovieManager movieManager;
     public Movie createdMovie;
-
     public Movie selectedMovie;
 
     public MovieModel() throws Exception {
@@ -46,7 +44,6 @@ public class MovieModel {
 
     public void personalRating(Movie updatedMovie) throws Exception {
         movieManager.personalRating(updatedMovie);
-
         moviesToBeViewed.clear();
         moviesToBeViewed.addAll(movieManager.getAllMovies());
     }

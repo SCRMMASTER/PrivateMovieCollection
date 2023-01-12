@@ -18,24 +18,14 @@ public class CategoryModel {
         categoriesToBeViewed.addAll(categoryManager.getAllCategories());
     }
 
-
-
     public ObservableList<Category> getObservableCategories(){
         return categoriesToBeViewed;
     }
-    /*
-public void createNewCategory(String categoryname) throws Exception{
-    Category mCategory = categoryManager.createNewCategory(categoryname);
-    categoriesToBeViewed.add(mCategory);
-}
-
-     */
 
     public void createNewCategory(String Genre) throws Exception {
         Category c = categoryManager.createNewCategory(Genre);
         categoriesToBeViewed.add(c);
     }
-
 
     public void deleteCategory(Category selectedCategory) throws Exception{
         categoryManager.deleteCategory(selectedCategory);

@@ -9,7 +9,6 @@ import java.sql.SQLException;
 
 public class DataBaseConnecter {
     private SQLServerDataSource dataSource;
-
     //Connector for the database
     public DataBaseConnecter(){
         dataSource = new SQLServerDataSource();

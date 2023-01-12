@@ -9,7 +9,6 @@ public class MovieSearcher {
 
     public List<Movie> search(List<Movie> searchBase, String query) {
         List<Movie> searchResult = new ArrayList<>();
-
         for (Movie movie : searchBase) {
             if (compareToMovieTitle(query, movie) || (compareToIMDBRating(query,movie)) || (compareToYear(query,movie)))
             {

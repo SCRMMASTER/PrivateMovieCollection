@@ -14,6 +14,5 @@ public interface ICategoryDataAccess {
     public Category createCategory(String Genre) throws Exception;
     public void deleteCategory(Category category) throws Exception;
     void addCategoryToMovie(Category category, Movie movie) throws Exception;
-
     List<Movie> getAllMoviesFromCategory(Category category);
 }

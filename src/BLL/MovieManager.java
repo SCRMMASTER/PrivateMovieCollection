@@ -35,6 +35,6 @@ public class MovieManager {
 
     public void personalRating(Movie updatedMovie) throws Exception {
         movieDAO_DB.personalRating(updatedMovie);
-            }
+    }
 
 }

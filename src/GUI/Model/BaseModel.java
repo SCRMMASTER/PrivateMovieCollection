@@ -4,31 +4,24 @@ public class BaseModel {
 
     private CategoryModel categoryModel;
     private MovieModel movieModel;
-
-
-    public BaseModel() throws Exception
-    {
+    public BaseModel() throws Exception {
         categoryModel = new CategoryModel();
         movieModel = new MovieModel();
     }
 
-    public CategoryModel getCategoryModel()
-    {
+    public CategoryModel getCategoryModel() {
         return categoryModel;
     }
 
-    public void setCategoryModel(CategoryModel categoryModel)
-    {
+    public void setCategoryModel(CategoryModel categoryModel) {
         this.categoryModel = categoryModel;
     }
 
-    public MovieModel getMovieModel()
-    {
+    public MovieModel getMovieModel() {
         return movieModel;
     }
 
-    public void setMovieModel(MovieModel movieModel)
-    {
+    public void setMovieModel(MovieModel movieModel) {
         this.movieModel = movieModel;
     }
 }

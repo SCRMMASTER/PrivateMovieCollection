@@ -4,16 +4,13 @@ import GUI.Model.BaseModel;
 import GUI.Model.MovieModel;
 
 public abstract class BaseController {
-
     private BaseModel baseModel;
 
-    public void setModel(BaseModel baseModel)
-    {
+    public void setModel(BaseModel baseModel) {
         this.baseModel = baseModel;
     }
 
-    public BaseModel getModel()
-    {
+    public BaseModel getModel() {
         return baseModel ;
     }
 

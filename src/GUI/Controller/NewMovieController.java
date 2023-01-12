@@ -2,6 +2,7 @@ package GUI.Controller;
 
 import GUI.Model.MovieModel;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -24,10 +25,10 @@ import java.nio.file.Paths;
 import java.time.LocalDate;
 
 public class NewMovieController extends BaseController{
-
+    @FXML
     public Button btnNext, btnCancel, btnChoose;
-    public Label lblFile, lblTitle, lblIMDBRating, lblPersonalRating, lblYear;
-    public TextField txtfFile, txtfTitle, txtfIMDBRating, txtfPersonalRating, txtfYear;
+    @FXML
+    private TextField txtfFile, txtfTitle, txtfIMDBRating, txtfPersonalRating, txtfYear;
     private File mFile;
     public String fileMoviePath = "Resources/Movies";
     private Path target = Paths.get(fileMoviePath);

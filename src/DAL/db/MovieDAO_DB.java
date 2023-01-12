@@ -2,43 +2,32 @@ package DAL.db;
 
 import BE.Movie;
 import DAL.IMovieDataAccess;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import javax.xml.crypto.Data;
 import java.sql.*;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
-
 import java.util.List;
-
 
 public class MovieDAO_DB implements IMovieDataAccess
 {
     private DataBaseConnecter dataBaseConnecter;
 
-    public MovieDAO_DB()
-    {
+    public MovieDAO_DB() {
         dataBaseConnecter = new DataBaseConnecter();
     }
 
     @Override
     public List<Movie> getAllMovie() throws Exception {
-
         ArrayList<Movie> allMovie = new ArrayList<>();
-
         try (Connection conn = dataBaseConnecter.getConnection()) {
             String sql = "SELECT * FROM Movie;";
-
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
-            while (rs.next())
-            {
+            while (rs.next()) {
                 int id = rs.getInt("Id");
                 String movieTitle = rs.getString("Title");
                 double imdbrating = rs.getDouble("IMDB_Rating");
@@ -47,13 +36,12 @@ public class MovieDAO_DB implements IMovieDataAccess
                 LocalDate lastviewed = rs.getDate("LastView").toLocalDate();
                 int year = rs.getInt("Year");
 
-                Movie movie = new Movie (id,movieTitle,imdbrating,personalrating,filepath,lastviewed,year);
+                Movie movie = new Movie(id, movieTitle, imdbrating, personalrating, filepath, lastviewed, year);
                 allMovie.add(movie);
             }
             return allMovie;
-        }
-        catch (SQLException ex)
-        {
+
+            } catch (SQLException ex){
             ex.printStackTrace();
             throw new Exception("Could not get movies from database", ex);
         }
@@ -87,8 +75,8 @@ public class MovieDAO_DB implements IMovieDataAccess
             //Create the movie.
             Movie movie = new Movie(id,movieTitle,imdbrating,personalrating,filepath,lastviewed,year);
             return movie;
-        }
-        catch (SQLException ex){
+
+        } catch (SQLException ex){
             ex.printStackTrace();
             throw new Exception("Could not create movie", ex);
         }
@@ -103,13 +91,12 @@ public class MovieDAO_DB implements IMovieDataAccess
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, movie.getId());
 
-
             int rowsDeleted = stmt.executeUpdate();
             // It checks if there was a row that have been deleted, that means if it is less than 0.
-            if (rowsDeleted > 0)
-            {
+            if (rowsDeleted > 0) {
                 System.out.println("Movie was successfully deleted");
             }
+
         } catch (SQLException ex){
             ex.printStackTrace();
             throw new Exception("Could not delete movie", ex);
@@ -118,37 +105,30 @@ public class MovieDAO_DB implements IMovieDataAccess
     }
 
     public Movie getFilePath (Movie selectedMovie) throws Exception {
-
         String sql = " SELECT FROM Movie WHERE id = ?";
 
         try(Connection conn = dataBaseConnecter.getConnection()) {
             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ResultSet rs = stmt.getGeneratedKeys();
-
-
             stmt.setString(4, selectedMovie.getFilePath());
 
-            if (rs.next())
-            {
+            if (rs.next()) {
                 rs.getString(4);
             }
         } catch (SQLException ex){
             ex.printStackTrace();
             throw new Exception("Could not retrive filePath", ex);
-
         }
         return selectedMovie;
-
     }
+
 private void deleteCategoryFromMovie(Movie movie){
         try(Connection conn = dataBaseConnecter.getConnection()){
             String sql = "DELETE FROM CatMovie WHERE MovieId = ?";
-
             PreparedStatement stmt = conn.prepareStatement(sql);
-
             stmt.setInt(1, movie.getId());
-
             stmt.execute();
+
         } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException("Could not remove songs from playlist");
@@ -156,17 +136,13 @@ private void deleteCategoryFromMovie(Movie movie){
 }
 
     public void personalRating(Movie updatedMovie) throws Exception {
-
         try (Connection conn = dataBaseConnecter.getConnection()) {
-
             String sql = "UPDATE Movie SET Personal_Rating = ? WHERE Id = ?";
-
             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             //Bind parameter
             stmt.setInt(1 , updatedMovie.getPersonalRating());
             stmt.setInt(2, updatedMovie.getId());
-
             stmt.executeUpdate();
 
         } catch (SQLException ex){
