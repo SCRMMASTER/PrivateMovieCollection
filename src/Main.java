@@ -25,10 +25,11 @@ public class Main extends Application {
         primaryStage.setTitle("Movie Collection");
         primaryStage.setScene(new Scene(root));
         root.getStylesheets().add(getClass().getResource("Application.css").toExternalForm());
-        primaryStage.setMaxHeight(600);
+        primaryStage.setMaxHeight(620);
         primaryStage.setMaxWidth(700);
-        primaryStage.setMinHeight(600);
+        primaryStage.setMinHeight(620);
         primaryStage.setMinWidth(700);
+        primaryStage.setResizable(false);
 
         primaryStage.show();
     }

@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.EditPRatingController">
+<AnchorPane prefHeight="139.0" prefWidth="223.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.EditPRatingController">
    <children>
-      <Button fx:id="btnDone" layoutX="395.0" layoutY="200.0" mnemonicParsing="false" onAction="#handleDone" text="Done" />
-      <Button fx:id="btnCancel" layoutX="157.0" layoutY="200.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
-      <TextField fx:id="txtfEditPRating" layoutX="225.0" layoutY="200.0" />
-      <Text layoutX="242.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insert Personal Rating" />
+      <Button fx:id="btnDone" layoutX="125.0" layoutY="83.0" mnemonicParsing="false" onAction="#handleDone" prefHeight="26.0" prefWidth="56.0" text="Done" />
+      <Button fx:id="btnCancel" layoutX="45.0" layoutY="83.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
+      <TextField fx:id="txtfEditPRating" layoutX="35.0" layoutY="48.0" />
+      <Text layoutX="73.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Rating" />
    </children>
 </AnchorPane>

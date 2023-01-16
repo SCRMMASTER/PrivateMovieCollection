@@ -8,6 +8,7 @@ import GUI.Model.MovieModel;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -41,6 +42,7 @@ public class PrivateMovieController extends BaseController {
     public TableView<Movie> tblMovie;
     @FXML
     public TextField txtMovieSearch;
+    public Button btndeSelect;
     @FXML
     private Button btnaddCategory, btndeleteCategory, btnaddMovie, btndeleteMovie, btnPLay, btnEditPRating, btnClose;
     @FXML
@@ -48,6 +50,7 @@ public class PrivateMovieController extends BaseController {
     public MovieModel movieModel;
     public CategoryModel categoryModel;
     private Category selectedCategory;
+    private int clickCounter;
 
     public PrivateMovieController() {
         try {
@@ -59,10 +62,13 @@ public class PrivateMovieController extends BaseController {
 
     @Override
     public void setup() throws Exception {
+
+
         movieModel = getModel().getMovieModel();
         categoryModel = getModel().getCategoryModel();
         tblMovie.setItems(movieModel.getObservableMovies());
         lstCategory.setItems(categoryModel.getObservableCategories());
+
 
         if (tblMovie.getSelectionModel().getSelectedItem() != null) {
             btnPLay.setDisable(false);
@@ -75,6 +81,8 @@ public class PrivateMovieController extends BaseController {
             }
         });
 
+
+
         ColTitle.setCellValueFactory(c -> new SimpleObjectProperty(c.getValue().getMovieTitle()));
         ColIMDB.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getImdbRating())));
         ColPRating.setCellValueFactory(c -> new SimpleObjectProperty(String.valueOf(c.getValue().getPersonalRating())));
@@ -82,11 +90,11 @@ public class PrivateMovieController extends BaseController {
 
        for(int i = 0; i <= movieModel.getObservableMovies().size()-1; i++){
            LocalDate lastviewed = movieModel.getObservableMovies().get(i).getLastViewed();
-            System.out.println(lastviewed);
+
            int rating = movieModel.getObservableMovies().get(i).getPersonalRating();
-            System.out.println(rating);
+
            LocalDate years = lastviewed.plusYears(2);
-            System.out.println(years);
+
            if(Objects.equals(lastviewed,years) && rating<=6){
                deleteMovieBasedOnTime(i);
                }
@@ -208,12 +216,21 @@ public class PrivateMovieController extends BaseController {
 
     public void OnCategoryClicked(MouseEvent mouseEvent) {
         selectedCategory = lstCategory.getSelectionModel().getSelectedItem();
+
         if (selectedCategory != null) {
-            categoryModel.getAllMoviesFromCategory(selectedCategory);
+           categoryModel.getAllMoviesFromCategory(selectedCategory);
             tblMovie.setItems(FXCollections.observableArrayList(selectedCategory.getMovie()));
-        } else
+
+
+        }
+        else
             tblMovie.setItems(movieModel.getObservableMovies());
+            //lstCategory.getSelectionModel().clearSelection();
+
+
     }
+
+
 
     public void handleEditPRating (ActionEvent actionEvent) throws IOException {
             Movie selectedMovie = tblMovie.getSelectionModel().getSelectedItem();
@@ -236,6 +253,8 @@ public class PrivateMovieController extends BaseController {
                 dialogWindow.initModality(Modality.WINDOW_MODAL);
                 dialogWindow.initOwner(((Node) actionEvent.getSource()).getScene().getWindow());
                 Scene scene = new Scene(pane);
+                scene.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
+                dialogWindow.initStyle(StageStyle.UNDECORATED);
                 dialogWindow.setScene(scene);
 
                 //Opens window and waits for user input.
@@ -256,5 +275,7 @@ public class PrivateMovieController extends BaseController {
                 movieModel.deleteMovie(movieModel.getObservableMovies().get(i));
             }
         }
+
 }
+
 

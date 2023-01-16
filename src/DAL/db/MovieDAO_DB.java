@@ -47,6 +47,32 @@ public class MovieDAO_DB implements IMovieDataAccess
         }
     }
 
+    /*
+    @Override
+    public List<Movie> getAllFilePaths() throws Exception {
+        ArrayList<Movie> allFilePaths = new ArrayList<>();
+        try (Connection conn = dataBaseConnecter.getConnection()) {
+            String sql = "SELECT FileLink FROM Movie WHERE id ?;";
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                int id = rs.getInt("Id");
+                String filepath = rs.getString("FileLink");
+
+                Movie movie = new Movie(id, filepath);
+                allFilePaths.add(movie);
+            }
+            return allFilePaths;
+
+        } catch (SQLException ex){
+            ex.printStackTrace();
+            throw new Exception("Could not get movies from database", ex);
+        }
+    }
+    */
+
+
     @Override
     public Movie createMovie(String movieTitle, Double imdbrating, int personalrating, String filepath, LocalDate lastviewed, int year) throws Exception {
         //Creating a movie in the database by using a SQL query.

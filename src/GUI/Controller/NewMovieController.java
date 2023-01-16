@@ -1,5 +1,6 @@
 package GUI.Controller;
 
+import BE.Movie;
 import GUI.Model.MovieModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -34,13 +35,14 @@ public class NewMovieController extends BaseController{
     private Path target = Paths.get(fileMoviePath);
     private MovieModel movieModel;
 
+
     @Override
     public void setup() {
         movieModel = getModel().getMovieModel();
     }
 
 
-    public void handelNext(ActionEvent actionEvent) throws IOException {
+    public void handelNext(ActionEvent actionEvent) throws Exception {
         String title = txtfTitle.getText();
         double imdbrating = Double.parseDouble(txtfIMDBRating.getText());
         int personalrating = Integer.parseInt(txtfPersonalRating.getText());
@@ -48,59 +50,45 @@ public class NewMovieController extends BaseController{
         LocalDate lastviewed = LocalDate.now();
         int year = Integer.parseInt(txtfYear.getText());
 
-        try {
-            Files.copy(mFile.toPath(), target.resolve(mFile.toPath().getFileName()));
 
-            mFile = new File(fileMoviePath + "/" + mFile.getName());
-            movieModel.createMovie(title, imdbrating, personalrating, filepath, lastviewed, year);
-            //Path mFile = Paths.get("C:/Users/Mathias Kær/Desktop/mp4 Movie");
-            //Path fileMoviePath = Paths.get("Movies");
-
-            //Files.copy(Path.of(fileMoviePath),target.resolve(mFile.toPath().getFileName()));
-            //Files.copy(mFile.toPath(),target.resolve(mFile.toPath().getFileName()));
-
-            System.out.println("Movie added: " + filepath + ", " + title + ", " + imdbrating +
-                    ", " + personalrating + ", " + year);
-        }         catch (Exception e) {
-            e.printStackTrace();
-        }
+        Files.copy(mFile.toPath(), target.resolve(mFile.toPath().getFileName()));
 
 
+                mFile = new File(fileMoviePath + "/" + mFile.getName());
+                movieModel.createMovie(title, imdbrating, personalrating, filepath, lastviewed, year);
 
-/*
-        try{
-            movieModel.createMovie(title, imdbrating, personalrating, filepath, lastviewed, year);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-*/
-
-        // Finds where the fxml is located.
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/DropDownMovieView.fxml"));
-        // Loads the stage.
-        Parent root = loader.load();
-        // Makes the new stage.
-        Stage stage = new Stage();
-        // Title of the stage.
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setScene(new Scene(root));
-        root.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
-        stage.initStyle(StageStyle.UNDECORATED);
-
-        DropDownMovieController controller = loader.getController();
-        controller.setModel(super.getModel());
-        controller.setup();
-
-        // The stage is then displayed and the program waits for
-        // the user to interact with the delete song dialog.
-        stage.showAndWait();
-
-        Node source = (Node) actionEvent.getSource();
-        Stage mStage = (Stage) source.getScene().getWindow();
-        mStage.close();
+                System.out.println("Movie added: " + filepath + ", " + title + ", " + imdbrating +
+                        ", " + personalrating + ", " + year);
 
 
-    }
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/DropDownMovieView.fxml"));
+                // Loads the stage.
+                Parent root = loader.load();
+                // Makes the new stage.
+                Stage stage = new Stage();
+                // Title of the stage.
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setScene(new Scene(root));
+                root.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
+                stage.initStyle(StageStyle.UNDECORATED);
+
+                DropDownMovieController controller = loader.getController();
+                controller.setModel(super.getModel());
+                controller.setup();
+
+                // The stage is then displayed and the program waits for
+                // the user to interact with the delete song dialog.
+                stage.showAndWait();
+
+                Node source = (Node) actionEvent.getSource();
+                Stage mStage = (Stage) source.getScene().getWindow();
+                mStage.close();
+            }
+
+
+
+
+
 
     public void handleButtonCancel(ActionEvent actionEvent) {
         // This code closes the current window by getting a reference to the stage
@@ -108,6 +96,10 @@ public class NewMovieController extends BaseController{
         Node source = (Node) actionEvent.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
+
+
+        System.out.println(movieModel.getAllFilePaths());
+
     }
     public void handleChoose(ActionEvent actionEvent) {
         //Opens file browser to select a file

@@ -19,6 +19,13 @@ public class MovieManager {
     public List<Movie> getAllMovies() throws Exception {
         return movieDAO_DB.getAllMovie();
     }
+/*
+    public List<Movie> getAllFilePaths() throws Exception {
+        return movieDAO_DB.getAllFilePaths();
+    }
+
+
+ */
 
     public List<Movie> searchMovies(String query) throws Exception {
         List<Movie> allMovies = getAllMovies();
