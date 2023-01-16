@@ -52,6 +52,7 @@ public class PrivateMovieController extends BaseController {
     private Category selectedCategory;
     private int clickCounter;
 
+
     public PrivateMovieController() {
         try {
             movieModel = new MovieModel();
@@ -66,7 +67,7 @@ public class PrivateMovieController extends BaseController {
 
         movieModel = getModel().getMovieModel();
         categoryModel = getModel().getCategoryModel();
-        tblMovie.setItems(movieModel.getObservableMovies());
+        tblMovie.setItems(movieModel.getFilteredmovies());
         lstCategory.setItems(categoryModel.getObservableCategories());
 
 
@@ -214,20 +215,25 @@ public class PrivateMovieController extends BaseController {
         stage.close();
     }
 
-    public void OnCategoryClicked(MouseEvent mouseEvent) {
+    public void OnCategoryClicked(MouseEvent mouseEvent) throws Exception {
+        if(selectedCategory == lstCategory.getSelectionModel().getSelectedItem()){
+            movieModel.reloadAllMovies();
+            return;
+
+        }
+
         selectedCategory = lstCategory.getSelectionModel().getSelectedItem();
 
         if (selectedCategory != null) {
            categoryModel.getAllMoviesFromCategory(selectedCategory);
-            tblMovie.setItems(FXCollections.observableArrayList(selectedCategory.getMovie()));
-
+           movieModel.setMoviesToBeViewed(selectedCategory.getMovie());
+           // tblMovie.setItems(FXCollections.observableArrayList(selectedCategory.getMovie()));
 
         }
-        else
-            tblMovie.setItems(movieModel.getObservableMovies());
+
+        //else
+         //   tblMovie.setItems(movieModel.getObservableMovies());
             //lstCategory.getSelectionModel().clearSelection();
-
-
     }
 
 
