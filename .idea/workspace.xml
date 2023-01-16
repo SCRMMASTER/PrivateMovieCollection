@@ -6,27 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="51fa20b6-3b81-48b4-b630-6d9537a82373" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Movies/sts117.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/BLL/MovieManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/BLL/MovieManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/DAL/IMovieDataAccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/DAL/IMovieDataAccess.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/DAL/db/MovieDAO_DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/DAL/db/MovieDAO_DB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/EditPRatingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/EditPRatingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/NewCategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/NewCategoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/NewMovieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/NewMovieController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/PrivateMovieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/PrivateMovieController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Model/BaseModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Model/BaseModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Model/CategoryModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Model/CategoryModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Model/MovieModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Model/MovieModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/View/NewMovieView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/View/NewMovieView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/src/GUI/View/NewMovieView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/src/GUI/View/NewMovieView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BLL/MovieManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BLL/MovieManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAL/IMovieDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/IMovieDataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAL/db/MovieDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/MovieDAO_DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BE/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BE/Movie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/Controller/EditPRatingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/EditPRatingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/Controller/NewMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/NewMovieController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/Controller/PrivateMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/PrivateMovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Model/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Model/MovieModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/View/NewMovieView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/View/NewMovieView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,23 +35,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2045977"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2045977&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Recources/Movies" />
@@ -112,6 +95,7 @@
       <workItem from="1673427169814" duration="7351000" />
       <workItem from="1673454718618" duration="3168000" />
       <workItem from="1673511395091" duration="3353000" />
+      <workItem from="1673856087923" duration="1752000" />
     </task>
     <servers />
   </component>

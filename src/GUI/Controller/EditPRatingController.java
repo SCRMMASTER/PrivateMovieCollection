@@ -29,7 +29,7 @@ public class EditPRatingController extends BaseController {
         String filepath = movieModel.selectedMovie.getFilePath();
         LocalDate lastview = movieModel.selectedMovie.getLastViewed();
         int year = movieModel.selectedMovie.getYear();
-        if(updatedPersonalRating <= 10 && updatedPersonalRating >= 0) {
+        if(!txtfEditPRating.getText().isEmpty() && updatedPersonalRating <= 10 && updatedPersonalRating >= 0) {
             Movie updatedMovie = new Movie(id, title, imdbRaing, updatedPersonalRating, filepath, lastview, year);
             movieModel.personalRating(updatedMovie);
 

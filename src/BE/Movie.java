@@ -41,9 +41,6 @@ public class Movie {
         this.year = year;
     }
 
-    public Movie(int i, String filepath) {
-    }
-
     // the getter's and setter's
     public int getId() {
         return id;

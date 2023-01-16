@@ -195,15 +195,15 @@ public class PrivateMovieController extends BaseController {
     }
 
 
-    public void handelPlay(ActionEvent actionEvent) throws IOException {
-        //File file = new File("/Users/magnus/Documents/IMG_iii1652.MOV");
-        //Desktop.getDesktop().open(file);
-
-        tblMovie.getSelectionModel().getSelectedItem().setLastViewed(LocalDate.now());
-        File name = new File("Resources/Movies/" + tblMovie.getSelectionModel().getSelectedItem().getFilePath());
-        System.out.println("kuisfhbd");
-
-        Desktop.getDesktop().open(name);
+    public void handelPlay(ActionEvent actionEvent) throws Exception {
+        if(tblMovie.getSelectionModel().getSelectedItem() != null) {
+            File name = new File("Resources/Movies/" + tblMovie.getSelectionModel().getSelectedItem().getFilePath());
+            editLastview(tblMovie.getSelectionModel().getSelectedItem());
+            Desktop.getDesktop().open(name);
+        }
+        else {
+            showAlert();
+        }
     }
 
     public void handleCloseApp(ActionEvent actionEvent) {
@@ -275,6 +275,28 @@ public class PrivateMovieController extends BaseController {
                 movieModel.deleteMovie(movieModel.getObservableMovies().get(i));
             }
         }
+    public void editLastview(Movie updatedDate) throws Exception {
+        int id = updatedDate.getId();
+        String title  = updatedDate.getMovieTitle();
+        double imdbRaing = updatedDate.getImdbRating();
+        int personalRating = updatedDate.getPersonalRating();
+        String filepath = updatedDate.getFilePath();
+        LocalDate updatedLastview = LocalDate.now();
+        int year = updatedDate.getYear();
+
+        updatedDate = new Movie(id,title,imdbRaing, personalRating, filepath, updatedLastview, year);
+        movieModel.editLastView(updatedDate);
+    }
+
+    public void showAlert() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText("Please select a movie");
+        alert.initStyle(StageStyle.UNDECORATED);
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
+        dialogPane.getStyleClass().add("myDialog");
+        alert.showAndWait();
+    }
 
 }
 
