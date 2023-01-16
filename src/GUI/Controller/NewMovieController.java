@@ -25,7 +25,7 @@ import java.time.LocalDate;
 
 public class NewMovieController extends BaseController{
     @FXML
-    public Button btnNext, btnCancel, btnChoose;
+    private Button btnNext, btnCancel, btnChoose;
     @FXML
     private TextField txtfFile, txtfTitle, txtfIMDBRating, txtfPersonalRating, txtfYear;
     private File mFile;
@@ -39,8 +39,8 @@ public class NewMovieController extends BaseController{
         movieModel = getModel().getMovieModel();
     }
 
-
-    public void handelNext(ActionEvent actionEvent) throws Exception {
+@FXML
+    private void handelNext(ActionEvent actionEvent) throws Exception {
         String title = txtfTitle.getText();
         double imdbrating = 0;
         if (!txtfIMDBRating.getText().isEmpty()) {
@@ -69,11 +69,10 @@ public class NewMovieController extends BaseController{
 
                 openNewWindow();
 
-                Node source = (Node) actionEvent.getSource();
-                Stage mStage = (Stage) source.getScene().getWindow();
-                mStage.close();
+                closeWindow(btnNext);
             } catch (Exception e) {
                 e.printStackTrace();
+                displayError(e);
             }
         } else {
             showAlert();
@@ -103,19 +102,13 @@ public class NewMovieController extends BaseController{
     }
 
 
-
-    public void handleButtonCancel(ActionEvent actionEvent) {
-        // This code closes the current window by getting a reference to the stage
-        // and calling the close() method.
-        Node source = (Node) actionEvent.getSource();
-        Stage stage = (Stage) source.getScene().getWindow();
-        stage.close();
-
-
-        System.out.println(movieModel.getAllFilePaths());
+    @FXML
+    private void handleButtonCancel(ActionEvent actionEvent) {
+        closeWindow(btnCancel);
 
     }
-    public void handleChoose(ActionEvent actionEvent) {
+    @FXML
+    private void handleChoose(ActionEvent actionEvent) {
         //Opens file browser to select a file
         Stage stage = new Stage();
         FileChooser mFileChooser = new FileChooser();
@@ -128,10 +121,6 @@ public class NewMovieController extends BaseController{
         mFile = mFileChooser.showOpenDialog(stage);
         if(mFile != null)
        txtfFile.setText(mFile.getName());
-
-
-        System.out.println("Selected file " + mFile);
-        //System.out.println(getMovieLength(mFile).toString());
     }
 
     private void showAlert() {

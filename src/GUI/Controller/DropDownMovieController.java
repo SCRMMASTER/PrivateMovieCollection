@@ -5,16 +5,14 @@ import GUI.Model.CategoryModel;
 import GUI.Model.MovieModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.stage.Stage;
 
 public class DropDownMovieController extends BaseController {
     @FXML
-    public ComboBox cbxDropDown1, cbxDropDown2, cbxDropDown3;
+    private ComboBox cbxDropDown1, cbxDropDown2, cbxDropDown3;
     @FXML
-    public Button btnCancel, btnSave;
+    private Button btnCancel, btnSave;
     @FXML
     private Button btnClear;
     private CategoryModel categoryModel;
@@ -32,36 +30,35 @@ public class DropDownMovieController extends BaseController {
         cbxDropDown2.getSelectionModel().select(null);
         cbxDropDown3.getSelectionModel().select(null);
     }
+    @FXML
+    private void handelCancel(ActionEvent actionEvent) {
+        closeWindow(btnCancel);
+    }
+    @FXML
+    private void handelSave(ActionEvent actionEvent) throws Exception {
+        try {
+            Category category1 = (Category) cbxDropDown1.getSelectionModel().getSelectedItem();
+            Category category2 = (Category) cbxDropDown2.getSelectionModel().getSelectedItem();
+            Category category3 = (Category) cbxDropDown3.getSelectionModel().getSelectedItem();
 
-    public void handelCancel(ActionEvent actionEvent) {
-        // This code closes the current window by getting a reference to the stage
-        // and calling the close() method.
-        Node source = (Node) actionEvent.getSource();
-        Stage stage = (Stage) source.getScene().getWindow();
-        stage.close();
+            if (category1 != null) {
+                categoryModel.addCategoryToMovie(category1, movieModel.createdMovie);
+            }
+            if (category2 != null || category2 != category1) {
+                categoryModel.addCategoryToMovie(category2, movieModel.createdMovie);
+            }
+            if (category3 != null || category3 != category2) {
+                categoryModel.addCategoryToMovie(category3, movieModel.createdMovie);
+            }
+            closeWindow(btnSave);
+        } catch (Exception e){
+            displayError(e);
+            e.printStackTrace();
+        }
     }
 
-    public void handelSave(ActionEvent actionEvent) throws Exception {
-        Category category1 = (Category) cbxDropDown1.getSelectionModel().getSelectedItem();
-        Category category2 = (Category) cbxDropDown2.getSelectionModel().getSelectedItem();
-        Category category3 = (Category) cbxDropDown3.getSelectionModel().getSelectedItem();
-
-        if(category1 != null) {
-            categoryModel.addCategoryToMovie(category1, movieModel.createdMovie);
-        }
-        if(category2 != null) {
-            categoryModel.addCategoryToMovie(category2, movieModel.createdMovie);
-        }
-        if(category3 != null) {
-            categoryModel.addCategoryToMovie(category3, movieModel.createdMovie);
-        }
-        Node source = (Node) actionEvent.getSource();
-        Stage mStage = (Stage) source.getScene().getWindow();
-        mStage.close();
-    }
-
-    public void handleClearSelection(ActionEvent actionEvent) {
-
+    @FXML
+    private void handleClearSelection(ActionEvent actionEvent) {
         cbxDropDown1.getSelectionModel().clearSelection();
         cbxDropDown2.getSelectionModel().clearSelection();
         cbxDropDown3.getSelectionModel().clearSelection();
