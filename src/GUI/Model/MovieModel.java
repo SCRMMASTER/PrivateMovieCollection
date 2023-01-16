@@ -10,6 +10,7 @@ import java.util.List;
 
 public class MovieModel {
     private ObservableList<Movie> moviesToBeViewed;
+    private ObservableList<Movie> allFilePaths;
     private MovieManager movieManager;
     public Movie createdMovie;
     public Movie selectedMovie;
@@ -18,6 +19,8 @@ public class MovieModel {
         movieManager = new MovieManager();
         moviesToBeViewed = FXCollections.observableArrayList();
         moviesToBeViewed.addAll(movieManager.getAllMovies());
+        allFilePaths = FXCollections.observableArrayList();
+        //allFilePaths.addAll(movieManager.getAllFilePaths());
     }
 
     public void searchMovie(String query) throws Exception {
@@ -29,6 +32,8 @@ public class MovieModel {
     public ObservableList<Movie> getObservableMovies() {
         return moviesToBeViewed;
     }
+
+    public ObservableList<Movie> getAllFilePaths(){return allFilePaths;}
 
     public void createMovie(String movieTitle, Double imdbrating, int personalrating, String filepath, LocalDate lastviewed, int year) throws Exception {
         createdMovie = movieManager.createMovie(movieTitle, imdbrating, personalrating, filepath, lastviewed, year);

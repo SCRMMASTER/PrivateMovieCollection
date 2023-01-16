@@ -1,5 +1,6 @@
 package GUI.Controller;
 
+import BE.Movie;
 import GUI.Model.MovieModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,7 +8,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.media.Media;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
@@ -32,47 +35,60 @@ public class NewMovieController extends BaseController{
     private Path target = Paths.get(fileMoviePath);
     private MovieModel movieModel;
 
+
     @Override
     public void setup() {
         movieModel = getModel().getMovieModel();
     }
 
 
-    public void handelNext(ActionEvent actionEvent) throws IOException {
+    public void handelNext(ActionEvent actionEvent) throws Exception {
         String title = txtfTitle.getText();
-        double imdbrating = 0;
-        if (!txtfIMDBRating.getText().isEmpty()) {
-            imdbrating = Double.parseDouble(txtfIMDBRating.getText());
-        }
-        int personalrating = 0;
-        if (!txtfPersonalRating.getText().isEmpty()) {
-            personalrating = Integer.parseInt(txtfPersonalRating.getText());
-        }
+        double imdbrating = Double.parseDouble(txtfIMDBRating.getText());
+        int personalrating = Integer.parseInt(txtfPersonalRating.getText());
         String filepath = txtfFile.getText();
         LocalDate lastviewed = LocalDate.now();
-        int year = 0;
-        if (!txtfYear.getText().isEmpty()) {
-            year = Integer.parseInt(txtfYear.getText());
-        }
-        if (!title.isEmpty() && !txtfIMDBRating.getText().isEmpty() && imdbrating <= 10.0 && imdbrating >= 0.0 && personalrating <= 10 && personalrating >= 0 && !filepath.isEmpty() && !txtfYear.getText().isEmpty() && year > 1000) {
-            try {
-                Files.copy(mFile.toPath(), target.resolve(mFile.toPath().getFileName()));
+        int year = Integer.parseInt(txtfYear.getText());
+
+
+        Files.copy(mFile.toPath(), target.resolve(mFile.toPath().getFileName()));
+
 
                 mFile = new File(fileMoviePath + "/" + mFile.getName());
                 movieModel.createMovie(title, imdbrating, personalrating, filepath, lastviewed, year);
 
-                openNewWindow();
+                System.out.println("Movie added: " + filepath + ", " + title + ", " + imdbrating +
+                        ", " + personalrating + ", " + year);
+
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/DropDownMovieView.fxml"));
+                // Loads the stage.
+                Parent root = loader.load();
+                // Makes the new stage.
+                Stage stage = new Stage();
+                // Title of the stage.
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setScene(new Scene(root));
+                root.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
+                stage.initStyle(StageStyle.UNDECORATED);
+
+                DropDownMovieController controller = loader.getController();
+                controller.setModel(super.getModel());
+                controller.setup();
+
+                // The stage is then displayed and the program waits for
+                // the user to interact with the delete song dialog.
+                stage.showAndWait();
 
                 Node source = (Node) actionEvent.getSource();
                 Stage mStage = (Stage) source.getScene().getWindow();
                 mStage.close();
-            } catch (Exception e) {
-                e.printStackTrace();
             }
-        } else {
-            showAlert();
-        }
-    }
+
+
+
+
+
 
     public void handleButtonCancel(ActionEvent actionEvent) {
         // This code closes the current window by getting a reference to the stage
@@ -80,6 +96,10 @@ public class NewMovieController extends BaseController{
         Node source = (Node) actionEvent.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
+
+
+        System.out.println(movieModel.getAllFilePaths());
+
     }
     public void handleChoose(ActionEvent actionEvent) {
         //Opens file browser to select a file
@@ -98,39 +118,11 @@ public class NewMovieController extends BaseController{
 
         System.out.println("Selected file " + mFile);
         //System.out.println(getMovieLength(mFile).toString());
+
     }
 
-    private void openNewWindow() throws IOException {
-        // Finds where the fxml is located.
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/DropDownMovieView.fxml"));
-        // Loads the stage.
-        Parent root = loader.load();
-        // Makes the new stage.
-        Stage stage = new Stage();
-        // Title of the stage.
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setScene(new Scene(root));
-        root.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
-        stage.initStyle(StageStyle.UNDECORATED);
-
-        DropDownMovieController controller = loader.getController();
-        controller.setModel(super.getModel());
-        controller.setup();
-
-        // The stage is then displayed and the program waits for
-        // the user to interact with the delete song dialog.
-        stage.showAndWait();
+    public Duration getMovieLength(File file){
+        Media mMedia = new Media("file:///" + file.getPath().replace("\\","/").replaceAll(" ","%20"));
+        return mMedia.getDuration();
     }
-
-    private void showAlert() {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setHeaderText("Please fill out the required fields");
-        alert.initStyle(StageStyle.UNDECORATED);
-        DialogPane dialogPane = alert.getDialogPane();
-        dialogPane.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
-        dialogPane.getStyleClass().add("myDialog");
-
-        alert.showAndWait();
-    }
-
 }

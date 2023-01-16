@@ -45,7 +45,7 @@
 
 
 
-      <TextField fx:id="txtMovieSearch" layoutX="528.0" layoutY="36.0" prefHeight="25.0" prefWidth="151.0" promptText="Search..." />
+      <TextField fx:id="txtMovieSearch" layoutX="529.0" layoutY="46.0" prefHeight="25.0" prefWidth="151.0" promptText="Search..." />
       <Button fx:id="btnClose" layoutX="604.0" layoutY="561.0" mnemonicParsing="false" onAction="#handleCloseApp" prefHeight="26.0" prefWidth="73.0" text="Close" />
       <Button fx:id="btnEditPRating" layoutX="450.0" layoutY="531.0" mnemonicParsing="false" onAction="#handleEditPRating" text="Edit P-Rating" />
 

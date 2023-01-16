@@ -15,6 +15,8 @@ public class DropDownMovieController extends BaseController {
     public ComboBox cbxDropDown1, cbxDropDown2, cbxDropDown3;
     @FXML
     public Button btnCancel, btnSave;
+    @FXML
+    private Button btnClear;
     private CategoryModel categoryModel;
     private MovieModel movieModel;
 
@@ -56,5 +58,13 @@ public class DropDownMovieController extends BaseController {
         Node source = (Node) actionEvent.getSource();
         Stage mStage = (Stage) source.getScene().getWindow();
         mStage.close();
+    }
+
+    public void handleClearSelection(ActionEvent actionEvent) {
+
+        cbxDropDown1.getSelectionModel().clearSelection();
+        cbxDropDown2.getSelectionModel().clearSelection();
+        cbxDropDown3.getSelectionModel().clearSelection();
+
     }
 }
