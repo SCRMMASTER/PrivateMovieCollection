@@ -44,10 +44,10 @@ public class DropDownMovieController extends BaseController {
             if (category1 != null) {
                 categoryModel.addCategoryToMovie(category1, movieModel.createdMovie);
             }
-            if (category2 != null || category2 != category1) {
+            if (category2 != null) {
                 categoryModel.addCategoryToMovie(category2, movieModel.createdMovie);
             }
-            if (category3 != null || category3 != category2) {
+            if (category3 != null) {
                 categoryModel.addCategoryToMovie(category3, movieModel.createdMovie);
             }
             closeWindow(btnSave);
