@@ -108,35 +108,37 @@ public class PrivateMovieController extends BaseController {
     }
     @FXML
     private void handelDeleteMovie(ActionEvent actionEvent) {
-        try {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setHeaderText("Are you sure you wanna delete this movie?");
-            alert.initStyle(StageStyle.UNDECORATED);
+        if(tblMovie.getSelectionModel().getSelectedItem() != null) {
+            try {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText("Are you sure you wanna delete this movie?");
+                alert.initStyle(StageStyle.UNDECORATED);
 
-            DialogPane dialogPane = alert.getDialogPane();
-            dialogPane.getStylesheets().add(Objects.requireNonNull(getClass().getResource("PopUp.css")).toExternalForm());
-            dialogPane.getStyleClass().add("myDialog");
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add(Objects.requireNonNull(getClass().getResource("PopUp.css")).toExternalForm());
+                dialogPane.getStyleClass().add("myDialog");
 
-            alert.showAndWait();
-            if (alert.getResult() == ButtonType.OK) {
-                movieModel.deleteMovie(tblMovie.getSelectionModel().getSelectedItem());
+                alert.showAndWait();
+                if (alert.getResult() == ButtonType.OK) {
+                    movieModel.deleteMovie(tblMovie.getSelectionModel().getSelectedItem());
+                }
+            } catch (Exception e) {
+                displayError(e);
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            displayError(e);
-            e.printStackTrace();
+        } else {
+            showAlert();
         }
     }
     @FXML
-    private void handeladdCategory(ActionEvent actionEvent) throws IOException {
-        System.out.println("AddCategory");
-
+    private void handeladdCategory(ActionEvent actionEvent) throws Exception {
         // Finds where the fxml is located.
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/NewCategoryView.fxml"));
 
         // Loads the stage.
         Parent root = loader.load();
 
-        NewMovieController controller = loader.getController();
+        NewCategoryController controller = loader.getController();
         controller.setModel(super.getModel());
         controller.setup();
 
@@ -153,26 +155,29 @@ public class PrivateMovieController extends BaseController {
     }
     @FXML
     private void handeldeleteCategory(ActionEvent actionEvent) {
-        System.out.println("delete category");
-        try {
+        if(lstCategory.getSelectionModel().getSelectedItem() != null) {
+            try {
 
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setHeaderText("Are you sure you wanna delete this category?");
-            alert.initStyle(StageStyle.UNDECORATED);
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText("Are you sure you wanna delete this category?");
+                alert.initStyle(StageStyle.UNDECORATED);
 
-            DialogPane dialogPane = alert.getDialogPane();
-            dialogPane.getStylesheets().add(Objects.requireNonNull(getClass().getResource("PopUp.css")).toExternalForm());
-            dialogPane.getStyleClass().add("myDialog");
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add(Objects.requireNonNull(getClass().getResource("PopUp.css")).toExternalForm());
+                dialogPane.getStyleClass().add("myDialog");
 
-            alert.showAndWait();
-            if (alert.getResult() == ButtonType.OK) {
-                System.out.println("you have now deleted the category");
-                categoryModel.deleteCategory(lstCategory.getSelectionModel().getSelectedItem());
+                alert.showAndWait();
+                if (alert.getResult() == ButtonType.OK) {
+                    System.out.println("you have now deleted the category");
+                    categoryModel.deleteCategory(lstCategory.getSelectionModel().getSelectedItem());
+                }
+            } catch (Exception e) {
+
+                displayError(e);
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-
-            displayError(e);
-            e.printStackTrace();
+        } else {
+            showAlert();
         }
     }
 
@@ -233,6 +238,9 @@ public class PrivateMovieController extends BaseController {
             //Opens window and waits for user input.
             dialogWindow.showAndWait();
         }
+        else {
+            showAlert();
+        }
     }
     @FXML
     private void deleteMovieBasedOnTime(int i) throws Exception {
@@ -265,10 +273,10 @@ public class PrivateMovieController extends BaseController {
 
     private void showAlert() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setHeaderText("Please select a movie");
+        alert.setHeaderText("Please select a movie/category");
         alert.initStyle(StageStyle.UNDECORATED);
         DialogPane dialogPane = alert.getDialogPane();
-        dialogPane.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
+        dialogPane.getStylesheets().add(Objects.requireNonNull(getClass().getResource("PopUp.css")).toExternalForm());
         dialogPane.getStyleClass().add("myDialog");
         alert.showAndWait();
     }

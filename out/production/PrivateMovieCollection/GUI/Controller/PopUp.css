@@ -107,8 +107,10 @@
 .myDialog > *.button-bar > *.container{
     -fx-background-color: transparent;
 
-}-fx-border-color: black;
-.myDialog > *.label.content{
+}
+
+
+.myDialog > *.label.content {
     -fx-font-size: 14px;
     -fx-font-weight: bold;
 }
