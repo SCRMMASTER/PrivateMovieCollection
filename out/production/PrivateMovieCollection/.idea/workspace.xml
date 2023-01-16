@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="51fa20b6-3b81-48b4-b630-6d9537a82373" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Movies/sts117.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/NewMovieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/NewMovieController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/NewMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/NewMovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/PrivateMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/PrivateMovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/DropDownMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/DropDownMovieController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +43,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2045977&quot;
@@ -94,6 +91,8 @@
       <workItem from="1673426024862" duration="1123000" />
       <workItem from="1673427169814" duration="7351000" />
       <workItem from="1673454718618" duration="3168000" />
+      <workItem from="1673511395091" duration="3353000" />
+      <workItem from="1673856087923" duration="1752000" />
     </task>
     <servers />
   </component>
