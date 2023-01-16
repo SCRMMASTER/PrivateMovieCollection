@@ -2,8 +2,10 @@ package GUI.Model;
 
 import BE.Movie;
 import BLL.MovieManager;
+import BLL.unit.MovieSearcher;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -11,22 +13,38 @@ import java.util.List;
 public class MovieModel {
     private ObservableList<Movie> moviesToBeViewed;
     private ObservableList<Movie> allFilePaths;
+    private FilteredList<Movie> filteredmovies;
     private MovieManager movieManager;
     public Movie createdMovie;
     public Movie selectedMovie;
+
+    public MovieSearcher movieSearcher;
 
     public MovieModel() throws Exception {
         movieManager = new MovieManager();
         moviesToBeViewed = FXCollections.observableArrayList();
         moviesToBeViewed.addAll(movieManager.getAllMovies());
+        filteredmovies = new FilteredList<>(moviesToBeViewed);
         allFilePaths = FXCollections.observableArrayList();
+        movieSearcher = new MovieSearcher();
         //allFilePaths.addAll(movieManager.getAllFilePaths());
     }
 
-    public void searchMovie(String query) throws Exception {
-        List<Movie> searchResults = movieManager.searchMovies(query);
+    public void reloadAllMovies() throws Exception {
         moviesToBeViewed.clear();
-        moviesToBeViewed.addAll(searchResults);
+        moviesToBeViewed.addAll(movieManager.getAllMovies());
+    }
+    public void searchMovie(String query) throws Exception {
+        movieSearcher.search(filteredmovies,query);
+    }
+
+    public FilteredList<Movie> getFilteredmovies() {
+        return filteredmovies;
+    }
+
+    public void setMoviesToBeViewed(List<Movie> movies) {
+       moviesToBeViewed.clear();
+       moviesToBeViewed.addAll(movies);
     }
 
     public ObservableList<Movie> getObservableMovies() {
