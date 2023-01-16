@@ -200,22 +200,16 @@ public class PrivateMovieController extends BaseController {
         selectedCategory = lstCategory.getSelectionModel().getSelectedItem();
 
         if (selectedCategory != null) {
-           categoryModel.getAllMoviesFromCategory(selectedCategory);
-
-            tblMovie.setItems(FXCollections.observableArrayList(selectedCategory.getMovie()));
-        }
-        else {
-            tblMovie.setItems(movieModel.getObservableMovies());
-        }
-
-           movieModel.setMoviesToBeViewed(selectedCategory.getMovie());
-           // tblMovie.setItems(FXCollections.observableArrayList(selectedCategory.getMovie()));
+            categoryModel.getAllMoviesFromCategory(selectedCategory);
+            movieModel.setMoviesToBeViewed(selectedCategory.getMovie());
+            // tblMovie.setItems(FXCollections.observableArrayList(selectedCategory.getMovie()));
 
         }
 
         //else
-         //   tblMovie.setItems(movieModel.getObservableMovies());
-            //lstCategory.getSelectionModel().clearSelection();
+        //   tblMovie.setItems(movieModel.getObservableMovies());
+        //lstCategory.getSelectionModel().clearSelection();
+    }
 
 
 
