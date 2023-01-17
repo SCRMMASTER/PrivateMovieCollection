@@ -13,22 +13,14 @@ import java.time.LocalDate;
 
 //Declare variables for the Movie object.
 public class Movie {
-
-    int id;
-
-    String movieTitle;
-
-    String category;
-
-    int year;
-
-    double imdbRating;
-
-    int personalRating;
-
-    LocalDate lastViewed;
-
-    String filePath;
+    private int id;
+    private String movieTitle;
+    private String category;
+    private int year;
+    private double imdbRating;
+    private int personalRating;
+    private LocalDate lastViewed;
+    private String filePath;
 
 
     public Movie(int id, String movieTitle, double imdbRating, int personalRating, String filePath, LocalDate lastViewed, int year){
@@ -105,5 +97,4 @@ public class Movie {
     public void setFilePath(String filePath){
         this.filePath = filePath;
     }
-
 }

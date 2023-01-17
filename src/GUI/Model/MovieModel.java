@@ -27,7 +27,6 @@ public class MovieModel {
         filteredmovies = new FilteredList<>(moviesToBeViewed);
         allFilePaths = FXCollections.observableArrayList();
         movieSearcher = new MovieSearcher();
-        //allFilePaths.addAll(movieManager.getAllFilePaths());
     }
 
     public void reloadAllMovies() throws Exception {

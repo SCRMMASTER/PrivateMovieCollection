@@ -5,8 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51fa20b6-3b81-48b4-b630-6d9537a82373" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/Application.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/Application.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/BE/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/BE/Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/BE/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/BE/Movie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/BLL/MovieManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/BLL/MovieManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/BLL/unit/MovieSearcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/BLL/unit/MovieSearcher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/DAL/db/MovieDAO_DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/DAL/db/MovieDAO_DB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/BaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/BaseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/DropDownMovieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/DropDownMovieController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/EditPRatingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/EditPRatingController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/NewCategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/NewCategoryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/NewMovieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/NewMovieController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/PrivateMovieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Controller/PrivateMovieController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Model/MovieModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/Model/MovieModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/View/PrivateMovieView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/View/PrivateMovieView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/src/Application.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/src/Application.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/src/GUI/View/PrivateMovieView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/src/GUI/View/PrivateMovieView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BE/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BE/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BE/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BE/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BLL/MovieManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BLL/MovieManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BLL/unit/MovieSearcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BLL/unit/MovieSearcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAL/ICategoryDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/ICategoryDataAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAL/IMovieDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/IMovieDataAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAL/db/MovieDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/MovieDAO_DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/BaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/DropDownMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/DropDownMovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/EditPRatingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/EditPRatingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/NewCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/NewCategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/NewMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/NewMovieController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/Controller/PrivateMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/PrivateMovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Model/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Model/MovieModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/View/PrivateMovieView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/View/PrivateMovieView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +125,7 @@
       <workItem from="1673454718618" duration="3168000" />
       <workItem from="1673511395091" duration="3353000" />
       <workItem from="1673856087923" duration="6902000" />
+      <workItem from="1673942491233" duration="11797000" />
     </task>
     <servers />
   </component>

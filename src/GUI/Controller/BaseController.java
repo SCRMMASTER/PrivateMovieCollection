@@ -1,13 +1,9 @@
 package GUI.Controller;
 
 import GUI.Model.BaseModel;
-import GUI.Model.MovieModel;
-import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-
-import java.awt.event.ActionEvent;
 
 public abstract class BaseController {
     private BaseModel baseModel;

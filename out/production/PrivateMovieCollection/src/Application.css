@@ -39,11 +39,12 @@
     -fx-background-color: transparent;
 }
 
-.table-view .table-cell
+.table-row-cell
 {
+    -fx-text-background-color: #ffffff;
+    -fx-background-color: #000000;
     -fx-border-color: transparent;
     -fx-padding: 2 0 2 10px;
-    -fx-text-fill: #ffffff;
 }
 
 .table-view .table-cell:odd
@@ -60,14 +61,14 @@
     -fx-padding: 0.0em;
 }
 
-.table-view .table-cell: hover
+.table-row-cell:hover
 {
-    -fx-text-fill: #ffa31a;
+    -fx-text-background-color: #ffa31a;
 }
 
-.table-view .table-cell: selected
+.table-row-cell:selected
 {
-    -fx-text-fill: #ffa31a;
+    -fx-text-background-color: #ffa31a;
 }
 
 

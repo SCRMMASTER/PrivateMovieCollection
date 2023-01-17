@@ -1,6 +1,5 @@
 package GUI.Controller;
 
-import BE.Category;
 import GUI.Model.CategoryModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.TextField;
 import javafx.stage.StageStyle;
+
+import java.util.Objects;
 
 public class NewCategoryController extends BaseController {
     @FXML
@@ -20,20 +21,19 @@ public class NewCategoryController extends BaseController {
 
 
     @Override
-    public void setup() throws Exception {
+    public void setup() {
        categoryModel = getModel().getCategoryModel();
     }
-@FXML
+    @FXML
     private void handelCancel(ActionEvent actionEvent) {
         closeWindow(btnCancel);
     }
-@FXML
+    @FXML
     private void handelDone(ActionEvent actionEvent) {
         if (!txtfCategory.getText().isEmpty()) {
             try {
-                String categoryname = txtfCategory.getText();
-                categoryModel.createNewCategory(categoryname);
-                System.out.println("The Category was added " + categoryname);
+                String categoryName = txtfCategory.getText();
+                categoryModel.createNewCategory(categoryName);
 
                 closeWindow(btnDone);
 
@@ -51,7 +51,7 @@ public class NewCategoryController extends BaseController {
         alert.setHeaderText("Please enter the name of the category");
         alert.initStyle(StageStyle.UNDECORATED);
         DialogPane dialogPane = alert.getDialogPane();
-        dialogPane.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
+        dialogPane.getStylesheets().add(Objects.requireNonNull(getClass().getResource("PopUp.css")).toExternalForm());
         dialogPane.getStyleClass().add("myDialog");
         alert.showAndWait();
     }

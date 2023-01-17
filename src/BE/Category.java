@@ -8,23 +8,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Category {
-
-    int Id;
-
-    String Genre;
-
-    public List<Movie> movies = new ArrayList<>();
+    private int Id;
+    private String Genre;
+    public List<Movie> movies;
 
     public Category(int Id, String Genre){
         this.Id = Id;
         this.Genre = Genre;
+        this.movies = new ArrayList<>();
     }
 
     public int getId() {
         return Id;
     }
 
-    public void setId(int id) {
+    public void setId(int Id) {
         this.Id = Id;
     }
 
