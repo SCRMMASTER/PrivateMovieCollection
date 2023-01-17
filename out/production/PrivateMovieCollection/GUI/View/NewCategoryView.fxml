@@ -9,7 +9,7 @@
    <children>
       <Button fx:id="btnCancel" layoutX="30.0" layoutY="82.0" mnemonicParsing="false" onAction="#handelCancel" text="Cancel" />
       <Button fx:id="btnDone" layoutX="107.0" layoutY="82.0" mnemonicParsing="false" onAction="#handelDone" prefHeight="26.0" prefWidth="56.0" text="Done" />
-      <Text layoutX="59.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Category" />
+      <Text fill="WHITE" layoutX="59.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Category" />
       <TextField fx:id="txtfCategory" layoutX="19.0" layoutY="45.0" />
    </children>
 </AnchorPane>

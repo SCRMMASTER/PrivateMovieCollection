@@ -12,7 +12,7 @@
       <ComboBox fx:id="cbxDropDown3" layoutX="244.0" layoutY="29.0" prefHeight="26.0" prefWidth="105.0" />
       <Button fx:id="btnCancel" layoutX="40.0" layoutY="72.0" mnemonicParsing="false" onAction="#handelCancel" text="Cancel" />
       <Button fx:id="btnSave" layoutX="269.0" layoutY="72.0" mnemonicParsing="false" onAction="#handelSave" prefHeight="26.0" prefWidth="56.0" text="Save" />
-      <Text layoutX="145.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories" wrappingWidth="72.7965087890625" />
+      <Text fill="WHITE" layoutX="145.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories" wrappingWidth="72.7965087890625" />
       <Button fx:id="btnClear" layoutX="153.0" layoutY="72.0" mnemonicParsing="false" onAction="#handleClearSelection" prefHeight="26.0" prefWidth="56.0" text="Clear" />
    </children>
 </AnchorPane>

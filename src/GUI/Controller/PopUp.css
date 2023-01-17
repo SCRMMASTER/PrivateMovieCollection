@@ -1,11 +1,11 @@
 .root{
--fx-background-color:#B2DDFF;
+-fx-background-color:#292929;
 }
 
 #titleLabel{
--fx-font-size: 28;
--fx-font-family: "Lucida Console";
--fx-text-fill: "black";
+-fx-font-size: 24;
+-fx-font-family: "Helvetica";
+-fx-text-fill: #ffffff;
 -fx-alignment: center;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .table-view .column-header-background{
-    -fx-background-color: linear-gradient(to bottom, #75C2FF, #B2DDFF);
+    -fx-background-color: linear-gradient(to bottom, #ffa31a, #1b1b1b);
     -fx-background-radius: 7px 7px 0px 0px;
     -fx-background-insets: 0 11px 0 0;
     -fx-padding: 0 0 5px 0;
@@ -62,13 +62,13 @@
 
 
 .list-view .list-cell:even {
--fx-background-color: #1dbbdd11;
+-fx-background-color: #1b1b1b;
 -fx-text-fill: black;
 }
 
 
 .list-view .list-cell:odd {
--fx-background-color: #93f9b911;
+-fx-background-color: #292929;
 -fx-text-fill: black;
 }
 
@@ -86,23 +86,26 @@
 .text-field{
 
 -fx-background-color:transparent;
--fx-border-color:grey;
+-fx-border-color:#ffa31a;
 -fx-border-radius:20px;
--fx-prompt-text-fill: black;
+-fx-prompt-text-fill: #808080;
+-fx-text-fill: #ffffff;
+
 
 }
 
 .button{
 
 -fx-background-color:transparent;
--fx-border-color:grey;
+-fx-border-color:#ffa31a;
 -fx-border-radius: 20px;
+-fx-text-fill: #ffa31a;
 }
 
 
 
 .myDialog{
-    -fx-background-color: lightblue;
+    -fx-background-color: #292929;
 }
 .myDialog > *.button-bar > *.container{
     -fx-background-color: transparent;
@@ -115,13 +118,12 @@
     -fx-font-weight: bold;
 }
 .myDialog:header *.header-panel{
-    -fx-background-color: lightblue;
+    -fx-background-color: #292929;
 }
 
 .myDialog:header *.header-panel *.label{
     -fx-font-size: 18px;
-    -fx-font-style: italic;
-    -fx-fill: #292929;
+    -fx-text-fill: #ffffff;
 }
 
 
@@ -131,16 +133,16 @@
 
 .combo-box .list-cell
 {
-    -fx-background: lightblue;
+    -fx-background: #808080;
     -fx-background-color: transparent;
-    -fx-text-fill: -fx-text-base-color;
+    -fx-text-fill: #ffffff;
     -fx-padding: 3 0 2 7;
     -fx-cell-size: 1.66667em;
 }
 
 .combo-box-popup .list-view
 {
-    -fx-background-color: lightblue, lightblue;
+    -fx-background-color: #808080, #808080;
     -fx-background-insets: 0, 1;
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 8, 0.0 , 0 , 0 );
 }
@@ -150,25 +152,25 @@
     -fx-padding: 4 0 4 5;
 
     /* No alternate highlighting */
-    -fx-background-color: lightblue;
+    -fx-background-color: #808080;
 }
 
 .combo-box-popup .list-view .list-cell:filled:selected, .combo-box-popup .list-view .list-cell:filled:selected:hover
 {
-    -fx-background: lightblue;
-    -fx-background-color: lightblue;
+    -fx-background: #808080;
+    -fx-background-color: #808080;
     -fx-text-fill: -fx-selection-bar-text;
 }
 
 .combo-box-popup .list-view .list-cell:filled:hover
 {
-    -fx-background-color: lightblue;
+    -fx-background-color: #808080;
     -fx-text-fill: -fx-text-inner-color;
 }
 
 .combo-box-base
 {
-    -fx-background-color: lightblue, lightblue, lightblue, lightblue;
+    -fx-background-color: #292929, #292929, #292929, #292929;
     -fx-background-radius: 5, 5, 4, 3;
     -fx-background-insets: 0 0 -1 0, 0, 1, 2;
     -fx-padding: 0;
@@ -176,16 +178,16 @@
 
 .combo-box-base:hover
 {
-    -fx-color: lightblue;
+    -fx-color: #808080;
 }
 
 .combo-box-base:showing
 {
-    -fx-color: lightblue;
+    -fx-color: #808080;
 }
 
 .combo-box-base:focused {
-    -fx-background-color: lightblue, lightblue, lightblue, lightblue;
+    -fx-background-color: #808080, #808080, #808080, #808080;
     -fx-background-radius: 6.4, 4, 5, 3;
     -fx-background-insets: -1.4, 0, 1, 2;
 }

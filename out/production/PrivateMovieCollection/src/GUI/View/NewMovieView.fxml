@@ -10,7 +10,7 @@
    <children>
       <Button fx:id="btnNext" layoutX="161.0" layoutY="258.0" mnemonicParsing="false" onAction="#handelNext" prefHeight="25.0" prefWidth="69.0" text="Next" />
       <Button fx:id="btnCancel" layoutX="24.0" layoutY="258.0" mnemonicParsing="false" onAction="#handleButtonCancel" prefHeight="25.0" prefWidth="69.0" text="Cancel" />
-      <Label contentDisplay="CENTER" layoutX="79.0" layoutY="7.0" prefHeight="34.0" prefWidth="117.0" text="New Movie" textAlignment="CENTER">
+      <Label contentDisplay="CENTER" layoutX="79.0" layoutY="7.0" prefHeight="34.0" prefWidth="117.0" text="New Movie" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font></Label>
