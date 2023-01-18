@@ -15,19 +15,19 @@
       <ListView fx:id="lstCategory" layoutX="14.0" layoutY="82.0" onMouseClicked="#OnCategoryClicked" prefHeight="436.0" prefWidth="280.0" />
       <Text fill="WHITE" layoutX="304.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resources">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="16.0" />
          </font></Text>
       <Text fill="WHITE" layoutX="16.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories">
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Text>
-      <TableView fx:id="tblMovie" layoutX="304.0" layoutY="82.0" prefHeight="436.0" prefWidth="391.0">
+      <TableView fx:id="tblMovie" layoutX="304.0" layoutY="82.0" onMouseClicked="#onMovieClicked" prefHeight="436.0" prefWidth="391.0">
         <columns>
 
           <TableColumn fx:id="ColTitle" prefWidth="150.0" text="Title" />
           <TableColumn fx:id="ColYear" prefWidth="75.0" text="Year" />
             <TableColumn fx:id="ColIMDB" prefWidth="75.0" text="IMDB" />
-            <TableColumn fx:id="ColPRating" prefWidth="75.0" text="P-Rating" />
+            <TableColumn fx:id="ColPRating" prefWidth="89.33333333333331" text="P-Rating" />
         </columns>
       </TableView>
 

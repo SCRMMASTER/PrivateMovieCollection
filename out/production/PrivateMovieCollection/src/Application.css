@@ -11,6 +11,7 @@
     -fx-alignment: center;
 }
 
+
 .table-view
 {
     -fx-background-color: transparent;
@@ -39,11 +40,27 @@
     -fx-background-color: transparent;
 }
 
-.table-view .table-cell
+
+.table-view{
+    -fx-background-color: transparent;
+}
+
+.table-row-cell
 {
+    -fx-text-background-color: #ffffff;
+    -fx-background-color: TRANSPARENT;
     -fx-border-color: transparent;
-    -fx-padding: 2 0 2 10px;
-    -fx-text-fill: #ffffff;
+    -fx-table-cell-border-color: transparent;
+}
+
+#ColIMDB.table-cell {
+    -fx-alignment: CENTER;
+}
+#ColPRating.table-cell{
+    -fx-alignment: CENTER;
+}
+#ColYear.table-cell{
+    -fx-alignment: CENTER;
 }
 
 .table-view .table-cell:odd
@@ -60,17 +77,32 @@
     -fx-padding: 0.0em;
 }
 
-.table-view .table-cell: hover
+.table-row-cell:hover
 {
-    -fx-text-fill: #ffa31a;
+    -fx-text-background-color: #ffa31a;
 }
 
-.table-view .table-cell: selected
+.table-row-cell:selected
 {
-    -fx-text-fill: #ffa31a;
+    -fx-text-background-color: #ffa31a;
 }
 
+.table-view *.scroll-bar:horizontal *.increment-button,
+.table-view *.scroll-bar:horizontal *.decrement-button {
+    -fx-background-color: null;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
 
+.table-view *.scroll-bar:horizontal *.increment-arrow,
+.table-view *.scroll-bar:horizontal *.decrement-arrow {
+    -fx-background-color: null;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-shape: null;
+}
 
 .list-view
 {

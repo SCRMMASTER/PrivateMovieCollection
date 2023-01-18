@@ -5,10 +5,10 @@ import BE.Movie;
 import GUI.Model.CategoryModel;
 import GUI.Model.MovieModel;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Orientation;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -25,6 +25,7 @@ import java.awt.*;
 import java.io.File;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Set;
 
 public class PrivateMovieController extends BaseController {
     @FXML
@@ -34,14 +35,13 @@ public class PrivateMovieController extends BaseController {
     @FXML
     private TextField txtMovieSearch;
     @FXML
-    private Button btndeSelect;
-    @FXML
-    private Button btnaddCategory, btndeleteCategory, btnaddMovie, btndeleteMovie, btnPLay, btnEditPRating, btnClose;
+    private Button btnaddCategory, btndeleteCategory, btnaddMovie, btndeleteMovie, btnPLay, btnEditPRating, btnClose, btndeSelect;
     @FXML
     private TableColumn<Movie, String> ColYear, ColIMDB, ColPRating, ColTitle;
     private MovieModel movieModel;
     private CategoryModel categoryModel;
     private Category selectedCategory;
+    private Movie selectedMovie;
 
     @Override
     public void setup() throws Exception {
@@ -49,7 +49,6 @@ public class PrivateMovieController extends BaseController {
         categoryModel = getModel().getCategoryModel();
         tblMovie.setItems(movieModel.getFilteredmovies());
         lstCategory.setItems(categoryModel.getObservableCategories());
-
 
         if (tblMovie.getSelectionModel().getSelectedItem() != null) {
             btnPLay.setDisable(false);
@@ -61,7 +60,6 @@ public class PrivateMovieController extends BaseController {
                displayError(e);
             }
         });
-
 
 
         ColTitle.setCellValueFactory(c -> new SimpleObjectProperty<>(c.getValue().getMovieTitle()));
@@ -199,6 +197,8 @@ public class PrivateMovieController extends BaseController {
     private void OnCategoryClicked(MouseEvent mouseEvent)throws Exception {
         if(selectedCategory == lstCategory.getSelectionModel().getSelectedItem()){
             movieModel.reloadAllMovies();
+            selectedCategory = null;
+            lstCategory.getSelectionModel().clearSelection();
             return;
 
         }
@@ -207,13 +207,7 @@ public class PrivateMovieController extends BaseController {
         if (selectedCategory != null) {
             categoryModel.getAllMoviesFromCategory(selectedCategory);
             movieModel.setMoviesToBeViewed(selectedCategory.getMovie());
-            // tblMovie.setItems(FXCollections.observableArrayList(selectedCategory.getMovie()));
-
         }
-
-        //else
-        //   tblMovie.setItems(movieModel.getObservableMovies());
-        //lstCategory.getSelectionModel().clearSelection();
     }
 
 
@@ -290,6 +284,16 @@ public class PrivateMovieController extends BaseController {
         alert.showAndWait();
     }
 
+    public void onMovieClicked(MouseEvent mouseEvent) {
+        if(selectedMovie == tblMovie.getSelectionModel().getSelectedItem()){
+            selectedMovie = null;
+            tblMovie.getSelectionModel().clearSelection();
+
+        }
+        else {
+            selectedMovie = tblMovie.getSelectionModel().getSelectedItem();
+        }
+    }
 }
 
 

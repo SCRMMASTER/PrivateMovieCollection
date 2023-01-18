@@ -1,20 +1,16 @@
 package GUI.Controller;
 
-import BE.Movie;
 import GUI.Model.MovieModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.media.Media;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Duration;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,6 +18,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class NewMovieController extends BaseController{
     @FXML
@@ -40,7 +37,7 @@ public class NewMovieController extends BaseController{
     }
 
 @FXML
-    private void handelNext(ActionEvent actionEvent) throws Exception {
+    private void handelNext(ActionEvent actionEvent) {
         String title = txtfTitle.getText();
         double imdbrating = 0;
         if (!txtfIMDBRating.getText().isEmpty()) {
@@ -64,8 +61,6 @@ public class NewMovieController extends BaseController{
                 mFile = new File(fileMoviePath + "/" + mFile.getName());
                 movieModel.createMovie(title, imdbrating, personalrating, filepath, lastviewed, year);
 
-                System.out.println("Movie added: " + filepath + ", " + title + ", " + imdbrating +
-                        ", " + personalrating + ", " + year);
 
                 openNewWindow();
 
@@ -89,7 +84,7 @@ public class NewMovieController extends BaseController{
         // Title of the stage.
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(new Scene(root));
-        root.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
+        root.getStylesheets().add(Objects.requireNonNull(getClass().getResource("PopUp.css")).toExternalForm());
         stage.initStyle(StageStyle.UNDECORATED);
 
         DropDownMovieController controller = loader.getController();
@@ -128,7 +123,7 @@ public class NewMovieController extends BaseController{
         alert.setHeaderText("Please fill out the required fields");
         alert.initStyle(StageStyle.UNDECORATED);
         DialogPane dialogPane = alert.getDialogPane();
-        dialogPane.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
+        dialogPane.getStylesheets().add(Objects.requireNonNull(getClass().getResource("PopUp.css")).toExternalForm());
         dialogPane.getStyleClass().add("myDialog");
 
         alert.showAndWait();

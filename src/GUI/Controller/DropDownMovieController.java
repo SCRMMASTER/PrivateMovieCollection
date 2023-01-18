@@ -16,10 +16,7 @@ public class DropDownMovieController extends BaseController {
     @FXML
     public ComboBox cbxDropDown1, cbxDropDown2, cbxDropDown3;
     @FXML
-    public Button btnCancel, btnSave;
-    public Button testKnap;
-    @FXML
-    private Button btnClear;
+    public Button btnCancel, btnSave, getBtnClear;
     private CategoryModel categoryModel;
     private MovieModel movieModel;
 
@@ -45,11 +42,7 @@ public class DropDownMovieController extends BaseController {
     }
 
     public void handelCancel(ActionEvent actionEvent) {
-        // This code closes the current window by getting a reference to the stage
-        // and calling the close() method.
-        Node source = (Node) actionEvent.getSource();
-        Stage stage = (Stage) source.getScene().getWindow();
-        stage.close();
+        closeWindow(btnCancel);
     }
 
     public void handelSave(ActionEvent actionEvent) throws Exception {
@@ -70,9 +63,7 @@ public class DropDownMovieController extends BaseController {
         }
 
 
-        Node source = (Node) actionEvent.getSource();
-        Stage mStage = (Stage) source.getScene().getWindow();
-        mStage.close();
+        closeWindow(btnSave);
     }
 
     public void handleClearSelection(ActionEvent actionEvent) {
