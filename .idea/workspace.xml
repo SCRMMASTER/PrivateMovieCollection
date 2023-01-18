@@ -5,13 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51fa20b6-3b81-48b4-b630-6d9537a82373" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10-01-2023_09_27_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10-01-2023_09_27__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12-01-2023_13_19__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12-01-2023_13_19__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16-01-2023_09_37__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16-01-2023_09_37__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16-01-2023_12_05__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16-01-2023_12_05__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16-01-2023_12_09__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16-01-2023_12_09__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17-01-2023_09_01__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17-01-2023_09_01__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/.idea/shelf/Uncommitted_changes_before_Update_at_10-01-2023_09_27__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/BE/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/BE/Movie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BE/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BE/Category.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BE/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BE/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BLL/CategoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BLL/CategoryManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BLL/MovieManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BLL/MovieManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BLL/unit/MovieSearcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BLL/unit/MovieSearcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAL/db/CategoryDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/CategoryDAO_DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAL/db/MovieDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/MovieDAO_DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/BaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/DropDownMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/DropDownMovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/EditPRatingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/EditPRatingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/NewCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/NewCategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/NewMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/NewMovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/PrivateMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/PrivateMovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Model/CategoryModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Model/CategoryModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Model/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Model/MovieModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

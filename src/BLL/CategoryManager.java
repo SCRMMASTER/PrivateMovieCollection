@@ -33,11 +33,11 @@ public class CategoryManager {
     public void deleteCategory(Category selectedCategory) throws Exception {
         categoryDAO_DB.deleteCategory(selectedCategory);
     }
-
+    //Add Categories to a movie
     public void addCategoryToMovie(Category category, Movie movie) throws Exception {
         categoryDAO_DB.addCategoryToMovie(category, movie);
     }
-
+    //Get all movies form a selected category
     public void getAllMoviesFromCategory(Category category){
         List<Movie> allMovieFromCategory = categoryDAO_DB.getAllMoviesFromCategory(category);
         category.setMovie(allMovieFromCategory);

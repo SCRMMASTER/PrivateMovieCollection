@@ -17,6 +17,13 @@ public class EditPRatingController extends BaseController {
     @FXML
     private TextField txtfEditPRating;
     private MovieModel movieModel;
+    //The setup for the edit person rating the first things it does
+    @Override
+    public void setup() {
+        movieModel = getModel().getMovieModel();
+        txtfEditPRating.setText(String.valueOf(movieModel.getSelectedMovie().getPersonalRating()));
+    }
+    //Updating the personal rating on a movie, if the right conditions are met
     @FXML
     private void handleDone(ActionEvent actionEvent) throws Exception {
         try {
@@ -42,17 +49,14 @@ public class EditPRatingController extends BaseController {
             e.printStackTrace();
         }
     }
+    //Cancel the window
     @FXML
     // Cancel button
     private void handleCancel(ActionEvent actionEvent) {
         closeWindow(btnCancel);
     }
-    @Override
-    public void setup() {
-        movieModel = getModel().getMovieModel();
-        txtfEditPRating.setText(String.valueOf(movieModel.getSelectedMovie().getPersonalRating()));
-    }
 
+    //Shows an alert window if the right conditions are not met
     private void showAlert() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText("Please select a number between 0 and 10");

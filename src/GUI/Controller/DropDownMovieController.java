@@ -24,7 +24,7 @@ public class DropDownMovieController extends BaseController {
     private String categoryTwo;
     private String categoryThree;
 
-
+    //The setup for the DropDownMovieController, this is what start when opening the window
     @Override
     public void setup() {
         categoryModel = getModel().getCategoryModel();
@@ -40,11 +40,11 @@ public class DropDownMovieController extends BaseController {
 
 
     }
-
+    //Closing the window
     public void handelCancel(ActionEvent actionEvent) {
         closeWindow(btnCancel);
     }
-
+    //Handling the save function
     public void handelSave(ActionEvent actionEvent) throws Exception {
         compareCategories();
         Category category1 = (Category) cbxDropDown1.getSelectionModel().getSelectedItem();
@@ -65,7 +65,7 @@ public class DropDownMovieController extends BaseController {
 
         closeWindow(btnSave);
     }
-
+    //Handling the clear selection if you have clicked a wrong category
     public void handleClearSelection(ActionEvent actionEvent) {
 
         cbxDropDown1.getSelectionModel().clearSelection();
@@ -73,7 +73,7 @@ public class DropDownMovieController extends BaseController {
         cbxDropDown3.getSelectionModel().clearSelection();
 
     }
-
+    //Looking for duplicates
     private void compareCategories(){
         categoryOne = String.valueOf(cbxDropDown1.getSelectionModel().getSelectedItem());
         categoryTwo = String.valueOf(cbxDropDown2.getSelectionModel().getSelectedItem());

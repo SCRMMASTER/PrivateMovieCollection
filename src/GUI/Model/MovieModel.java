@@ -19,7 +19,7 @@ public class MovieModel {
     public Movie selectedMovie;
 
     public MovieSearcher movieSearcher;
-
+    //CRUD function from the UI to MovieManager
     public MovieModel() throws Exception {
         movieManager = new MovieManager();
         moviesToBeViewed = FXCollections.observableArrayList();

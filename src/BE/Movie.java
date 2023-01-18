@@ -22,7 +22,16 @@ public class Movie {
     private LocalDate lastViewed;
     private String filePath;
 
-
+    /**
+     * Here are all the getter and setter for the movie class.
+     * @param id
+     * @param movieTitle
+     * @param imdbRating
+     * @param personalRating
+     * @param filePath
+     * @param lastViewed
+     * @param year
+     */
     public Movie(int id, String movieTitle, double imdbRating, int personalRating, String filePath, LocalDate lastViewed, int year){
         this.id = id;
         this.movieTitle = movieTitle;
@@ -33,7 +42,7 @@ public class Movie {
         this.year = year;
     }
 
-    // the getter's and setter's
+    //The getter's and setter's
     public int getId() {
 
         return id;

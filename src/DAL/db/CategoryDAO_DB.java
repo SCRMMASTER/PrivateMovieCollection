@@ -22,7 +22,7 @@ public class CategoryDAO_DB implements ICategoryDataAccess {
         dataBaseConnecter = new DataBaseConnecter();
     }
 
-    // Get all the Categories from the database table
+    //Get all the Categories from the database table
     public List<Category> getAllCategories() throws Exception {
         ArrayList<Category> allCategory = new ArrayList<>();
 
@@ -54,18 +54,18 @@ public class CategoryDAO_DB implements ICategoryDataAccess {
 
         try (Connection conn = dataBaseConnecter.getConnection()) {
             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            // Bind the parameters
+            //Bind the parameters
             stmt.setString(1, Genre);
-            // Run the SQL statement
+            //Run the SQL statement
             stmt.executeUpdate();
-            // Get the generated ID from the DB
+            //Get the generated ID from the DB
             ResultSet rs = stmt.getGeneratedKeys();
             int id = 0;
             if (rs.next()) {
                 id = rs.getInt(1);
             }
 
-            // Create category object and send up the layers
+            //Create category object and send up the layers
 
             Category category = new Category(id, Genre);
             return category;
@@ -76,7 +76,7 @@ public class CategoryDAO_DB implements ICategoryDataAccess {
         }
     }
 
-    // Delete a Category from the database table.
+    //Delete a Category from the database table.
     public void deleteCategory(Category selectedCategory) throws Exception {
         deleteCategoryFromMovie(selectedCategory);
         try (Connection conn = dataBaseConnecter.getConnection()) {
@@ -93,7 +93,7 @@ public class CategoryDAO_DB implements ICategoryDataAccess {
             throw new Exception("Could not delete Category...", ex);
         }
     }
-
+    //Adding Category to a movie
     public void addCategoryToMovie(Category category, Movie movie) throws Exception {
         try (Connection conn = dataBaseConnecter.getConnection()) {
             String sql = "INSERT INTO CatMovie VALUES(?,?)";
@@ -107,7 +107,7 @@ public class CategoryDAO_DB implements ICategoryDataAccess {
             throw new Exception("Could not add category to movie", ex);
         }
     }
-
+    //Deleting a selected category from the catmovie table
     private void deleteCategoryFromMovie(Category category) {
         try (Connection conn = dataBaseConnecter.getConnection()) {
             String sql = "DELETE FROM CatMovie WHERE CategoryId = ?";
@@ -120,7 +120,7 @@ public class CategoryDAO_DB implements ICategoryDataAccess {
             throw new RuntimeException("Could not remove songs from playlist");
         }
     }
-
+    //Getting all the movies form a selected category
     public List<Movie> getAllMoviesFromCategory(Category category) {
         ArrayList<Movie> allMoviesInCategory = new ArrayList<>();
         try (Connection conn = dataBaseConnecter.getConnection()) {

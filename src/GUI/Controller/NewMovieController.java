@@ -35,8 +35,8 @@ public class NewMovieController extends BaseController{
     public void setup() {
         movieModel = getModel().getMovieModel();
     }
-
-@FXML
+    //Adds a movie with the right conditions, and opens the DropDownView
+    @FXML
     private void handelNext(ActionEvent actionEvent) {
         String title = txtfTitle.getText();
         double imdbrating = 0;
@@ -73,7 +73,7 @@ public class NewMovieController extends BaseController{
             showAlert();
         }
     }
-
+    //Sets the stage for the DropDownView
     private void openNewWindow() throws IOException {
         // Finds where the fxml is located.
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/DropDownMovieView.fxml"));
@@ -96,12 +96,13 @@ public class NewMovieController extends BaseController{
         stage.showAndWait();
     }
 
-
+    //Cancel the window
     @FXML
     private void handleButtonCancel(ActionEvent actionEvent) {
         closeWindow(btnCancel);
 
     }
+    //Choosing a video only if it is a mp4 or mpeg4
     @FXML
     private void handleChoose(ActionEvent actionEvent) {
         //Opens file browser to select a file
@@ -117,7 +118,7 @@ public class NewMovieController extends BaseController{
         if(mFile != null)
        txtfFile.setText(mFile.getName());
     }
-
+    //The alert window if the conditions are not met
     private void showAlert() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText("Please fill out the required fields");

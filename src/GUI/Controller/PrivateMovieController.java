@@ -42,14 +42,14 @@ public class PrivateMovieController extends BaseController {
     private CategoryModel categoryModel;
     private Category selectedCategory;
     private Movie selectedMovie;
-
+    //The first things when opening the window
     @Override
     public void setup() throws Exception {
         movieModel = getModel().getMovieModel();
         categoryModel = getModel().getCategoryModel();
         tblMovie.setItems(movieModel.getFilteredmovies());
         lstCategory.setItems(categoryModel.getObservableCategories());
-
+        //Looks if there is a selected movie then you can hit play
         if (tblMovie.getSelectionModel().getSelectedItem() != null) {
             btnPLay.setDisable(false);
         }
@@ -71,14 +71,15 @@ public class PrivateMovieController extends BaseController {
            LocalDate lastviewed = movieModel.getObservableMovies().get(i).getLastViewed();
 
            int rating = movieModel.getObservableMovies().get(i).getPersonalRating();
-
+           //Checking for lastviewed date
            LocalDate years = lastviewed.plusYears(2);
-
+           //If both the lastviewed is over 2 year and the personal rating is under 6
            if(Objects.equals(lastviewed,years) && rating<=6){
                deleteMovieBasedOnTime(i);
                }
            }
     }
+    //Opens the NewMovieView
     @FXML
     private void handeladdMovie(ActionEvent actionEvent) throws IOException {
         // Finds where the fxml is located.
@@ -103,6 +104,7 @@ public class PrivateMovieController extends BaseController {
         // the user to interact with the delete song dialog.
         stage.showAndWait();
     }
+    //Opens the alert window and ask the user if he really wants to delete the movie
     @FXML
     private void handelDeleteMovie(ActionEvent actionEvent) {
         if(tblMovie.getSelectionModel().getSelectedItem() != null) {
@@ -127,6 +129,7 @@ public class PrivateMovieController extends BaseController {
             showAlert();
         }
     }
+    //Opens the NewCategoryView
     @FXML
     private void handeladdCategory(ActionEvent actionEvent) throws Exception {
         // Finds where the fxml is located.
@@ -150,6 +153,7 @@ public class PrivateMovieController extends BaseController {
 
         stage.showAndWait();
     }
+    //Opens the alert window and ask the user if he really wants to delete the category
     @FXML
     private void handeldeleteCategory(ActionEvent actionEvent) {
         if(lstCategory.getSelectionModel().getSelectedItem() != null) {
@@ -177,7 +181,7 @@ public class PrivateMovieController extends BaseController {
             showAlert();
         }
     }
-
+    //Checks if you have selected a movie then you can play it if not n alert window opens
     @FXML
     private void handelPlay(ActionEvent actionEvent) throws Exception {
         if(tblMovie.getSelectionModel().getSelectedItem() != null) {
@@ -189,10 +193,12 @@ public class PrivateMovieController extends BaseController {
             showAlert();
         }
     }
+    //Closes the application
     @FXML
     private void handleCloseApp(ActionEvent actionEvent) {
         closeWindow(btnClose);
     }
+    //Views the movies if there is a category selected, and if no category is selected then view all movies
     @FXML
     private void OnCategoryClicked(MouseEvent mouseEvent)throws Exception {
         if(selectedCategory == lstCategory.getSelectionModel().getSelectedItem()){
@@ -209,10 +215,7 @@ public class PrivateMovieController extends BaseController {
             movieModel.setMoviesToBeViewed(selectedCategory.getMovie());
         }
     }
-
-
-
-
+    //Opens the EditPRatingView if selected movie
     @FXML
     private void handleEditPRating (ActionEvent actionEvent) throws IOException {
             Movie selectedMovie = tblMovie.getSelectionModel().getSelectedItem();
@@ -245,10 +248,11 @@ public class PrivateMovieController extends BaseController {
             showAlert();
         }
     }
+    //Opens the alert window if the movie is over 2 years since last view and has a personal rating under 6
     @FXML
     private void deleteMovieBasedOnTime(int i) throws Exception {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setHeaderText("Do you wanna delete " + movieModel.getObservableMovies().get(i).getMovieTitle() + " with a score of less than 6 and has not been seen in 2 years");
+        alert.setHeaderText("Do you want to delete " + movieModel.getObservableMovies().get(i).getMovieTitle() + " with a score of less than 6 and has not been seen in 2 years");
         alert.initStyle(StageStyle.UNDECORATED);
 
         DialogPane dialogPane = alert.getDialogPane();
@@ -260,6 +264,7 @@ public class PrivateMovieController extends BaseController {
             movieModel.deleteMovie(movieModel.getObservableMovies().get(i));
         }
     }
+    //Updating last view when playing a movie
     @FXML
     private void editLastview(Movie updatedDate) throws Exception {
         int id = updatedDate.getId();
@@ -273,7 +278,7 @@ public class PrivateMovieController extends BaseController {
         updatedDate = new Movie(id,title,imdbRating, personalRating, filepath, updatedLastview, year);
         movieModel.editLastView(updatedDate);
     }
-
+    //The alert window if you have not selected a movie or a category
     private void showAlert() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText("Please select a movie/category");
@@ -283,7 +288,7 @@ public class PrivateMovieController extends BaseController {
         dialogPane.getStyleClass().add("myDialog");
         alert.showAndWait();
     }
-
+    //Checking if a movie is selected/clicked
     public void onMovieClicked(MouseEvent mouseEvent) {
         if(selectedMovie == tblMovie.getSelectionModel().getSelectedItem()){
             selectedMovie = null;

@@ -18,7 +18,7 @@ public class MovieDAO_DB implements IMovieDataAccess
     public MovieDAO_DB() {
         dataBaseConnecter = new DataBaseConnecter();
     }
-
+    //Getting all the movies form the database
     @Override
     public List<Movie> getAllMovie() throws Exception {
         ArrayList<Movie> allMovie = new ArrayList<>();
@@ -48,7 +48,17 @@ public class MovieDAO_DB implements IMovieDataAccess
     }
 
 
-
+    /**
+     * Creating a movie with the parameters
+     * @param movieTitle
+     * @param imdbrating
+     * @param personalrating
+     * @param filepath
+     * @param lastviewed
+     * @param year
+     * @return
+     * @throws Exception
+     */
     @Override
     public Movie createMovie(String movieTitle, Double imdbrating, int personalrating, String filepath, LocalDate lastviewed, int year) throws Exception {
         //Creating a movie in the database by using a SQL query.
@@ -83,7 +93,7 @@ public class MovieDAO_DB implements IMovieDataAccess
             throw new Exception("Could not create movie", ex);
         }
     }
-
+    //Deleting a movie from the database
     @Override
     public Movie deleteMovies(Movie movie) throws Exception {
         //Delete the selected movie based on a specific id.
@@ -105,7 +115,7 @@ public class MovieDAO_DB implements IMovieDataAccess
         }
         return movie;
     }
-
+    //Getting the filepath for a movie through the database
     public Movie getFilePath (Movie selectedMovie) throws Exception {
         String sql = " SELECT FROM Movie WHERE id = ?";
 
@@ -123,7 +133,7 @@ public class MovieDAO_DB implements IMovieDataAccess
         }
         return selectedMovie;
     }
-
+    //Deleting a category from a movie through database
 private void deleteCategoryFromMovie(Movie movie){
         try(Connection conn = dataBaseConnecter.getConnection()){
             String sql = "DELETE FROM CatMovie WHERE MovieId = ?";
@@ -136,7 +146,7 @@ private void deleteCategoryFromMovie(Movie movie){
             throw new RuntimeException("Could not remove songs from playlist");
         }
 }
-
+    //Creating the personalrating to a movie
     public void personalRating(Movie updatedMovie) throws Exception {
         try (Connection conn = dataBaseConnecter.getConnection()) {
             String sql = "UPDATE Movie SET Personal_Rating = ? WHERE Id = ?";
@@ -152,6 +162,7 @@ private void deleteCategoryFromMovie(Movie movie){
             throw new Exception("Could not edit Personal Rating...", ex);
         }
     }
+    //Updating lastview for a movie in the database
     public void editLastview(Movie updatedDate) throws Exception {
         try (Connection conn = dataBaseConnecter.getConnection()) {
             String sql = "UPDATE Movie SET lastView = ? WHERE Id = ?";

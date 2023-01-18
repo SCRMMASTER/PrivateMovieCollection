@@ -17,7 +17,7 @@ public abstract class BaseController {
     }
 
     public abstract void setup() throws Exception;
-
+    //Displaying an error if something is going wrong, if there is no other alert window
     public void displayError(Throwable t)
     {
         Alert alert = new Alert(Alert.AlertType.ERROR);

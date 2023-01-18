@@ -12,6 +12,11 @@ public class Category {
     private String Genre;
     public List<Movie> movies;
 
+    /**
+     * Here are getter and setter for the category class.
+     * @param Id
+     * @param Genre
+     */
     public Category(int Id, String Genre){
         this.Id = Id;
         this.Genre = Genre;
