@@ -11,6 +11,7 @@
     -fx-alignment: center;
 }
 
+
 .table-view
 {
     -fx-background-color: transparent;
@@ -38,13 +39,26 @@
 {
     -fx-background-color: transparent;
 }
+.table-view.filler{
+    -fx-background-color: #000000;
+}
+
+.table-view{
+    -fx-background-color: #000000;
+}
+
+.table-cell{
+    -fx-border-width: 0.5;
+    -fx-background-color: BLUE;
+}
+
 
 .table-row-cell
 {
     -fx-text-background-color: #ffffff;
-    -fx-background-color: #000000;
+    -fx-background-color: TRANSPARENT;
     -fx-border-color: transparent;
-    -fx-padding: 2 0 2 10px;
+    -fx-table-cell-border-color: transparent;
 }
 
 .table-view .table-cell:odd

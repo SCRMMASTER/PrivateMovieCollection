@@ -13,11 +13,11 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.PrivateMovieController">
    <children>
       <ListView fx:id="lstCategory" layoutX="14.0" layoutY="82.0" onMouseClicked="#OnCategoryClicked" prefHeight="436.0" prefWidth="280.0" />
-      <Text layoutX="304.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resources">
+      <Text fill="WHITE" layoutX="304.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resources">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="16.0" />
          </font></Text>
-      <Text layoutX="16.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories">
+      <Text fill="WHITE" layoutX="16.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories">
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Text>
