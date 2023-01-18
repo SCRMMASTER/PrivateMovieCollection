@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Update_at_16-01-2023_12_09_[Changes]" date="1673867402018" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16-01-2023_12_09_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 16-01-2023 12:09 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/PrivateMovieCollection/GUI/Controller/PrivateMovieController.class" />
+    <option name="AFTER_PATH" value="out/production/PrivateMovieCollection/GUI/Controller/PrivateMovieController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16-01-2023_12_09_[Changes]/PrivateMovieController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/PrivateMovieCollection/BE/Movie.class" />
+    <option name="AFTER_PATH" value="out/production/PrivateMovieCollection/BE/Movie.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16-01-2023_12_09_[Changes]/Movie.class" />
+  </binary>
+</changelist>
