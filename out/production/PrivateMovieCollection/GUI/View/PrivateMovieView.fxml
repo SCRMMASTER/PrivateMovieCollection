@@ -15,7 +15,7 @@
       <ListView fx:id="lstCategory" layoutX="14.0" layoutY="82.0" onMouseClicked="#OnCategoryClicked" prefHeight="436.0" prefWidth="280.0" />
       <Text fill="WHITE" layoutX="304.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resources">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="16.0" />
          </font></Text>
       <Text fill="WHITE" layoutX="16.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories">
          <font>

@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51fa20b6-3b81-48b4-b630-6d9537a82373" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10-01-2023_09_27__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10-01-2023_09_27__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/Application.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/Application.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/View/PrivateMovieView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/GUI/View/PrivateMovieView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/src/Application.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/src/Application.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PrivateMovieCollection/src/GUI/View/PrivateMovieView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PrivateMovieCollection/src/GUI/View/PrivateMovieView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
