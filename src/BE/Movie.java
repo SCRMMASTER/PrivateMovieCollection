@@ -23,7 +23,7 @@ public class Movie {
     private String filePath;
 
     /**
-     * Here are all the getter and setter for the movie class.
+     * Constructor for the movie object.
      * @param id
      * @param movieTitle
      * @param imdbRating
@@ -42,7 +42,9 @@ public class Movie {
         this.year = year;
     }
 
-    //The getter's and setter's
+    /**
+     * The getters and setters.
+     */
     public int getId() {
 
         return id;

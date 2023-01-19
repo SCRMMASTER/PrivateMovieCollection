@@ -18,15 +18,20 @@ public class MovieDAO_DB implements IMovieDataAccess
     public MovieDAO_DB() {
         dataBaseConnecter = new DataBaseConnecter();
     }
-    //Getting all the movies form the database
+
+    /**
+     * Getting all the movies form the database.
+     */
     @Override
     public List<Movie> getAllMovie() throws Exception {
         ArrayList<Movie> allMovie = new ArrayList<>();
         try (Connection conn = dataBaseConnecter.getConnection()) {
+            //SQL statement.
             String sql = "SELECT * FROM Movie;";
             Statement stmt = conn.createStatement();
+            //Run the statement.
             ResultSet rs = stmt.executeQuery(sql);
-
+            //Keep adding as long as there is a next movie.
             while (rs.next()) {
                 int id = rs.getInt("Id");
                 String movieTitle = rs.getString("Title");
@@ -56,8 +61,6 @@ public class MovieDAO_DB implements IMovieDataAccess
      * @param filepath
      * @param lastviewed
      * @param year
-     * @return
-     * @throws Exception
      */
     @Override
     public Movie createMovie(String movieTitle, Double imdbrating, int personalrating, String filepath, LocalDate lastviewed, int year) throws Exception {
@@ -93,13 +96,18 @@ public class MovieDAO_DB implements IMovieDataAccess
             throw new Exception("Could not create movie", ex);
         }
     }
-    //Deleting a movie from the database
+
+    /**
+     * Deleting a movie from the database based on a selected id.
+     * @param movie
+     */
     @Override
     public Movie deleteMovies(Movie movie) throws Exception {
-        //Delete the selected movie based on a specific id.
+        //SQL statement.
         String sql = "DELETE FROM Movie WHERE id = ?";
         deleteCategoryFromMovie(movie);
         try(Connection conn = dataBaseConnecter.getConnection()) {
+            //Prepared statement and binding the parameters.
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, movie.getId());
 
@@ -115,8 +123,12 @@ public class MovieDAO_DB implements IMovieDataAccess
         }
         return movie;
     }
-    //Getting the filepath for a movie through the database
-    public Movie getFilePath (Movie selectedMovie) throws Exception {
+
+    /**
+     * Getting the filepath for a movie through the database
+     * @param selectedMovie
+     */
+  /**  public Movie getFilePath (Movie selectedMovie) throws Exception {
         String sql = " SELECT FROM Movie WHERE id = ?";
 
         try(Connection conn = dataBaseConnecter.getConnection()) {
@@ -132,13 +144,19 @@ public class MovieDAO_DB implements IMovieDataAccess
             throw new Exception("Could not retrive filePath", ex);
         }
         return selectedMovie;
-    }
-    //Deleting a category from a movie through database
-private void deleteCategoryFromMovie(Movie movie){
+    } */
+    /**
+     * Deleting all movies from the CatMovie table based on a selected id.
+     * @param movie
+     */
+    private void deleteCategoryFromMovie(Movie movie){
         try(Connection conn = dataBaseConnecter.getConnection()){
+            //SQL statement.
             String sql = "DELETE FROM CatMovie WHERE MovieId = ?";
+            //Prepared statement and binding the parameters.
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, movie.getId());
+            //Run the statement.
             stmt.execute();
 
         } catch (SQLException e) {
@@ -146,15 +164,22 @@ private void deleteCategoryFromMovie(Movie movie){
             throw new RuntimeException("Could not remove songs from playlist");
         }
 }
-    //Creating the personalrating to a movie
+
+    /**
+     * Editing the personalRating for a selected movie.
+     * @param updatedMovie
+     */
     public void personalRating(Movie updatedMovie) throws Exception {
         try (Connection conn = dataBaseConnecter.getConnection()) {
+            //SQL statement.
             String sql = "UPDATE Movie SET Personal_Rating = ? WHERE Id = ?";
+            //Prepared statement.
             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             //Bind parameter
             stmt.setInt(1 , updatedMovie.getPersonalRating());
             stmt.setInt(2, updatedMovie.getId());
+            //Run the statement.
             stmt.executeUpdate();
 
         } catch (SQLException ex){
@@ -162,15 +187,22 @@ private void deleteCategoryFromMovie(Movie movie){
             throw new Exception("Could not edit Personal Rating...", ex);
         }
     }
-    //Updating lastview for a movie in the database
+
+    /**
+     * Updating lastview for a movie in the database when the movie is opened.
+     * @param updatedDate
+     */
     public void editLastview(Movie updatedDate) throws Exception {
         try (Connection conn = dataBaseConnecter.getConnection()) {
+            //SQL statement.
             String sql = "UPDATE Movie SET lastView = ? WHERE Id = ?";
+            //Prepared statement.
             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             //Bind parameter
             stmt.setDate(1 , Date.valueOf(updatedDate.getLastViewed()));
             stmt.setInt(2, updatedDate.getId());
+            //Run the statement.
             stmt.executeUpdate();
 
         } catch (SQLException ex){

@@ -13,7 +13,7 @@ public class Category {
     public List<Movie> movies;
 
     /**
-     * Here are getter and setter for the category class.
+     * Constructor for the category object.
      * @param Id
      * @param Genre
      */
@@ -23,6 +23,9 @@ public class Category {
         this.movies = new ArrayList<>();
     }
 
+    /**
+     * Getters and setters.
+     */
     public int getId() {
         return Id;
     }

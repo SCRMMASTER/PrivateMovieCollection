@@ -11,7 +11,10 @@ public class CategoryModel {
 
     private ObservableList<Category> categoriesToBeViewed;
     private CategoryManager categoryManager;
-    //CRUD function from UI to CategoryManager
+
+    /**
+     * CRUD functions from UI to CategoryManager.
+     */
     public CategoryModel() throws Exception {
         categoryManager = new CategoryManager();
         categoriesToBeViewed = FXCollections.observableArrayList();

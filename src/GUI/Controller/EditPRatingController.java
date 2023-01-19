@@ -10,6 +10,7 @@ import javafx.scene.control.DialogPane;
 import javafx.scene.control.TextField;
 import javafx.stage.StageStyle;
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class EditPRatingController extends BaseController {
     @FXML
@@ -17,15 +18,21 @@ public class EditPRatingController extends BaseController {
     @FXML
     private TextField txtfEditPRating;
     private MovieModel movieModel;
-    //The setup for the edit person rating the first things it does
+
+    /**
+     * The setup for the editPersonRating.
+     */
     @Override
     public void setup() {
         movieModel = getModel().getMovieModel();
         txtfEditPRating.setText(String.valueOf(movieModel.getSelectedMovie().getPersonalRating()));
     }
-    //Updating the personal rating on a movie, if the right conditions are met
+
+    /**
+     * Updating the personal rating on a movie, if the right conditions are met
+     */
     @FXML
-    private void handleDone(ActionEvent actionEvent) throws Exception {
+    private void handleDone(ActionEvent actionEvent) {
         try {
             int id = movieModel.selectedMovie.getId();
             String title = movieModel.selectedMovie.getMovieTitle();
@@ -49,20 +56,24 @@ public class EditPRatingController extends BaseController {
             e.printStackTrace();
         }
     }
-    //Cancel the window
+
     @FXML
-    // Cancel button
+    /**
+     * Close the window.
+     */
     private void handleCancel(ActionEvent actionEvent) {
         closeWindow(btnCancel);
     }
 
-    //Shows an alert window if the right conditions are not met
+    /**
+     * Shows an alert window if the right conditions are not met
+     */
     private void showAlert() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText("Please select a number between 0 and 10");
         alert.initStyle(StageStyle.UNDECORATED);
         DialogPane dialogPane = alert.getDialogPane();
-        dialogPane.getStylesheets().add(getClass().getResource("PopUp.css").toExternalForm());
+        dialogPane.getStylesheets().add(Objects.requireNonNull(getClass().getResource("PopUp.css")).toExternalForm());
         dialogPane.getStyleClass().add("myDialog");
         alert.showAndWait();
     }

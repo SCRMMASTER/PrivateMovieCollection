@@ -30,14 +30,20 @@ public class NewMovieController extends BaseController{
     private Path target = Paths.get(fileMoviePath);
     private MovieModel movieModel;
 
-
+    /**
+     *Setup for the controller.
+     */
     @Override
     public void setup() {
         movieModel = getModel().getMovieModel();
     }
-    //Adds a movie with the right conditions, and opens the DropDownView
+
+    /**
+     * Adds a movie with the right conditions, and opens the DropDownView
+     */
     @FXML
     private void handelNext(ActionEvent actionEvent) {
+        //Getting all the required date to create a new movie.
         String title = txtfTitle.getText();
         double imdbrating = 0;
         if (!txtfIMDBRating.getText().isEmpty()) {
@@ -55,6 +61,7 @@ public class NewMovieController extends BaseController{
         }
         if (!title.isEmpty() && !txtfIMDBRating.getText().isEmpty() && imdbrating <= 10.0 && imdbrating >= 0.0 && personalrating <= 10 && personalrating >= 0 && !filepath.isEmpty() && !txtfYear.getText().isEmpty() && year > 1000) {
             try {
+                //Copy the selected file into the resource folder.
                 Files.copy(mFile.toPath(), target.resolve(mFile.toPath().getFileName()));
 
 
@@ -73,7 +80,10 @@ public class NewMovieController extends BaseController{
             showAlert();
         }
     }
-    //Sets the stage for the DropDownView
+
+    /**
+     * Sets the stage for the DropDownView
+     */
     private void openNewWindow() throws IOException {
         // Finds where the fxml is located.
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/DropDownMovieView.fxml"));
@@ -81,7 +91,6 @@ public class NewMovieController extends BaseController{
         Parent root = loader.load();
         // Makes the new stage.
         Stage stage = new Stage();
-        // Title of the stage.
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(new Scene(root));
         root.getStylesheets().add(Objects.requireNonNull(getClass().getResource("PopUp.css")).toExternalForm());
@@ -91,18 +100,22 @@ public class NewMovieController extends BaseController{
         controller.setModel(super.getModel());
         controller.setup();
 
-        // The stage is then displayed and the program waits for
-        // the user to interact with the delete song dialog.
+        // The stage is then displayed and the program waits for the window to get closed again.
         stage.showAndWait();
     }
 
-    //Cancel the window
+    /**
+     * Close the window.
+     */
     @FXML
     private void handleButtonCancel(ActionEvent actionEvent) {
         closeWindow(btnCancel);
 
     }
-    //Choosing a video only if it is a mp4 or mpeg4
+
+    /**
+     * Choosing a video from the PC only if it is a mp4 or mpeg4.
+     */
     @FXML
     private void handleChoose(ActionEvent actionEvent) {
         //Opens file browser to select a file
@@ -118,7 +131,10 @@ public class NewMovieController extends BaseController{
         if(mFile != null)
        txtfFile.setText(mFile.getName());
     }
-    //The alert window if the conditions are not met
+
+    /**
+     * The alert window if the conditions are not met
+     */
     private void showAlert() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText("Please fill out the required fields");

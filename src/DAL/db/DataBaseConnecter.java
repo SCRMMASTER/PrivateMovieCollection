@@ -6,7 +6,9 @@ import java.sql.Connection;
 
 public class DataBaseConnecter {
     private SQLServerDataSource dataSource;
-    //Connector for the database
+    /**
+     *Connector for the database.
+     */
     public DataBaseConnecter(){
         dataSource = new SQLServerDataSource();
         dataSource.setServerName("10.176.111.31");
@@ -16,7 +18,9 @@ public class DataBaseConnecter {
         dataSource.setTrustServerCertificate(true);
     }
 
-    //Establishes a connection to the database.
+    /**
+     * Establishes a connection to the database.
+     */
     public Connection getConnection() throws SQLServerException {
         return dataSource.getConnection();
     }
