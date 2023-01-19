@@ -125,27 +125,6 @@ public class MovieDAO_DB implements IMovieDataAccess
     }
 
     /**
-     * Getting the filepath for a movie through the database
-     * @param selectedMovie
-     */
-  /**  public Movie getFilePath (Movie selectedMovie) throws Exception {
-        String sql = " SELECT FROM Movie WHERE id = ?";
-
-        try(Connection conn = dataBaseConnecter.getConnection()) {
-            PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ResultSet rs = stmt.getGeneratedKeys();
-            stmt.setString(4, selectedMovie.getFilePath());
-
-            if (rs.next()) {
-                rs.getString(4);
-            }
-        } catch (SQLException ex){
-            ex.printStackTrace();
-            throw new Exception("Could not retrive filePath", ex);
-        }
-        return selectedMovie;
-    } */
-    /**
      * Deleting all movies from the CatMovie table based on a selected id.
      * @param movie
      */
