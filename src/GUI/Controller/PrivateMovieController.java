@@ -8,7 +8,6 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Orientation;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -25,7 +24,6 @@ import java.awt.*;
 import java.io.File;
 import java.time.LocalDate;
 import java.util.Objects;
-import java.util.Set;
 
 public class PrivateMovieController extends BaseController {
     @FXML
@@ -68,24 +66,25 @@ public class PrivateMovieController extends BaseController {
         ColYear.setCellValueFactory(c -> new SimpleObjectProperty<>(String.valueOf(c.getValue().getYear())));
 
        for(int i = 0; i <= movieModel.getObservableMovies().size()-1; i++){
-           LocalDate lastviewed = movieModel.getObservableMovies().get(i).getLastViewed();
+           LocalDate lastViewed = movieModel.getObservableMovies().get(i).getLastViewed();
 
            int rating = movieModel.getObservableMovies().get(i).getPersonalRating();
-           //Checking for lastviewed date
-           LocalDate years = lastviewed.plusYears(2);
-           //If both the lastviewed is over 2 year and the personal rating is under 6
-           if(Objects.equals(lastviewed,years) && rating<=6){
+           //Checking for lastViewed date
+           LocalDate years = lastViewed.plusYears(2);
+           //If both the lastViewed is over 2 year and the personal rating is under 6
+           if(Objects.equals(lastViewed,years) && rating<=6){
                deleteMovieBasedOnTime(i);
                }
            }
     }
     //Opens the NewMovieView
     @FXML
-    private void handeladdMovie(ActionEvent actionEvent) throws IOException {
+    private void handleAddMovie(ActionEvent actionEvent) throws IOException {
         // Finds where the fxml is located.
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/NewMovieView.fxml"));
 
         // Loads the stage.
+
         Parent root = loader.load();
         NewMovieController controller = loader.getController();
         controller.setModel(super.getModel());
@@ -106,7 +105,7 @@ public class PrivateMovieController extends BaseController {
     }
     //Opens the alert window and ask the user if he really wants to delete the movie
     @FXML
-    private void handelDeleteMovie(ActionEvent actionEvent) {
+    private void handleDeleteMovie(ActionEvent actionEvent) {
         if(tblMovie.getSelectionModel().getSelectedItem() != null) {
             try {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -131,7 +130,7 @@ public class PrivateMovieController extends BaseController {
     }
     //Opens the NewCategoryView
     @FXML
-    private void handeladdCategory(ActionEvent actionEvent) throws Exception {
+    private void handleAddCategory(ActionEvent actionEvent) throws Exception {
         // Finds where the fxml is located.
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/NewCategoryView.fxml"));
 
@@ -155,7 +154,7 @@ public class PrivateMovieController extends BaseController {
     }
     //Opens the alert window and ask the user if he really wants to delete the category
     @FXML
-    private void handeldeleteCategory(ActionEvent actionEvent) {
+    private void handleDeleteCategory(ActionEvent actionEvent) {
         if(lstCategory.getSelectionModel().getSelectedItem() != null) {
             try {
 
@@ -183,10 +182,10 @@ public class PrivateMovieController extends BaseController {
     }
     //Checks if you have selected a movie then you can play it if not n alert window opens
     @FXML
-    private void handelPlay(ActionEvent actionEvent) throws Exception {
+    private void handlePlay(ActionEvent actionEvent) throws Exception {
         if(tblMovie.getSelectionModel().getSelectedItem() != null) {
             File name = new File("Resources/Movies/" + tblMovie.getSelectionModel().getSelectedItem().getFilePath());
-            editLastview(tblMovie.getSelectionModel().getSelectedItem());
+            editLastView(tblMovie.getSelectionModel().getSelectedItem());
             Desktop.getDesktop().open(name);
         }
         else {
@@ -266,16 +265,16 @@ public class PrivateMovieController extends BaseController {
     }
     //Updating last view when playing a movie
     @FXML
-    private void editLastview(Movie updatedDate) throws Exception {
+    private void editLastView(Movie updatedDate) throws Exception {
         int id = updatedDate.getId();
         String title  = updatedDate.getMovieTitle();
         double imdbRating = updatedDate.getImdbRating();
         int personalRating = updatedDate.getPersonalRating();
         String filepath = updatedDate.getFilePath();
-        LocalDate updatedLastview = LocalDate.now();
+        LocalDate updatedLastView = LocalDate.now();
         int year = updatedDate.getYear();
 
-        updatedDate = new Movie(id,title,imdbRating, personalRating, filepath, updatedLastview, year);
+        updatedDate = new Movie(id,title,imdbRating, personalRating, filepath, updatedLastView, year);
         movieModel.editLastView(updatedDate);
     }
     //The alert window if you have not selected a movie or a category

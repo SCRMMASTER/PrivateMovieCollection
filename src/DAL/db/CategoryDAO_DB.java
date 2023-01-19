@@ -9,7 +9,6 @@ package DAL.db;
 import BE.Category;
 import BE.Movie;
 import DAL.ICategoryDataAccess;
-
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;

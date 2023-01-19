@@ -2,10 +2,7 @@ package DAL.db;
 
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
-
-import javax.xml.crypto.Data;
 import java.sql.Connection;
-import java.sql.SQLException;
 
 public class DataBaseConnecter {
     private SQLServerDataSource dataSource;

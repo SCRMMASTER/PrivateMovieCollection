@@ -11,7 +11,6 @@
     -fx-alignment: center;
 }
 
-
 .table-view
 {
     -fx-background-color: transparent;
@@ -41,7 +40,8 @@
 }
 
 
-.table-view{
+.table-view
+{
     -fx-background-color: transparent;
 }
 
@@ -53,13 +53,18 @@
     -fx-table-cell-border-color: transparent;
 }
 
-#ColIMDB.table-cell {
+#ColIMDB.table-cell
+{
     -fx-alignment: CENTER;
 }
-#ColPRating.table-cell{
+
+#ColPRating.table-cell
+{
     -fx-alignment: CENTER;
 }
-#ColYear.table-cell{
+
+#ColYear.table-cell
+{
     -fx-alignment: CENTER;
 }
 
@@ -88,7 +93,8 @@
 }
 
 .table-view *.scroll-bar:horizontal *.increment-button,
-.table-view *.scroll-bar:horizontal *.decrement-button {
+.table-view *.scroll-bar:horizontal *.decrement-button
+{
     -fx-background-color: null;
     -fx-background-radius: 0;
     -fx-background-insets: 0;
@@ -110,14 +116,14 @@
 }
 
 .list-view .list-cell:even
- {
+{
     -fx-background-color: #1b1b1b;
     -fx-text-fill: #ffffff;
 }
 
 
 .list-view .list-cell:odd
- {
+{
     -fx-background-color: #292929;
     -fx-text-fill: #ffffff;
 }

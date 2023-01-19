@@ -3,7 +3,6 @@ package BLL;
 import BE.Movie;
 import DAL.IMovieDataAccess;
 import DAL.db.MovieDAO_DB;
-
 import java.time.LocalDate;
 import java.util.List;
 
