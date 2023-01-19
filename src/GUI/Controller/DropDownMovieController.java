@@ -5,10 +5,8 @@ import GUI.Model.CategoryModel;
 import GUI.Model.MovieModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.stage.Stage;
 
 import java.util.List;
 
@@ -24,7 +22,9 @@ public class DropDownMovieController extends BaseController {
     private String categoryTwo;
     private String categoryThree;
 
-    //The setup for the DropDownMovieController, this is what start when opening the window
+    /**
+     * The setup for the DropDownMovieController.
+     */
     @Override
     public void setup() {
         categoryModel = getModel().getCategoryModel();
@@ -40,18 +40,25 @@ public class DropDownMovieController extends BaseController {
 
 
     }
-    //Closing the window
+
+    /**
+     * Closing the window
+     */
     public void handelCancel(ActionEvent actionEvent) {
         closeWindow(btnCancel);
     }
-    //Handling the save function
+
+    /**
+     *Saving the selected categories to the new movie.
+     */
     public void handelSave(ActionEvent actionEvent) throws Exception {
+        //Getting the categories from the comboBox.
         compareCategories();
         Category category1 = (Category) cbxDropDown1.getSelectionModel().getSelectedItem();
         Category category2 = (Category) cbxDropDown2.getSelectionModel().getSelectedItem();
         Category category3 = (Category) cbxDropDown3.getSelectionModel().getSelectedItem();
 
-
+        //If a category is selected, add it to the movie.
         if(category1 != null) {
             categoryModel.addCategoryToMovie(category1, movieModel.createdMovie);
         }
@@ -65,7 +72,10 @@ public class DropDownMovieController extends BaseController {
 
         closeWindow(btnSave);
     }
-    //Handling the clear selection if you have clicked a wrong category
+
+    /**
+     *Clear selection if you have clicked a wrong category.
+     */
     public void handleClearSelection(ActionEvent actionEvent) {
 
         cbxDropDown1.getSelectionModel().clearSelection();
@@ -73,7 +83,10 @@ public class DropDownMovieController extends BaseController {
         cbxDropDown3.getSelectionModel().clearSelection();
 
     }
-    //Looking for duplicates
+
+    /**
+     * Looking for duplicates in the selected categories.
+     */
     private void compareCategories(){
         categoryOne = String.valueOf(cbxDropDown1.getSelectionModel().getSelectedItem());
         categoryTwo = String.valueOf(cbxDropDown2.getSelectionModel().getSelectedItem());

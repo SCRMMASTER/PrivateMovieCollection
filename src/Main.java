@@ -5,15 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.media.AudioClip;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-
-import javax.sound.sampled.AudioInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 
 public class Main extends Application {
 
@@ -57,8 +49,6 @@ public class Main extends Application {
 
             String src = getClass().getResource("jingle.mp3").toString();
             jingle = new AudioClip(src);
-
-
         }
         return jingle;
 

@@ -4,6 +4,10 @@ public class BaseModel {
 
     private CategoryModel categoryModel;
     private MovieModel movieModel;
+
+    /**
+     * Constructor for the BaseModel. Making the two Models for use in the controllers.
+     */
     public BaseModel() throws Exception {
         categoryModel = new CategoryModel();
         movieModel = new MovieModel();

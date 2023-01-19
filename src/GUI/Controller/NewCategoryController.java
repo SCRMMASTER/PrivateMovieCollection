@@ -19,17 +19,25 @@ public class NewCategoryController extends BaseController {
 
     private CategoryModel categoryModel;
 
-
+    /**
+     * Setup for the controller.
+     */
     @Override
     public void setup() {
        categoryModel = getModel().getCategoryModel();
     }
-    //Closes the window
+
+    /**
+     * Closes the window
+     */
     @FXML
     private void handelCancel(ActionEvent actionEvent) {
         closeWindow(btnCancel);
     }
-    //Saves the category if the right conditions are met
+
+    /**
+     * Create a new category if the right conditions are met.
+     */
     @FXML
     private void handelDone(ActionEvent actionEvent) {
         if (!txtfCategory.getText().isEmpty()) {
@@ -47,7 +55,10 @@ public class NewCategoryController extends BaseController {
             showAlert();
         }
     }
-    //Handles if the conditions are not met
+
+    /**
+     *Show an alert if the conditions are not met.
+     */
     private void showAlert() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText("Please enter the name of the category");

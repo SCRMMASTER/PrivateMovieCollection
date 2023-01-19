@@ -10,6 +10,6 @@
       <Button fx:id="btnDone" layoutX="125.0" layoutY="83.0" mnemonicParsing="false" onAction="#handleDone" prefHeight="26.0" prefWidth="56.0" text="Done" />
       <Button fx:id="btnCancel" layoutX="45.0" layoutY="83.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
       <TextField fx:id="txtfEditPRating" layoutX="35.0" layoutY="48.0" />
-      <Text layoutX="73.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Rating" />
+      <Text fill="WHITE" layoutX="73.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Rating" />
    </children>
 </AnchorPane>
